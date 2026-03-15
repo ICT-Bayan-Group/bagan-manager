@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulator Turnamen Pro - Balikpapan Open</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f8fafc; --danger: #ef4444; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); padding: 20px; color: #1e293b; }
+        .container { max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        
+        .header { display: flex; align-items: center; gap: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 25px; }
+        .header i { font-size: 30px; color: var(--primary); }
+        .header h2 { margin: 0; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; }
+
+        .input-section { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; background: #f1f5f9; padding: 20px; border-radius: 10px; margin-bottom: 25px; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        label { font-weight: bold; font-size: 13px; color: #475569; }
+        input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-weight: bold; font-size: 15px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { text-align: left; padding: 12px; background: var(--primary); color: white; font-size: 13px; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+
+        .court-input { width: 70px; text-align: center; border: 2px solid var(--accent); background: #fffbeb; padding: 8px; border-radius: 6px; font-size: 15px; font-weight: bold; }
+        
+        .summary-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 30px; }
+        .card { background: white; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0; text-align: center; }
+        .card span { display: block; font-size: 11px; text-transform: uppercase; color: #64748b; margin-bottom: 5px; font-weight: bold; }
+        .card strong { font-size: 22px; color: var(--primary); }
+
+        .btn-calc { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; font-size: 16px; box-shadow: 0 4px 0 #d97706; transition: 0.1s; }
+        .btn-calc:active { box-shadow: none; transform: translateY(4px); }
+
+        .day-badge { background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 12px; border: 1px solid #bbf7d0; }
+        .bye-badge { background: #fee2e2; color: var(--danger); padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; margin-left: 8px; border: 1px solid #fecaca; }
+        .round-label { color: var(--primary); font-size: 15px; }
+        .r-code { color: #64748b; font-weight: normal; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <i class="fas fa-sitemap"></i>
+        <h2>Simulator Bracket & Kapasitas Turnamen</h2>
+    </div>
+
+    <div class="input-section">
+        <div class="form-group">
+            <label>Jumlah Pemain Terdaftar</label>
+            <input type="number" id="peserta" value="123" oninput="generateRows()">
+        </div>
+        <div class="form-group">
+            <label>Estimasi Durasi per Partai (Menit)</label>
+            <input type="number" id="durasi" value="30">
+        </div>
+        <div class="form-group">
+            <label>Estimasi Lama Pertandingan per Kategori (Jam)</label>
+            <input type="number" id="jamOp" value="5">
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Nama Babak</th>
+                <th width="20%">Pertandingan Fisik</th>
+                <th width="20%">Setting Lapangan</th>
+                <th width="15%">Durasi (Jam)</th>
+                <th width="20%">Estimasi Waktu</th>
+            </tr>
+        </thead>
+        <tbody id="round-body"></tbody>
+    </table>
+
+    <button class="btn-calc" onclick="kalkulasiTotal()">
+        <i class="fas fa-sync-alt"></i> HITUNG SIMULASI JADWAL
+    </button>
+
+    <div class="summary-box">
+        <div class="card">
+            <span>Total Match</span>
+            <strong id="resPartai">0</strong>
+        </div>
+        <div class="card" style="border-bottom: 4px solid var(--danger);">
+            <span>Total BYE</span>
+            <strong id="resBye" style="color: var(--danger);">0</strong>
+        </div>
+        <div class="card">
+            <span>Total Jam</span>
+            <strong id="resJam">0</strong>
+        </div>
+        <div class="card" style="background: var(--primary); color: white;">
+            <span style="color: #cbd5e1;">Total Hari (Total jam / Lama Pertandinga)</span>
+            <strong id="resHari" style="color: white;">0 Hari</strong>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getNextPowerOfTwo(n) {
+        let p = 1;
+        while (p < n) p *= 2;
+        return p;
+    }
+
+    function generateRows() {
+        const nInput = parseInt(document.getElementById('peserta').value);
+        const tbody = document.getElementById('round-body');
+        tbody.innerHTML = '';
+
+        if (!nInput || nInput < 2) return;
+
+        let currentPlayers = nInput;
+        let roundCounter = 1;
+        
+        while (currentPlayers > 1) {
+            let matches = Math.floor(currentPlayers / 2);
+            let byeThisRound = currentPlayers % 2;
+            
+            // Logika Penamaan
+            let powerOfTwo = getNextPowerOfTwo(currentPlayers);
+            let rLabel = "R" + powerOfTwo;
+            let babakName = "Babak " + roundCounter;
+            let defaultCourt = 2;
+
+            if (powerOfTwo === 4) { babakName = "SEMIFINAL"; rLabel = "R4"; defaultCourt = 1; }
+            if (powerOfTwo === 2) { babakName = "FINAL"; rLabel = "R2"; defaultCourt = 1; }
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>
+                    <div class="round-label"><strong>${babakName}</strong> <span class="r-code">(${rLabel})</span></div>
+                    ${byeThisRound > 0 ? `<span class="bye-badge"><i class="fas fa-user-clock"></i> ${byeThisRound} BYE</span>` : ''}
+                </td>
+                <td><i class="fas fa-shuttlecock"></i> ${matches} Partai</td>
+                <td><input type="number" class="court-input" data-matches="${matches}" data-bye="${byeThisRound}" value="${defaultCourt}"> Lap</td>
+                <td class="round-time hour-text">-</td>
+                <td class="round-days">-</td>
+            `;
+            tbody.appendChild(tr);
+
+            currentPlayers = matches + byeThisRound;
+            roundCounter++;
+            if(roundCounter > 20) break;
+        }
+    }
+
+    function kalkulasiTotal() {
+        const durasi = parseInt(document.getElementById('durasi').value);
+        const jamOp = parseInt(document.getElementById('jamOp').value);
+        
+        if (jamOp <= 0) return alert("Jam operasional tidak boleh 0");
+
+        const inputs = document.querySelectorAll('.court-input');
+        const timeCells = document.querySelectorAll('.round-time');
+        const dayCells = document.querySelectorAll('.round-days');
+
+        let totalJam = 0;
+        let totalPartai = 0;
+        let totalBye = 0;
+
+        inputs.forEach((input, index) => {
+            const matches = parseInt(input.getAttribute('data-matches'));
+            const bye = parseInt(input.getAttribute('data-bye'));
+            const courts = parseInt(input.value) || 1;
+            
+            const matchesPerHourPerCourt = 60 / durasi;
+            const timeNeeded = matches / (matchesPerHourPerCourt * courts);
+            const daysNeeded = Math.ceil(timeNeeded / jamOp);
+            
+            timeCells[index].innerText = timeNeeded.toFixed(1) + " Jam";
+            dayCells[index].innerHTML = matches > 0 ? `<span class="day-badge">${daysNeeded} Hari</span>` : '-';
+            
+            totalJam += timeNeeded;
+            totalPartai += matches;
+            totalBye += bye;
+        });
+
+        document.getElementById('resPartai').innerText = totalPartai;
+        document.getElementById('resBye').innerText = totalBye;
+        document.getElementById('resJam').innerText = totalJam.toFixed(1) + " Jam";
+        document.getElementById('resHari').innerText = Math.ceil(totalJam / jamOp) + " Hari";
+    }
+
+    generateRows();
+</script>
+
+</body>
+</html>

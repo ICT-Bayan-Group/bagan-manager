@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagan Interaktif - Balikpapan Open</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f8fafc; --line: #94a3b8; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        
+        .navbar { background: var(--primary); color: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        .main-bracket { display: flex; justify-content: center; align-items: stretch; padding: 40px; min-width: max-content; gap: 40px; }
+        .side { display: flex; gap: 40px; align-items: stretch; }
+        .side.left { flex-direction: row; }
+        .side.right { flex-direction: row-reverse; }
+        .round { display: flex; flex-direction: column; width: 160px; }
+        .round-title { text-align: center; font-size: 11px; font-weight: 800; color: var(--primary); margin-bottom: 15px; background: #e2e8f0; padding: 6px; border-radius: 4px; text-transform: uppercase; }
+
+        /* KOTAK PERTANDINGAN */
+        .match-card {
+    position: relative;
+    background: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin: 5px 0;
+    z-index: 2;
+}
+        /* KOTAK PERTANDINGAN - Posisi ID di Garis */
+.match-card { 
+    background: white; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 6px; 
+    font-size: 11px; 
+    position: relative; 
+    width: 160px; 
+    z-index: 2; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    margin: 5px 0; 
+}
+
+.match-id { 
+
+    position: absolute; 
+    top:50%; 
+    transform: translateY(-50%); /* Membuat ID tepat di tengah secara vertikal */
+    background: #030303; 
+    color: white; 
+    font-size: 9px; 
+    padding: 2px 5px; 
+    border-radius: 3px; 
+    font-weight: bold; 
+    z-index: 1; /* Pastikan di atas garis */
+}
+
+/* Posisi ID untuk Bagan Sisi Kiri (ID pindah ke kanan kotak) */
+.side.left .match-id { 
+    right: -27px; 
+}
+
+/* Posisi ID untuk Bagan Sisi Kanan (ID pindah ke kiri kotak) */
+.side.right .match-id { 
+    left: -27px; 
+}
+        
+        .player { padding: 8px 10px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
+        .player:last-child { border-bottom: none; }
+        .player.bye { color: #94a3b8; font-style: italic; font-weight: normal; }
+        
+        /* STYLE UNTUK FITUR KLIK & SWAP */
+        .player.clickable { cursor: pointer; }
+        .player.clickable:hover { background: #e0f2fe; color: var(--primary); }
+        .player.selected-swap { background: #fde68a !important; color: #b45309 !important; font-weight: bold; }
+
+        /* GARIS PENGHUBUNG */
+        .match-pair { display: flex; flex-direction: column; justify-content: space-around; flex: 1; position: relative; }
+        .side.left .match-pair::after { content: ""; position: absolute; right: -20px; top: 25%; bottom: 25%; border-right: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); width: 20px; border-left: none; border-radius: 0 4px 4px 0; z-index: 1; }
+        .side.left .match-pair::before { content: ""; position: absolute; right: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
+        .side.right .match-pair::after { content: ""; position: absolute; left: -20px; top: 25%; bottom: 25%; border-left: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); width: 20px; border-right: none; border-radius: 4px 0 0 4px; z-index: 1; }
+        .side.right .match-pair::before { content: ""; position: absolute; left: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
+        .single-match { display: flex; flex-direction: column; justify-content: center; flex: 1; position: relative; }
+        .side.left .single-match::after { content: ""; position: absolute; right: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
+        .side.right .single-match::after { content: ""; position: absolute; left: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
+
+        /* FINAL */
+        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; position: relative; z-index: 5; }
+        .final-box { border: 3px solid var(--accent); background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); width: 100%; position: relative; }
+        .final-box strong { font-size: 14px; color: var(--primary); display: block; }
+        .trophy-icon { font-size: 40px; color: var(--accent); margin-bottom: 10px; }
+        .final-id { position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 10px; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
+
+        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 55px; z-index: 999; }
+        .btn-cat { padding: 8px 16px; border-radius: 20px; border: 1px solid #cbd5e1; background: white; cursor: pointer; font-weight: bold; font-size: 12px; }
+        .btn-cat.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1><i class="fas fa-sitemap"></i> BAGAN PERTANDINGAN BALIKPAPAN OPEN</h1>
+    <p style="margin:0; font-size:12px; color:#cbd5e1;">Klik nama pemain di babak pertama untuk menukar posisi (Seeding)</p>
+</div>
+
+<div class="filter-nav" id="catNav"></div>
+
+<div class="main-bracket" id="bracket-container">
+    <div class="side left" id="bracket-left"></div>
+
+    <div class="side center" id="bracket-center"></div>
+
+
+
+   
+
+<script>
+    let allMatches = [];
+    let firstSelectedPlayer = null;
+
+    async function init() {
+        const res = await fetch('/get-matches');
+        allMatches = await res.json();
+        const categories = [...new Set(allMatches.map(m => m.kategori))];
+        
+        const nav = document.getElementById('catNav');
+        categories.forEach((cat, i) => {
+            if(cat) {
+                const btn = document.createElement('button');
+                btn.className = `btn-cat ${i === 0 ? 'active' : ''}`;
+                btn.innerText = cat;
+                btn.onclick = () => render(cat, btn);
+                nav.appendChild(btn);
+            }
+        });
+        if(categories.length > 0) render(categories[0]);
+    }
+
+    function buildMatchCard(m, isClickable) {
+        let isP1Clickable = isClickable && m.p1 !== 'TBD';
+        let isP2Clickable = isClickable && m.p2 !== 'TBD';
+        
+        let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
+        let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
+        
+        return `
+            <div class="match-card">
+                <div class="match-id">${m.id}</div>
+                <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1}>${m.p1}</div>
+                <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2}>${m.p2}</div>
+            </div>
+        `;
+    }
+
+    function createRound(matches, name, isFirstRound) {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'round';
+        roundDiv.innerHTML = `<div class="round-title">${name}</div>`;
+        
+        if (matches.length === 1) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'single-match';
+            wrapper.innerHTML = buildMatchCard(matches[0], isFirstRound);
+            roundDiv.appendChild(wrapper);
+        } else {
+            for (let i = 0; i < matches.length; i += 2) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'match-pair';
+                let pairHTML = buildMatchCard(matches[i], isFirstRound);
+                if (i + 1 < matches.length) pairHTML += buildMatchCard(matches[i+1], isFirstRound);
+                wrapper.innerHTML = pairHTML;
+                roundDiv.appendChild(wrapper);
+            }
+        }
+        return roundDiv;
+    }
+
+    function render(cat, btn) {
+        if(btn) {
+            document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const data = allMatches.filter(m => m.kategori === cat);
+        const leftSide = document.getElementById('bracket-left');
+        const rightSide = document.getElementById('bracket-right');
+        const centerSide = document.getElementById('bracket-center'); // Ambil wadah tengah
+
+        // Bersihkan area sebelum render ulang
+        leftSide.innerHTML = ''; 
+        rightSide.innerHTML = ''; 
+        centerSide.innerHTML = ''; 
+
+        // Pisahkan data berdasarkan SISI
+        const leftData = data.filter(m => m.side === "LEFT");
+        const rightData = data.filter(m => m.side === "RIGHT");
+        const finalMatch = data.find(m => m.side === "FINAL-CENTER" || m.babak === "FINAL");
+
+        const rounds = ["R256", "R128", "R64", "R32", "R16", "R8", "PEREMPAT FINAL", "SEMI FINAL"];
+        
+        rounds.forEach(r => {
+            // Render sisi KIRI
+            const leftMatches = leftData.filter(m => m.babak === r);
+            if(leftMatches.length > 0) {
+                let isFirstRound = leftMatches.some(m => m.id === 1);
+                leftSide.appendChild(createRound(leftMatches, r, isFirstRound));
+            }
+            
+            // Render sisi KANAN
+            const rightMatches = rightData.filter(m => m.babak === r);
+            if(rightMatches.length > 0) {
+                let isFirstRound = rightMatches.some(m => m.id === 1);
+                rightSide.appendChild(createRound(rightMatches, r, isFirstRound));
+            }
+        });
+
+        // Render FINAL di tengah
+        if(finalMatch) {
+            centerSide.innerHTML = `
+                <div class="final-area">
+                    <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="round-title" style="width: 100%;">GRAND FINAL</div>
+                    <div class="final-box">
+                        <div class="final-id">ID ${finalMatch.id}</div>
+                        <strong>${finalMatch.p1}</strong>
+                        <div style="margin: 8px 0; font-weight:bold; color:#cbd5e1; font-size:12px;">VS</div>
+                        <strong>${finalMatch.p2}</strong>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function handlePlayerSwap(matchId, pos, el) {
+        if (!firstSelectedPlayer) {
+            firstSelectedPlayer = { id: matchId, pos: pos, el: el };
+            el.classList.add('selected-swap');
+        } else {
+            if (firstSelectedPlayer.id === matchId && firstSelectedPlayer.pos === pos) {
+                el.classList.remove('selected-swap');
+                firstSelectedPlayer = null;
+                return;
+            }
+            
+            const cat = document.querySelector('.btn-cat.active').innerText;
+            let catMatches = allMatches.filter(m => m.kategori === cat);
+            
+            let match1 = catMatches.find(m => m.id === firstSelectedPlayer.id);
+            let match2 = catMatches.find(m => m.id === matchId);
+            
+            if (!match1 || !match2) {
+                alert("Kesalahan: Pemain harus dalam kategori yang sama!");
+                window.location.reload();
+                return;
+            }
+
+            let name1 = firstSelectedPlayer.pos === 1 ? match1.p1 : match1.p2;
+            let name2 = pos === 1 ? match2.p1 : match2.p2;
+            
+            if (firstSelectedPlayer.pos === 1) match1.p1 = name2; else match1.p2 = name2;
+            if (pos === 1) match2.p1 = name1; else match2.p2 = name1;
+            
+            catMatches.sort((a, b) => a.id - b.id);
+            let firstRoundName = catMatches[0].babak;
+            
+            let firstRoundMatches = catMatches.filter(m => m.babak === firstRoundName);
+            
+            let newTeamsList = [];
+            firstRoundMatches.forEach(m => {
+                if (m.p1 !== 'TBD') newTeamsList.push(m.p1);
+                if (m.p2 !== 'TBD') newTeamsList.push(m.p2);
+            });
+            
+            el.innerText = "Menyimpan...";
+            firstSelectedPlayer.el.innerText = "Menyimpan...";
+            
+            fetch('/api/save-swap-bracket', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ kategori: cat, teams: newTeamsList })
+            })
+            .then(res => res.json())
+            .then(data => {
+                window.location.reload();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Gagal menyimpan!");
+                window.location.reload();
+            });
+        }
+    }
+
+    init();
+</script>
+</body>
+</html>
+    <div class="side right" id="bracket-right"></div>
+</div>
+
+<script>
+    let allMatches = [];
+    let firstSelectedPlayer = null;
+
+    async function init() {
+        const res = await fetch('/get-matches');
+        allMatches = await res.json();
+        const categories = [...new Set(allMatches.map(m => m.kategori))];
+        
+        const nav = document.getElementById('catNav');
+        categories.forEach((cat, i) => {
+            if(cat) {
+                const btn = document.createElement('button');
+                btn.className = `btn-cat ${i === 0 ? 'active' : ''}`;
+                btn.innerText = cat;
+                btn.onclick = () => render(cat, btn);
+                nav.appendChild(btn);
+            }
+        });
+        if(categories.length > 0) render(categories[0]);
+    }
+
+function buildMatchCard(m, isClickable) {
+        // SEKARANG: BYE bisa diklik, hanya TBD yang tetap terkunci
+        let isP1Clickable = isClickable && m.p1 !== 'TBD';
+        let isP2Clickable = isClickable && m.p2 !== 'TBD';
+        
+        let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
+        let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
+        
+        return `
+            <div class="match-card">
+                <div class="match-id">${m.id}</div>
+                <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1}>${m.p1}</div>
+                <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2}>${m.p2}</div>
+            </div>
+        `;
+    }
+
+    function createRound(matches, name, isFirstRound) {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'round';
+        roundDiv.innerHTML = `<div class="round-title">${name}</div>`;
+        
+        if (matches.length === 1) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'single-match';
+            wrapper.innerHTML = buildMatchCard(matches[0], isFirstRound);
+            roundDiv.appendChild(wrapper);
+        } else {
+            for (let i = 0; i < matches.length; i += 2) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'match-pair';
+                let pairHTML = buildMatchCard(matches[i], isFirstRound);
+                if (i + 1 < matches.length) pairHTML += buildMatchCard(matches[i+1], isFirstRound);
+                wrapper.innerHTML = pairHTML;
+                roundDiv.appendChild(wrapper);
+            }
+        }
+        return roundDiv;
+    }
+
+    function render(cat, btn) {
+        if(btn) {
+            document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const data = allMatches.filter(m => m.kategori === cat);
+        const leftSide = document.getElementById('leftSide');
+        const rightSide = document.getElementById('rightSide');
+        const finalArea = document.getElementById('finalArea');
+
+        leftSide.innerHTML = ''; rightSide.innerHTML = ''; finalArea.innerHTML = '';
+
+        const rounds = ["R128", "R64", "R32", "R16", "R8", "SEMIFINAL"];
+        
+        rounds.forEach(r => {
+            const roundMatches = data.filter(m => m.babak === r);
+            if(roundMatches.length > 0) {
+                // Cek apakah ini babak paling awal (yang ID-nya dimulai dari 1) untuk mengaktifkan fitur klik
+                let isFirstRound = roundMatches.some(m => m.id === 1);
+                
+                const mid = Math.ceil(roundMatches.length / 2);
+                leftSide.appendChild(createRound(roundMatches.slice(0, mid), r, isFirstRound));
+                rightSide.appendChild(createRound(roundMatches.slice(mid), r, isFirstRound));
+            }
+        });
+
+        const finalMatch = data.find(m => m.babak === "FINAL");
+        if(finalMatch) {
+            finalArea.innerHTML = `
+                <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                <div class="round-title" style="width: 100%;">GRAND FINAL</div>
+                <div class="final-box">
+                    <div class="final-id">ID ${finalMatch.id}</div>
+                    <strong>${finalMatch.p1}</strong>
+                    <div style="margin: 10px 0; font-weight:bold; color:#94a3b8; font-size:12px;">VS</div>
+                    <strong>${finalMatch.p2}</strong>
+                </div>
+            `;
+        }
+    }
+
+ 
+function handlePlayerSwap(matchId, pos, el) {
+        if (!firstSelectedPlayer) {
+            firstSelectedPlayer = { id: matchId, pos: pos, el: el };
+            el.classList.add('selected-swap');
+        } else {
+            if (firstSelectedPlayer.id === matchId && firstSelectedPlayer.pos === pos) {
+                el.classList.remove('selected-swap');
+                firstSelectedPlayer = null;
+                return;
+            }
+            
+            // 1. Ambil kategori yang sedang AKTIF di layar
+            const cat = document.querySelector('.btn-cat.active').innerText;
+            
+            // 2. Filter data: HANYA ambil pertandingan milik kategori ini
+            let catMatches = allMatches.filter(m => m.kategori === cat);
+            
+            // 3. Cari pertandingan yang akan ditukar (di dalam kategori yang sama)
+            let match1 = catMatches.find(m => m.id === firstSelectedPlayer.id);
+            let match2 = catMatches.find(m => m.id === matchId);
+            
+            if (!match1 || !match2) {
+                alert("Kesalahan: Pemain harus dalam kategori yang sama!");
+                window.location.reload();
+                return;
+            }
+
+            // Proses Tukar Nama di Memori
+            let name1 = firstSelectedPlayer.pos === 1 ? match1.p1 : match1.p2;
+            let name2 = pos === 1 ? match2.p1 : match2.p2;
+            
+            if (firstSelectedPlayer.pos === 1) match1.p1 = name2; else match1.p2 = name2;
+            if (pos === 1) match2.p1 = name1; else match2.p2 = name1;
+            
+            // 4. Ambil Nama Babak Pertama (Misal R512 atau R128) secara dinamis
+            catMatches.sort((a, b) => a.id - b.id);
+            let firstRoundName = catMatches[0].babak;
+            
+            // 5. Ekstrak nama pemain HANYA dari kategori ini dan HANYA babak pertama
+            let firstRoundMatches = catMatches.filter(m => m.babak === firstRoundName);
+            
+            let newTeamsList = [];
+         firstRoundMatches.forEach(m => {
+                // Sekarang 'BYE' tidak lagi dibuang, agar posisinya terkunci di hasil swap
+                if (m.p1 !== 'TBD') newTeamsList.push(m.p1);
+                if (m.p2 !== 'TBD') newTeamsList.push(m.p2);
+            });
+            
+            el.innerText = "Menyimpan...";
+            firstSelectedPlayer.el.innerText = "Menyimpan...";
+            
+            // 6. Kirim data ke server
+            fetch('/api/save-swap-bracket', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ kategori: cat, teams: newTeamsList })
+            })
+            .then(res => res.json())
+            .then(data => {
+                window.location.reload();
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Gagal menyimpan!");
+                window.location.reload();
+            });
+        }
+    }
+
+    init();
+</script>
+</body>
+</html>

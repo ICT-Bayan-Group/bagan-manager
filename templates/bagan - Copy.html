@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagan Symmetrical - Balikpapan Open</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f8fafc; --line: #94a3b8; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        
+        .navbar { background: var(--primary); color: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        
+        .main-bracket { display: flex; justify-content: center; align-items: stretch; padding: 40px; min-width: max-content; gap: 40px; }
+
+        .side { display: flex; gap: 40px; align-items: stretch; }
+        .side.left { flex-direction: row; }
+        .side.right { flex-direction: row-reverse; }
+
+        .round { display: flex; flex-direction: column; width: 160px; }
+        .round-title { text-align: center; font-size: 11px; font-weight: 800; color: var(--primary); margin-bottom: 15px; background: #e2e8f0; padding: 6px; border-radius: 4px; text-transform: uppercase; height: max-content; }
+
+        /* KOTAK PERTANDINGAN */
+        .match-card { 
+            background: white; border: 1px solid #cbd5e1; border-radius: 6px; 
+            font-size: 11px; position: relative; width: 160px; z-index: 2;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin: 5px 0;
+        }
+        .match-id { position: absolute; top: -8px; left: 8px; background: var(--primary); color: white; font-size: 9px; padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+        .player { padding: 8px 10px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .player:first-child { border-bottom: 1px solid #f1f5f9; }
+        .player.bye { color: #94a3b8; font-style: italic; font-weight: normal; }
+
+        /* PEMBUNGKUS PASANGAN (Untuk menggambar garis penghubung) */
+        .match-pair { display: flex; flex-direction: column; justify-content: space-around; flex: 1; position: relative; }
+        
+        /* GARIS CABANG KIRI (Pool A) */
+        .side.left .match-pair::after {
+            content: ""; position: absolute; right: -20px; top: 25%; bottom: 25%;
+            border-right: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line);
+            width: 20px; border-left: none; border-radius: 0 4px 4px 0; z-index: 1;
+        }
+        .side.left .match-pair::before { /* Garis lurus ke babak selanjutnya */
+            content: ""; position: absolute; right: -40px; top: 50%;
+            width: 20px; height: 2px; background: var(--line); z-index: 1;
+        }
+
+        /* GARIS CABANG KANAN (Pool B) */
+        .side.right .match-pair::after {
+            content: ""; position: absolute; left: -20px; top: 25%; bottom: 25%;
+            border-left: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line);
+            width: 20px; border-right: none; border-radius: 4px 0 0 4px; z-index: 1;
+        }
+        .side.right .match-pair::before { /* Garis lurus ke babak selanjutnya */
+            content: ""; position: absolute; left: -40px; top: 50%;
+            width: 20px; height: 2px; background: var(--line); z-index: 1;
+        }
+
+        /* GARIS UNTUK MATCH TUNGGAL (Sebelum Final) */
+        .single-match { display: flex; flex-direction: column; justify-content: center; flex: 1; position: relative; }
+        .side.left .single-match::after { content: ""; position: absolute; right: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
+        .side.right .single-match::after { content: ""; position: absolute; left: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
+
+        /* AREA GRAND FINAL */
+        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; position: relative; z-index: 5; }
+        .final-box { border: 3px solid var(--accent); background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); width: 100%; position: relative; }
+        .final-box strong { font-size: 14px; color: var(--primary); display: block; }
+        .trophy-icon { font-size: 40px; color: var(--accent); margin-bottom: 10px; }
+        .final-id { position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 10px; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
+
+        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 55px; z-index: 999; }
+        .btn-cat { padding: 8px 16px; border-radius: 20px; border: 1px solid #cbd5e1; background: white; cursor: pointer; font-weight: bold; font-size: 12px; }
+        .btn-cat.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        @media print { .navbar, .filter-nav { display: none; } }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1><i class="fas fa-sitemap"></i> BAGAN PERTANDINGAN BALIKPAPAN OPEN</h1>
+</div>
+
+<div class="filter-nav" id="catNav"></div>
+
+<div class="main-bracket" id="mainBracket">
+    <div class="side left" id="leftSide"></div>
+    <div class="final-area" id="finalArea"></div>
+    <div class="side right" id="rightSide"></div>
+</div>
+
+<script>
+    let allMatches = [];
+
+    async function init() {
+        const res = await fetch('/get-matches');
+        allMatches = await res.json();
+        const categories = [...new Set(allMatches.map(m => m.kategori))];
+        
+        const nav = document.getElementById('catNav');
+        categories.forEach((cat, i) => {
+            if(cat) {
+                const btn = document.createElement('button');
+                btn.className = `btn-cat ${i === 0 ? 'active' : ''}`;
+                btn.innerText = cat;
+                btn.onclick = () => render(cat, btn);
+                nav.appendChild(btn);
+            }
+        });
+        if(categories.length > 0) render(categories[0]);
+    }
+
+    // Fungsi Membuat Kartu Pertandingan
+    function buildMatchCard(m) {
+        return `
+            <div class="match-card">
+                <div class="match-id">ID ${m.id}</div>
+                <div class="player ${m.p1 === 'BYE' ? 'bye' : ''}">${m.p1}</div>
+                <div class="player ${m.p2 === 'BYE' ? 'bye' : ''}">${m.p2}</div>
+            </div>
+        `;
+    }
+
+    // Fungsi Membuat Babak Beserta Garisnya
+    function createRound(matches, name) {
+        const roundDiv = document.createElement('div');
+        roundDiv.className = 'round';
+        roundDiv.innerHTML = `<div class="round-title">${name}</div>`;
+        
+        // Jika hanya ada 1 pertandingan di babak ini (Semifinal)
+        if (matches.length === 1) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'single-match';
+            wrapper.innerHTML = buildMatchCard(matches[0]);
+            roundDiv.appendChild(wrapper);
+        } 
+        // Jika ada banyak, kelompokkan per 2 untuk digambar garis cabang
+        else {
+            for (let i = 0; i < matches.length; i += 2) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'match-pair';
+                
+                let pairHTML = buildMatchCard(matches[i]);
+                if (i + 1 < matches.length) {
+                    pairHTML += buildMatchCard(matches[i+1]);
+                }
+                wrapper.innerHTML = pairHTML;
+                roundDiv.appendChild(wrapper);
+            }
+        }
+        return roundDiv;
+    }
+
+    function render(cat, btn) {
+        if(btn) {
+            document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        const data = allMatches.filter(m => m.kategori === cat);
+        const leftSide = document.getElementById('leftSide');
+        const rightSide = document.getElementById('rightSide');
+        const finalArea = document.getElementById('finalArea');
+
+        leftSide.innerHTML = '';
+        rightSide.innerHTML = '';
+        finalArea.innerHTML = '';
+
+        const rounds = ["R128", "R64", "R32", "R16", "R8", "SEMIFINAL"];
+        
+        rounds.forEach(r => {
+            const roundMatches = data.filter(m => m.babak === r);
+            if(roundMatches.length > 0) {
+                // Bagi 2: Setengah ke Kiri, Setengah ke Kanan
+                const mid = Math.ceil(roundMatches.length / 2);
+                leftSide.appendChild(createRound(roundMatches.slice(0, mid), r));
+                rightSide.appendChild(createRound(roundMatches.slice(mid), r));
+            }
+        });
+
+        // Tampilkan Grand Final di Tengah
+        const finalMatch = data.find(m => m.babak === "FINAL");
+        if(finalMatch) {
+            finalArea.innerHTML = `
+                <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+                <div class="round-title" style="width: 100%;">GRAND FINAL</div>
+                <div class="final-box">
+                    <div class="final-id">ID ${finalMatch.id}</div>
+                    <strong>${finalMatch.p1}</strong>
+                    <div style="margin: 10px 0; font-weight:bold; color:#94a3b8; font-size:12px;">VS</div>
+                    <strong>${finalMatch.p2}</strong>
+                </div>
+            `;
+        }
+    }
+
+    init();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; padding: 30px; margin: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        
+        /* Stats Cards */
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #1e3a8a; }
+        .card h3 { margin: 0; font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card p { margin: 10px 0 0; font-size: 28px; font-weight: bold; color: #1e3a8a; }
+
+        /* Table Style */
+        .detail-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .detail-section h2 { margin-top: 0; font-size: 18px; color: #1e3a8a; display: flex; align-items: center; gap: 10px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; padding: 12px; border-bottom: 2px solid #f1f5f9; color: #64748b; font-size: 13px; text-transform: uppercase; }
+        td { padding: 12px; border-bottom: 1px solid #f1f5f9; font-size: 14px; color: #1e293b; }
+        tr:hover { background: #f8fafc; }
+        
+        .badge-count { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 20px; font-weight: bold; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Total Kategori</h3>
+            <p id="stat-cat">-</p>
+        </div>
+        <div class="card" style="border-top-color: #3b82f6;">
+            <h3>Total Pertandingan</h3>
+            <p id="stat-match">-</p>
+        </div>
+        <div class="card" style="border-top-color: #10b981;">
+            <h3>Jadwal Terbit</h3>
+            <p id="stat-sched">-</p>
+        </div>
+    </div>
+
+    <div class="detail-section">
+        <h2><i class="fas fa-users"></i> Rincian Peserta per Kategori</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama Kategori</th>
+                    <th style="text-align: center; width: 150px;">Jumlah Peserta</th>
+                </tr>
+            </thead>
+            <tbody id="category-details">
+                <tr><td colspan="2" style="text-align:center; color:#94a3b8;">Memuat rincian...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        async function loadAllStats() {
+            try {
+                // 1. Ambil Statistik Umum
+                const [resCat, resMatch, resSched] = await Promise.all([
+                    fetch('/get-categories'),
+                    fetch('/get-matches'),
+                    fetch('/get-schedule')
+                ]);
+
+                const dataCat = await resCat.json();
+                const dataMatch = await resMatch.json();
+                const dataSched = await resSched.json();
+
+                document.getElementById('stat-cat').innerText = dataCat.categories.length;
+                document.getElementById('stat-match').innerText = dataMatch.length;
+                document.getElementById('stat-sched').innerText = dataSched.length;
+
+                // 2. Ambil Rincian Peserta per Kategori
+                const resStats = await fetch('/get-category-stats');
+                const dataStats = await resStats.json();
+                
+                const tableBody = document.getElementById('category-details');
+                tableBody.innerHTML = '';
+
+                if (dataStats.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="2" style="text-align:center;">Belum ada data.</td></tr>';
+                    return;
+                }
+
+                dataStats.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td><strong>${item.name}</strong></td>
+                            <td style="text-align: center;">
+                                <span class="badge-count">${item.count} Tim</span>
+                            </td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+
+            } catch (e) {
+                console.error("Gagal memuat statistik:", e);
+            }
+        }
+
+        loadAllStats();
+    </script>
+</body>
+</html>

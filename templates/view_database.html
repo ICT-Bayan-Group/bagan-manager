@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database View - Balikpapan Open</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e3a8a; --success: #10b981; --bg: #f1f5f9; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid var(--bg); padding-bottom: 15px; }
+        h2 { color: var(--primary); margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+
+        /* Table Design */
+        .table-responsive { width: 100%; overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { background: var(--primary); color: white; padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #334155; }
+        tr:hover { background-color: #f8fafc; }
+
+        .winner-badge { background: #dcfce7; color: #166534; padding: 4px 10px; border-radius: 6px; font-weight: 800; font-size: 12px; display: inline-flex; align-items: center; gap: 6px; }
+        .match-tag { background: #f1f5f9; color: #64748b; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 11px; }
+        .empty-state { text-align: center; padding: 50px; color: #94a3b8; }
+
+        /* Responsive Mobile */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .header { flex-direction: column; gap: 10px; text-align: center; }
+            h2 { font-size: 1.2rem; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2><i class="fas fa-database"></i> Database Skor</h2>
+        <a href="/admin/input-skor" style="text-decoration: none; color: var(--primary); font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 5px;">
+            <i class="fas fa-chevron-left"></i> Kembali ke Input
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Match ID</th>
+                    <th>Skor</th>
+                    <th>Pemenang / Juara</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if rows %}
+                    {% for row in rows %}
+                    <tr>
+                        <td style="font-weight: 700; color: var(--primary);">{{ row['kategori'] }}</td>
+                        <td><span class="match-tag">MATCH #{{ row['match_id'] }}</span></td>
+                        <td style="font-family: 'Courier New', monospace; font-weight: 900; font-size: 16px;">
+                            {{ row['skor_p1'] }} - {{ row['skor_p2'] }}
+                        </td>
+                        <td>
+                            <div class="winner-badge">
+                                <i class="fas fa-trophy"></i> {{ row['winner'] }}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="empty-state">
+                            <i class="fas fa-folder-open fa-3x" style="margin-bottom: 15px; opacity: 0.3;"></i>
+                            <p style="margin: 0;">Belum ada data skor yang masuk ke database.</p>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

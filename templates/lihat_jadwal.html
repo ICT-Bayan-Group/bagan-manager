@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihat Jadwal - Balikpapan Open</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f1f5f9; --white: #ffffff; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; color: #1e293b; }
+        
+        /* Navbar & Header */
+        .navbar { background: var(--primary); color: white; padding: 20px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .navbar h1 { margin: 0; font-size: 22px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+
+        /* Search & Filter Section */
+        .search-container { background: var(--white); padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .filter-row { display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: space-between; }
+        
+        .search-box { flex: 1; position: relative; min-width: 250px; }
+        .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+        .search-box input { width: 100%; padding: 12px 12px 12px 45px; border-radius: 8px; border: 1px solid #e2e8f0; outline: none; transition: 0.3s; box-sizing: border-box; font-weight: bold; }
+        .search-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1); }
+
+        .cat-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-btn { padding: 8px 16px; border-radius: 20px; border: 1px solid #e2e8f0; background: white; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.2s; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        select { padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0; font-weight: bold; cursor: pointer; background: white; outline: none; }
+
+        /* Tanggal Display Besar */
+        .date-display { text-align: center; font-size: 22px; font-weight: 900; color: var(--primary); margin: 30px 0 15px 0; text-transform: uppercase; border-bottom: 3px solid #e2e8f0; padding-bottom: 10px; letter-spacing: 1px; }
+        .date-display i { color: var(--accent); margin-right: 8px; }
+
+        /* Table Style */
+        .schedule-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+        .schedule-table th { padding: 15px; text-align: left; color: #64748b; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .time-row { background: white; border-radius: 12px; transition: 0.3s; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .time-cell { padding: 20px; border-radius: 12px 0 0 12px; width: 100px; text-align: center; vertical-align: top; border-left: 4px solid var(--primary); }
+        .time-cell strong { font-size: 18px; color: var(--primary); display: block; }
+        .time-cell span { font-size: 11px; color: #94a3b8; font-weight: bold; }
+        
+        .match-cell { padding: 15px; border-radius: 0 12px 12px 0; background: white; }
+
+        /* Match Card Style */
+        .match-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
+        .match-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; position: relative; overflow: hidden; }
+        .match-card::after { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--accent); }
+        
+        .match-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .kat-badge { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 15px; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+   /* Gaya teks label */
+        .id-badge { 
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            color: #475569;
+            font-size: 12px;
+        }
+
+        /* Gaya kotak untuk ANGKA saja */
+        .match-number-box {
+            background: #1e40af; /* Warna merah */
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 18px; /* Angka dibuat besar */
+            font-weight: 900;
+            display: inline-block;
+            line-height: 1.2;
+            margin-left: 3px;
+        }
+        
+        /* Gaya Khusus untuk Tanggal di dalam Card */
+        .card-date-info { font-size: 11px; color: #475569; font-weight: 700; margin-bottom: 8px; background: #e2e8f0; display: inline-block; padding: 3px 8px; border-radius: 4px; }
+        .card-date-info i { color: var(--primary); margin-right: 4px; }
+
+        .players { font-size: 15px; font-weight: 700; color: #1e293b; margin: 10px 0; line-height: 1.4; }
+        .vs-text { color: #94a3b8; font-size: 12px; font-weight: normal; margin: 5px 0; display: block; }
+        
+        .match-footer { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #64748b; margin-top: 10px; border-top: 1px dashed #cbd5e1; padding-top: 10px; }
+        .court-label { color: var(--accent); font-weight: bold; }
+        .babak-label { font-weight: 800; color: #1e293b; }
+
+        .venue-title { display: block; font-size: 11px; color: var(--primary); font-weight: bold; margin-bottom: 3px; }
+
+        @media print { .search-container, .navbar, .date-display { display: none; } body { background: white; } .container { margin: 0; width: 100%; max-width: none; } }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1><i class="fas fa-trophy"></i> Balikpapan Open Jadwal</h1>
+</div>
+
+<div class="container">
+    <div class="search-container">
+        <div class="filter-row">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari Nama Pemain atau Match ID..." onkeyup="filterJadwal()">
+            </div>
+            <div class="form-group">
+                <select id="dateSelect" onchange="loadJadwal()"></select>
+                <button onclick="window.print()" style="margin-left: 10px; padding: 10px 15px; background: #e2e8f0; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: #1e293b;">
+                    <i class="fas fa-print"></i> Cetak
+                </button>
+            </div>
+        </div>
+        <div class="cat-filters" id="catFilters" style="margin-top: 15px;">
+            <button class="filter-btn active" onclick="setKategori('ALL', this)">SEMUA KATEGORI</button>
+        </div>
+    </div>
+
+    <div id="dateDisplay" class="date-display">
+        <i class="fas fa-calendar-alt"></i> MEMUAT JADWAL...
+    </div>
+
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th>Waktu</th>
+                <th id="courtHeader">
+                    <span class="venue-title" id="venueTitle">VENUE</span>
+                    <span id="courtList">Lapangan</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="scheduleBody"></tbody>
+    </table>
+</div>
+
+<script>
+    let allData = [];
+    let currentKategori = 'ALL';
+
+    async function init() {
+        try {
+            const res = await fetch('/get-schedule');
+            allData = await res.json();
+            
+            if (allData.length === 0) {
+                document.getElementById('dateDisplay').innerText = "DATA KOSONG";
+                document.getElementById('scheduleBody').innerHTML = "<tr><td colspan='2' style='text-align:center; padding:30px;'>Belum ada jadwal yang di-generate.</td></tr>";
+                return;
+            }
+
+            const dates = [...new Set(allData.map(d => d.tanggal))].sort();
+            const ds = document.getElementById('dateSelect');
+            dates.forEach(d => {
+                ds.add(new Option("📅 " + d, d));
+            });
+            
+            const cats = [...new Set(allData.map(d => d.kategori))];
+            const catCont = document.getElementById('catFilters');
+            cats.forEach(c => {
+                if(c) {
+                    const btn = document.createElement('button');
+                    btn.className = 'filter-btn';
+                    btn.innerText = c;
+                    btn.onclick = function() { setKategori(c, this); };
+                    catCont.appendChild(btn);
+                }
+            });
+
+            loadJadwal();
+        } catch (error) {
+            console.error("Gagal memuat data:", error);
+            document.getElementById('dateDisplay').innerText = "ERROR KONEKSI";
+            document.getElementById('scheduleBody').innerHTML = "<tr><td colspan='2' style='text-align:center; padding:30px; color:red;'>Gagal terhubung ke server aplikasi.</td></tr>";
+        }
+    }
+
+    function setKategori(kat, btn) {
+        currentKategori = kat;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
+        loadJadwal();
+    }
+
+    function loadJadwal() {
+        if(allData.length === 0) return;
+
+        const dateRaw = document.getElementById('dateSelect').value;
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const body = document.getElementById('scheduleBody');
+        body.innerHTML = '';
+
+        // Format tanggal ke Bahasa Indonesia (Contoh: 10 Maret 2026)
+        const dateObj = new Date(dateRaw);
+        const optionsLong = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const optionsShort = { year: 'numeric', month: 'long', day: 'numeric' };
+        
+        const formattedDateLong = dateObj.toLocaleDateString('id-ID', optionsLong);
+        const formattedDateShort = dateObj.toLocaleDateString('id-ID', optionsShort); // Untuk di dalam card
+        
+        // Menampilkan Tanggal Besar
+        document.getElementById('dateDisplay').innerHTML = `<i class="fas fa-calendar-check"></i> JADWAL: ${formattedDateLong}`;
+
+        let filtered = allData.filter(d => d.tanggal === dateRaw);
+        if(currentKategori !== 'ALL') {
+            filtered = filtered.filter(d => d.kategori === currentKategori);
+        }
+        if(search) {
+            filtered = filtered.filter(d => 
+                d.partai.toLowerCase().includes(search) || 
+                d.match_id.toString() === search
+            );
+        }
+
+        const times = [...new Set(filtered.map(d => d.jam))].sort();
+
+        // Update dinamis header Lapangan dan Venue
+        const courtsToday = [...new Set(filtered.map(d => d.court))].sort();
+        const venuesToday = [...new Set(filtered.map(d => d.venue))].sort();
+        
+        if(venuesToday.length > 0) {
+            document.getElementById('venueTitle').innerHTML = '<i class="fas fa-building"></i> VENUE: ' + venuesToday.join(" & ");
+        } else {
+            document.getElementById('venueTitle').innerHTML = '';
+        }
+
+        if(courtsToday.length > 0) {
+            document.getElementById('courtList').innerText = "LAPANGAN: " + courtsToday.join(" - ");
+        }
+
+        if(times.length === 0) {
+            body.innerHTML = "<tr><td colspan='2' style='text-align:center; padding:30px; color:#64748b;'>Tidak ada jadwal yang cocok.</td></tr>";
+            return;
+        }
+
+        times.forEach(t => {
+            const matches = filtered.filter(m => m.jam === t);
+            let row = `<tr class="time-row">
+                <td class="time-cell"><strong>${t.substring(0,5)}</strong><span>WITA</span></td>
+                <td class="match-cell"><div class="match-grid">`;
+            
+            matches.forEach(m => {
+                let namaPemain = m.partai;
+                if(namaPemain.includes(' vs ')) {
+                    namaPemain = namaPemain.replace(' vs ', '<span class="vs-text">VS</span>');
+                }
+
+                let venueCourtText = m.venue ? `${m.venue} | Lap. ${m.court}` : `Lap. ${m.court}`;
+                let jamSingkat = m.jam.substring(0,5);
+
+                row += `
+                    <div class="match-card">
+                        <div class="match-top">
+                            <span class="kat-badge">${m.kategori}</span>
+                            <span class="id-badge">No Pertandingan <span class="match-number-box">${m.match_id}</span>
+                        </div>
+                        
+                        <div class="card-date-info">
+                            <i class="far fa-calendar-check"></i> ${formattedDateShort} • <i class="far fa-clock" style="margin-left:5px;"></i> ${jamSingkat} WITA
+                        </div>
+
+                        <div class="players">${namaPemain}</div>
+                        <div class="match-footer">
+                            <span class="court-label"><i class="fas fa-map-marker-alt"></i> ${venueCourtText}</span>
+                            <span class="babak-label">${m.babak}</span>
+                        </div>
+                    </div>`;
+            });
+            
+            row += `</div></td></tr>`;
+            body.innerHTML += row;
+        });
+    }
+
+    function filterJadwal() { loadJadwal(); }
+
+    init();
+</script>
+</body>
+</html>

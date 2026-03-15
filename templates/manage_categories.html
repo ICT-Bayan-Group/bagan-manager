@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Manajemen Kategori - Badminton</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; background: #f0f2f5; }
+        .box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; margin: auto; }
+        h2 { color: #1e3a8a; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+        .input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        input { flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; }
+        input:focus { border-color: #1e3a8a; }
+        .btn-add { background: #1e3a8a; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        
+        ul { list-style: none; padding: 0; }
+        li { background: #f9fafb; padding: 12px; margin-bottom: 8px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #eee; }
+        .btn-delete { background: #ef4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        .btn-save { background: #10b981; color: white; border: none; padding: 15px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; margin-top: 20px; }
+        .btn-save:hover { background: #059669; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Daftar Kategori</h2>
+    
+    <div class="input-group">
+        <input type="text" id="new-category" placeholder="Tambah kategori baru...">
+        <button class="btn-add" onclick="addCategory()">Tambah</button>
+    </div>
+
+    <ul id="category-list">
+        </ul>
+
+    <button class="btn-save" onclick="saveToServer()">Simpan ke categories.json</button>
+    <p style="text-align: center;"><a href="/jadwal" style="color: #6b7280; font-size: 14px; text-decoration: none;">← Kembali ke Jadwal</a></p>
+</div>
+
+<script>
+    let categories = [];
+
+    // 1. Ambil data kategori saat ini dari server
+    async function fetchCategories() {
+        const res = await fetch('/get-categories');
+        const data = await res.json();
+        categories = data.categories || [];
+        renderList();
+    }
+
+    // 2. Tampilkan daftar ke layar
+    function renderList() {
+        const list = document.getElementById('category-list');
+        list.innerHTML = '';
+        categories.forEach((cat, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${cat}</span>
+                <button class="btn-delete" onclick="removeCategory(${index})">Hapus</button>
+            `;
+            list.appendChild(li);
+        });
+    }
+
+    // 3. Tambah kategori ke array (lokal)
+    function addCategory() {
+        const input = document.getElementById('new-category');
+        const val = input.value.trim();
+        if(val && !categories.includes(val)) {
+            categories.push(val);
+            input.value = '';
+            renderList();
+        } else {
+            alert("Kategori kosong atau sudah ada!");
+        }
+    }
+
+    // 4. Hapus kategori dari array (lokal)
+    function removeCategory(index) {
+        categories.splice(index, 1);
+        renderList();
+    }
+
+    // 5. Kirim data final ke server (categories.json)
+    async function saveToServer() {
+        const res = await fetch('/save-categories', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ categories: categories })
+        });
+        const result = await res.json();
+        alert(result.message);
+    }
+
+    // Jalankan saat load
+    fetchCategories();
+</script>
+
+</body>
+</html>

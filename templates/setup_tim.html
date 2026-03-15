@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Setup Tim & Jadwal Turnamen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Verdana, sans-serif; background: #f4f6f9; padding: 20px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 900px; }
+        h1 { text-align: center; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .step-title { background: #34495e; color: white; padding: 10px; border-radius: 5px; margin: 20px 0 10px; }
+        .flex-row { display: flex; gap: 20px; }
+        .box { flex: 1; background: #fdfdfd; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        textarea { width: 100%; height: 100px; padding: 8px; border-radius: 5px; border: 1px solid #ccc; }
+        .btn { background: #3498db; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+        .btn-success { background: #27ae60; font-size: 1.1em; padding: 15px; margin-top: 20px; }
+        .team-list { max-height: 150px; overflow-y: auto; background: #eee; padding: 10px; border-radius: 5px; column-count: 2; }
+        .date-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; margin-top: 10px; }
+        .date-item { background: white; padding: 10px; border-radius: 5px; border: 1px solid #bdc3c7; }
+        input[type="text"], input[type="date"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>⚙️ Setup Master Turnamen</h1>
+
+    <h2 class="step-title">Langkah 1: Masukkan Data Tim</h2>
+    <div class="flex-row">
+        <div class="box">
+            <h3>Cara Manual</h3>
+            <textarea id="manual-input" placeholder="Masukkan nama tim per baris..."></textarea>
+            <button class="btn" onclick="processManual()">Proses Manual</button>
+        </div>
+        <div class="box">
+            <h3>Import Excel</h3>
+            <input type="file" id="excel-file" accept=".xlsx, .xls, .csv">
+            <button class="btn" style="background: #e67e22;" onclick="processExcel()">Proses Excel</button>
+        </div>
+    </div>
+
+    <div id="preview-section" style="display: none; margin-top: 20px;">
+        <h3>Daftar Peserta (<span id="team-count">0</span> Tim)</h3>
+        <div class="team-list" id="team-preview"></div>
+    </div>
+
+    <div id="dynamic-dates-container" style="display: none; margin-top: 20px; background: #e8f4f8; padding: 15px; border-radius: 8px;">
+        <h2 style="color: #2980b9;">Langkah 2: Atur Tanggal Per Babak</h2>
+        <div class="date-grid" id="date-inputs"></div>
+    </div>
+
+    <div id="default-info-section" style="display: none; margin-top: 20px; background: #fdf2e9; padding: 15px; border-radius: 8px;">
+        <h3 style="color: #d35400;">Info Lokasi Default (Opsional)</h3>
+        <div class="flex-row">
+            <div style="flex:1"><label>Venue</label><input type="text" id="default-venue" placeholder="Nama GOR"></div>
+            <div style="flex:1"><label>Court</label><input type="text" id="default-court" placeholder="Lapangan 1"></div>
+        </div>
+    </div>
+
+    <div id="submit-section" style="display: none;">
+        <button class="btn btn-success" onclick="saveToServer()">💾 Langkah 3: Simpan Turnamen (6 Kolom)</button>
+    </div>
+</div>
+
+
+
+<script>
+    let finalTeams = [];
+    let calculatedRounds = 0;
+
+    function updatePreview(teams) {
+        finalTeams = teams.map(t => t.toString().trim()).filter(t => t !== "");
+        document.getElementById('team-count').innerText = finalTeams.length;
+        if (finalTeams.length > 0) {
+            let html = "<ul>" + finalTeams.map(t => `<li>${t}</li>`).join('') + "</ul>";
+            document.getElementById('team-preview').innerHTML = html;
+            document.getElementById('preview-section').style.display = "block";
+            
+            let power = Math.ceil(Math.log2(finalTeams.length));
+            calculatedRounds = Math.log2(Math.pow(2, power) / 2);
+            
+            let dateHtml = "";
+            for (let i = 0; i < calculatedRounds; i++) {
+                dateHtml += `<div class="date-item"><label>Babak ${i+1}</label><input type="date" id="date-round-${i}"></div>`;
+            }
+            document.getElementById('date-inputs').innerHTML = dateHtml;
+            document.getElementById('dynamic-dates-container').style.display = "block";
+            document.getElementById('default-info-section').style.display = "block";
+            document.getElementById('submit-section').style.display = "block";
+        }
+    }
+
+    function processManual() { updatePreview(document.getElementById('manual-input').value.split('\n')); }
+
+    function processExcel() {
+        let file = document.getElementById('excel-file').files[0];
+        if (!file) return alert("Pilih file!");
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let workbook = XLSX.read(new Uint8Array(e.target.result), {type: 'array'});
+            let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]], {header: 1});
+            updatePreview(sheet.flat().filter(t => t && t.toString().toLowerCase() !== "nama tim"));
+        };
+        reader.readAsArrayBuffer(file);
+    }
+
+    function saveToServer() {
+    let confirmReset = confirm("PERINGATAN: Menyimpan data tim baru akan ME-RESET seluruh skor dan jadwal turnamen yang lama. Lanjutkan?");
+    if (!confirmReset) return;
+
+    let targetSize = Math.pow(2, Math.ceil(Math.log2(finalTeams.length)));
+    let targetPerSide = targetSize / 2;
+
+    let skorKiri = [];
+    let skorKanan = [];
+    let matches = targetPerSide / 2;
+
+    for (let r = 0; r < calculatedRounds; r++) {
+        let selectedDate = document.getElementById(`date-round-${r}`).value;
+        let roundKiri = [];
+        let roundKanan = [];
+        for (let m = 0; m < matches; m++) {
+            // FORMAT BARU: [Skor1, Skor2, Tanggal, Jam, Venue, Court]
+            // Default diisi tanggal babak, sisanya kosong agar bisa diubah per match
+            roundKiri.push([null, null, selectedDate, "", "", ""]);
+            roundKanan.push([null, null, selectedDate, "", "", ""]);
+        }
+        skorKiri.push(roundKiri);
+        skorKanan.push(roundKanan);
+        matches = Math.floor(matches / 2);
+    }
+
+    let tournamentData = {
+        "nama_tim": finalTeams,
+        "skor_kiri": skorKiri,
+        "skor_kanan": skorKanan
+    };
+
+    fetch('/save_setup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tournamentData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert("✅ Turnamen berhasil dibuat dengan slot jadwal mandiri!");
+            window.location.href = "/";
+        }
+    });
+}
+</script>
+</body>
+</html>

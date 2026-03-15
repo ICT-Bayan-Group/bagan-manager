@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Input Skor</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f8fafc; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background: #1e3a8a; color: white; }
+        input[type="number"] { width: 60px; text-align: center; padding: 5px; }
+        .btn-save { background: #10b981; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h2>Panel Wasit (Struktur JSON, Skor SQLite)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Babak</th>
+                <th style="text-align:right;">Pemain 1</th>
+                <th>Skor 1</th>
+                <th>vs</th>
+                <th>Skor 2</th>
+                <th style="text-align:left;">Pemain 2</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="tabel-body"></tbody>
+    </table>
+
+    <script>
+        function loadMatches() {
+            fetch('/get-matches')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.getElementById('tabel-body');
+                    tbody.innerHTML = '';
+                    data.forEach(m => {
+                        // Jangan tampilkan skor jika pemain masih TBD (belum main)
+                        if (m.p1 === 'TBD' || m.p2 === 'TBD') return;
+
+                        tbody.innerHTML += `
+                            <tr>
+                                <td>${m.id}</td>
+                                <td>${m.babak}</td>
+                                <td style="text-align:right;">${m.p1}</td>
+                                <td><input type="number" id="s1-${m.id}" value="${m.score1 || 0}"></td>
+                                <td>-</td>
+                                <td><input type="number" id="s2-${m.id}" value="${m.score2 || 0}"></td>
+                                <td style="text-align:left;">${m.p2}</td>
+                                <td><button class="btn-save" onclick="simpanSkor(${m.id})">Simpan</button></td>
+                            </tr>
+                        `;
+                    });
+                });
+        }
+
+ function simpanSkor(id) {
+            const s1 = document.getElementById(`s1-${id}`).value;
+            const s2 = document.getElementById(`s2-${id}`).value;
+            
+            fetch('/api/update-score', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ id: id, score1: s1, score2: s2 })
+            })
+            .then(res => res.json())
+            .then(res => {
+                if(res.status === 'success') {
+                    alert('Skor tersimpan di SQLite & Bagan JSON terupdate!');
+                    loadMatches(); // Refresh tabel
+                } else {
+                    // MUNCULKAN POP-UP ERROR DARI SERVER
+                    alert('GAGAL MENYIMPAN: ' + res.msg);
+                }
+            })
+            .catch(err => {
+                alert('TIDAK BISA TERHUBUNG KE SERVER: ' + err);
+            });
+        }
+
+        loadMatches();
+    </script>
+</body>
+</html>

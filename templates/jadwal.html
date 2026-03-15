@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Penjadwalan Presisi</title>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { 
+            --primary: #1e3a8a; 
+            --danger: #ef4444; 
+            --success: #10b981; 
+            --bg: #f1f5f9;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            padding: 10px; 
+            background: var(--bg); 
+            margin: 0; 
+        }
+
+        .container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 { 
+            color: var(--primary); 
+            margin-top: 0; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 1.2rem;
+        }
+
+        .header-actions { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* Pembungkus Tabel agar bisa scroll horizontal di HP */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 800px; /* Memastikan kolom tidak terlalu sempit */
+        }
+
+        th { 
+            background: var(--primary); 
+            color: white; 
+            padding: 12px; 
+            text-align: left; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+        }
+
+        td { 
+            padding: 8px; 
+            border-bottom: 1px solid #e2e8f0; 
+            vertical-align: middle; 
+        }
+        
+        input, select { 
+            padding: 10px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 6px; 
+            width: 100%; 
+            box-sizing: border-box; 
+            font-size: 14px; /* Menghindari auto-zoom di iOS */
+        }
+        
+        /* Highlight Bentrok */
+        .conflict-row { background-color: #fee2e2 !important; }
+        .conflict-row input, .conflict-row select { 
+            border: 2px solid var(--danger) !important; 
+            background-color: #fff1f1 !important; 
+        }
+        
+        .conflict-msg { 
+            color: var(--danger); 
+            font-size: 10px; 
+            font-weight: bold; 
+            display: none; 
+            margin-top: 4px; 
+        }
+        .conflict-row .conflict-msg { display: block; }
+
+        .btn-save { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 14px 30px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            width: 100%; /* Full width di mobile */
+            margin-top: 25px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-add { 
+            background: var(--success); 
+            color: white; 
+            border: none; 
+            padding: 10px 18px; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 13px;
+        }
+
+        .handle { 
+            cursor: grab; 
+            color: #94a3b8; 
+            text-align: center; 
+            font-size: 18px; 
+            padding: 0 5px;
+        }
+        
+        .action-buttons { 
+            display: flex; 
+            gap: 12px; 
+            justify-content: center; 
+        }
+        
+        .btn-icon { 
+            border: none; 
+            background: #f8fafc; 
+            cursor: pointer; 
+            font-size: 18px; 
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Media Queries untuk Tablet & Desktop */
+        @media (min-width: 768px) {
+            body { padding: 30px; }
+            .container { padding: 30px; }
+            h2 { font-size: 1.5rem; }
+            .btn-save { width: auto; float: right; }
+            table { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-actions">
+        <h2><i class="fas fa-clock"></i> Penjadwalan</h2>
+        <button class="btn-add" onclick="addConfigRow()"><i class="fas fa-plus"></i> Tambah Slot</button>
+    </div>
+
+    <div class="table-responsive">
+        <table id="main-table">
+            <thead>
+                <tr>
+                    <th width="30"></th>
+                    <th width="140">Tanggal</th>
+                    <th width="110">Mulai</th>
+                    <th width="110">Selesai</th>
+                    <th>Kategori</th>
+                    <th width="120">Babak</th>
+                    <th>Venue</th>
+                    <th width="120">Lapangan</th>
+                    <th width="80">Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="config-body"></tbody>
+        </table>
+    </div>
+
+    <button class="btn-save" onclick="saveConfig()"><i class="fas fa-save"></i> Simpan Konfigurasi</button>
+</div>
+
+<script>
+    let categories = [];
+
+    async function init() {
+        const resCat = await fetch('/get-categories');
+        const dataCat = await resCat.json();
+        categories = dataCat.categories || [];
+
+        const resConf = await fetch('/get-config');
+        const configData = await resConf.json();
+        
+        const tbody = document.getElementById('config-body');
+        tbody.innerHTML = '';
+        if (configData.length > 0) {
+            configData.forEach(c => addConfigRow(c));
+        } else {
+            addConfigRow();
+        }
+
+        new Sortable(tbody, { 
+            handle: '.handle', 
+            animation: 150, 
+            onEnd: checkAllConflicts 
+        });
+
+        document.getElementById('main-table').addEventListener('input', checkAllConflicts);
+        document.getElementById('main-table').addEventListener('change', checkAllConflicts);
+        checkAllConflicts();
+    }
+
+    async function generateAllRounds(selectElement) {
+        const kategori = selectElement.value;
+        const row = selectElement.closest('tr');
+        const babakInput = row.querySelector('.babak-input');
+        if (!kategori) { babakInput.value = ""; return; }
+
+        try {
+            const res = await fetch(`/get-initial-round/${encodeURIComponent(kategori)}`);
+            const data = await res.json();
+            if (!data.babak) return;
+
+            babakInput.value = data.babak;
+            checkAllConflicts();
+
+            let currentSize = parseInt(data.babak.replace('R', ''));
+            if (currentSize > 2) {
+                const autoGenerate = confirm(`Ingin otomatis buatkan slot sampai FINAL?`);
+                if (autoGenerate) {
+                    while (currentSize > 2) {
+                        currentSize = currentSize / 2;
+                        let labelBabak = "R" + currentSize;
+                        if (currentSize === 8) labelBabak = "PEREMPAT FINAL";
+                        if (currentSize === 4) labelBabak = "SEMI FINAL";
+                        if (currentSize === 2) labelBabak = "FINAL";
+
+                        const refTanggal = row.querySelector('.tgl').value;
+                        const refVenue = row.querySelector('.ven').value;
+
+                        addConfigRow({
+                            kategori: kategori,
+                            babak: labelBabak,
+                            tanggal: refTanggal,
+                            venue: refVenue,
+                            jam_mulai: "08:00:00",
+                            jam_selesai: "09:00:00",
+                            lapangan: []
+                        });
+                    }
+                }
+            }
+        } catch (err) { console.error(err); }
+    }
+
+    function cloneRow(button) {
+        const row = button.closest('tr');
+        const data = {
+            tanggal: row.querySelector('.tgl').value,
+            jam_mulai: row.querySelector('.jam-m').value,
+            jam_selesai: row.querySelector('.jam-s').value,
+            kategori: row.querySelector('.kat').value,
+            babak: row.querySelector('.babak-input').value,
+            venue: row.querySelector('.ven').value,
+            lapangan: row.querySelector('.laps').value.split(',').map(s => s.trim()).filter(s => s !== "")
+        };
+        addConfigRow(data);
+        checkAllConflicts();
+    }
+
+    function checkAllConflicts() {
+        const rows = document.querySelectorAll('#config-body tr');
+        rows.forEach(r => r.classList.remove('conflict-row'));
+
+        for (let i = 0; i < rows.length; i++) {
+            const rowA = rows[i];
+            const tglA = rowA.querySelector('.tgl').value;
+            const jamA = rowA.querySelector('.jam-m').value.substring(0, 5);
+            const venA = rowA.querySelector('.ven').value.trim().toUpperCase();
+            const lapA = rowA.querySelector('.laps').value.split(',').map(s => s.trim().toUpperCase()).filter(s => s !== "");
+
+            if (!tglA || !jamA || !venA || lapA.length === 0) continue;
+
+            for (let j = i + 1; j < rows.length; j++) {
+                const rowB = rows[j];
+                const tglB = rowB.querySelector('.tgl').value;
+                const jamB = rowB.querySelector('.jam-m').value.substring(0, 5);
+                const venB = rowB.querySelector('.ven').value.trim().toUpperCase();
+                const lapB = rowB.querySelector('.laps').value.split(',').map(s => s.trim().toUpperCase()).filter(s => s !== "");
+
+                if (tglA === tglB && jamA === jamB && venA === venB) {
+                    const overlap = lapA.filter(l => lapB.includes(l));
+                    if (overlap.length > 0) {
+                        rowA.classList.add('conflict-row');
+                        rowB.classList.add('conflict-row');
+                    }
+                }
+            }
+        }
+    }
+
+    function addConfigRow(c = {}) {
+        const tbody = document.getElementById('config-body');
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class="handle"><i class="fas fa-grip-vertical"></i></td>
+            <td><input type="date" class="tgl" value="${c.tanggal || ''}"></td>
+            <td><input type="time" class="jam-m" step="1" value="${c.jam_mulai || ''}"></td>
+            <td><input type="time" class="jam-s" step="1" value="${c.jam_selesai || ''}"></td>
+            <td>
+                <select class="kat" onchange="generateAllRounds(this)">
+                    <option value="">-- Kategori --</option>
+                    ${categories.map(cat => `<option value="${cat}" ${c.kategori === cat ? 'selected' : ''}>${cat}</option>`).join('')}
+                </select>
+            </td>
+            <td><input type="text" class="babak-input" value="${c.babak || ''}" placeholder="R128"></td>
+            <td><input type="text" class="ven" value="${c.venue || ''}" placeholder="DOME"></td>
+            <td>
+                <input type="text" class="laps" value="${c.lapangan ? c.lapangan.join(',') : ''}" placeholder="C1,C2">
+                <div class="conflict-msg">⚠️ Bentrok!</div>
+            </td>
+            <td class="action-buttons">
+                <button type="button" class="btn-icon btn-clone" onclick="cloneRow(this)" title="Duplikat"><i class="fas fa-copy"></i></button>
+                <button type="button" class="btn-icon btn-delete" onclick="this.closest('tr').remove(); checkAllConflicts();" title="Hapus"><i class="fas fa-trash"></i></button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+        checkAllConflicts();
+    }
+
+    async function saveConfig() {
+        if (document.querySelector('.conflict-row')) {
+            alert("Harap perbaiki jadwal yang bentrok!");
+            return;
+        }
+        const rows = document.querySelectorAll('#config-body tr');
+        const configs = [];
+        rows.forEach(row => {
+            const tgl = row.querySelector('.tgl').value;
+            const kat = row.querySelector('.kat').value;
+            if (tgl && kat) {
+                configs.push({
+                    tanggal: tgl,
+                    jam_mulai: row.querySelector('.jam-m').value,
+                    jam_selesai: row.querySelector('.jam-s').value,
+                    kategori: kat,
+                    babak: row.querySelector('.babak-input').value,
+                    venue: row.querySelector('.ven').value,
+                    lapangan: row.querySelector('.laps').value.split(',').map(s => s.trim()).filter(s => s !== "")
+                });
+            }
+        });
+        const res = await fetch('/save-config', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(configs)
+        });
+        const result = await res.json();
+        alert(result.message);
+        if (res.ok) location.reload();
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>

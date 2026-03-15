@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pro Tournament Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-bracket/0.11.1/jquery.bracket.min.css">
+    
+    <style>
+        body { background: #f4f6f9; font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 20px;}
+        .section-title { text-align: center; color: #2c3e50; padding: 10px; border-bottom: 2px solid #3498db; margin-bottom: 20px;}
+
+        /* --- KUNCI PERBAIKAN GARIS --- */
+        .jQBracket * {
+            box-sizing: border-box !important; /* Paksa hitungan layout konsisten */
+        }
+
+        .bracket-container { 
+            display: flex; 
+            justify-content: center; 
+            overflow-x: auto; 
+            padding: 80px 0; /* Ruang untuk header babak */
+        }
+
+        /* Mengunci tinggi kotak tim agar garis konektor tepat di tengah */
+        .jQBracket .team {
+            height: 24px !important;
+            line-height: 24px !important;
+            background: #fff !important;
+            border: 1px solid #ccc !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+
+        .jQBracket .team .label {
+            font-size: 11px !important;
+            padding: 0 5px !important;
+            height: 22px !important;
+            line-height: 22px !important;
+            width: 100%;
+        }
+
+        .jQBracket .team .score {
+            font-size: 11px !important;
+            height: 22px !important;
+            line-height: 22px !important;
+            float: right;
+            width: 25px;
+            text-align: center;
+            background: #eee !important;
+        }
+
+        /* Header Babak yang tidak mendorong garis */
+        .jQBracket .round {
+            position: relative !important;
+        }
+
+        .bracket-round-header {
+            position: absolute;
+            top: -50px; /* Melayang di atas tanpa mengganggu flow elemen */
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .br-title { font-weight: bold; color: #d35400; font-size: 11px; text-transform: uppercase; }
+        .br-date { font-size: 10px; color: #666; display: block; }
+
+        /* Mempertegas Garis Konektor */
+        .jQBracket .connector {
+            border-color: #95a5a6 !important;
+            border-width: 2px !important;
+        }
+        /* ----------------------------- */
+
+        .schedule-box { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 20px;}
+        table { width: 100%; border-collapse: collapse; font-size: 13px;}
+        th, td { padding: 8px; border-bottom: 1px solid #ddd; text-align: center;}
+        th { background: #34495e; color: white;}
+        .score-input { width: 35px; text-align: center; font-weight: bold;}
+    </style>
+</head>
+<body>
+
+    <h2 class="section-title">📺 DASHBOARD TURNAMEN - GARIS RAPI</h2>
+    
+    <div class="bracket-container" id="bracket-section">
+        <div id="left-side"></div>
+        <div id="right-side" style="direction: rtl;"></div> </div>
+
+    <div class="schedule-box">
+        <h3 style="text-align: center;">📝 Input Skor & Jadwal</h3>
+        <table>
+            <thead>
+                <tr><th>Match</th><th>Venue</th><th>Tim 1</th><th>Skor</th><th>Tim 2</th></tr>
+            </thead>
+            <tbody>
+                {% for round_num, matches in jadwal_kiri|groupby('round') %}
+                <tr style="background:#eee"><td colspan="5"><b>Babak {{ round_num }}</b></td></tr>
+                {% for j in matches %}
+                <tr>
+                    <td>{{ j.match }}</td>
+                    <td><input type="text" value="{{ j.venue }}" onchange="saveMatch('kiri', {{ j.r_idx }}, {{ j.m_idx }})"></td>
+                    <td>{{ j.team1 }}</td>
+                    <td>
+                        <input type="number" class="score-input" value="{{ j.score1 }}" id="kiri-s1-{{ j.r_idx }}-{{ j.m_idx }}" onchange="saveMatch('kiri', {{ j.r_idx }}, {{ j.m_idx }})">
+                        <input type="number" class="score-input" value="{{ j.score2 }}" id="kiri-s2-{{ j.r_idx }}-{{ j.m_idx }}" onchange="saveMatch('kiri', {{ j.r_idx }}, {{ j.m_idx }})">
+                    </td>
+                    <td>{{ j.team2 }}</td>
+                </tr>
+                {% endfor %}{% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $(function() {
+            const timKiri = {{ tim_kiri | tojson }};
+            const resKiri = {{ skor_kiri | tojson }};
+            const timKanan = {{ tim_kanan | tojson }};
+            const resKanan = {{ skor_kanan | tojson }};
+
+            // Inisialisasi Kiri
+            $('#left-side').bracket({
+                init: { teams: timKiri, results: resKiri },
+                skipConsolationRound: true,
+                teamWidth: 100,
+                scoreWidth: 25,
+                matchMargin: 20,
+                roundMargin: 40
+            });
+
+            // Inisialisasi Kanan (Penting: Gunakan dir: 'rl' agar garis rapi secara native)
+            $('#right-side').bracket({
+                init: { teams: timKanan, results: resKanan },
+                skipConsolationRound: true,
+                dir: 'rl', 
+                teamWidth: 100,
+                scoreWidth: 25,
+                matchMargin: 20,
+                roundMargin: 40
+            });
+
+            // Tambahkan Header Babak Tanpa Merusak Garis
+            $('.round').each(function(i) {
+                $(this).append('<div class="bracket-round-header"><span class="br-title">BABAK ' + (i+1) + '</span></div>');
+            });
+        });
+
+        function saveMatch(side, r_idx, m_idx) {
+            let s1 = $(`#${side}-s1-${r_idx}-${m_idx}`).val();
+            let s2 = $(`#${side}-s2-${r_idx}-${m_idx}`).val();
+            fetch('/update_match', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ side: side, r_idx: r_idx, m_idx: m_idx, score1: s1, score2: s2 })
+            }).then(() => location.reload());
+        }
+    </script>
+</body>
+</html>
