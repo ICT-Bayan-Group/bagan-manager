@@ -1,39 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Input Peserta Turnamen</title>
     <style>
-        body { font-family: sans-serif; padding: 40px; background: #f0f2f5; }
-        .box { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
-        textarea { width: 100%; height: 300px; margin: 10px 0; padding: 10px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc; }
-        select, input { width: 100%; padding: 12px; margin-bottom: 15px; box-sizing: border-box; border-radius: 4px; border: 1px solid #ccc; }
-        button { background: #1e3a8a; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        button:hover { background: #152a61; }
-        label { font-size: 14px; font-weight: bold; color: #333; }
+        body {
+            font-family: sans-serif;
+            padding: 40px;
+            background: #f0f2f5;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #152a61;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
     </style>
 </head>
+
 <body>
-
-    <label>Jumlah Pemain Unggulan (Seed):</label>
-<input type="number" id="jumlah_seed" value="4" min="0" style="width: 80px;">
-<p style="font-size: 11px; color: #666;">*Sistem akan mengambil N nama pertama sebagai Seeded</p>
-
-<textarea id="daftar_nama" ...></textarea>
-
     <div class="box">
         <h2>Pendaftaran Per Kategori</h2>
-        
         <label for="kategori">Pilih Kategori:</label>
         <select id="kategori">
             <option value="">-- Memuat Kategori... --</option>
         </select>
 
-        <label for="daftar_nama">Daftar Tim/Pemain (Satu nama per baris):</label>
-        <textarea id="daftar_nama" placeholder="Contoh:&#10;Andi / Budi&#10;Kevin / Marcus&#10;Fajar / Rian"></textarea>
+          <p style="font-size: 11px; color: #666;">*Sistem akan mengambil nama pertama dan seterusnya sebagai Seeded</p>
+        <label>Jumlah Pemain Unggulan (Seed):</label>
         
+        <input type="number" id="jumlah_seed" value="4" min="0" style="width: 80px;">
+        <br>
+
+        <label for="daftar_nama">Daftar Tim/Pemain (Satu nama per baris):</label>
+        <textarea id="daftar_nama"
+            placeholder="Contoh:&#10;Andi / Budi (nama pb)&#10;Kevin / Marcus (nama pb)&#10;Fajar / Rian (nama pb)"></textarea>
+
         <button onclick="prosesSimpan()">Buat File JSON Otomatis</button>
         <p style="text-align: center; margin-top: 15px;">
-            <a href="/manage-categories" style="font-size: 13px; color: #666; text-decoration: none;">+ Kelola Daftar Kategori</a>
+            <a href="/manage-categories" style="font-size: 13px; color: #666; text-decoration: none;">+ Kelola Daftar
+                Kategori</a>
         </p>
     </div>
 
@@ -44,9 +94,9 @@
                 const res = await fetch('/get-categories');
                 const data = await res.json();
                 const select = document.getElementById('kategori');
-                
+
                 select.innerHTML = '<option value="">-- Pilih Kategori --</option>';
-                
+
                 if (data.categories && data.categories.length > 0) {
                     data.categories.forEach(cat => {
                         const option = document.createElement('option');
@@ -70,25 +120,25 @@
             const kategori = document.getElementById('kategori').value;
             const teks = document.getElementById('daftar_nama').value;
             const jmlSeed = document.getElementById('jumlah_seed').value;
-            
-            if(!kategori) return alert("Pilih kategori terlebih dahulu!");
-            if(!teks.trim()) return alert("Masukkan daftar nama peserta!");
+
+            if (!kategori) return alert("Pilih kategori terlebih dahulu!");
+            if (!teks.trim()) return alert("Masukkan daftar nama peserta!");
 
             // Pecah teks menjadi array berdasarkan baris, hapus baris kosong
             const listTeams = teks.split('\n').map(t => t.trim()).filter(t => t !== "");
-const res = await fetch('/simpan-tim', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({ 
-        kategori: kategori, 
-        teams: listTeams,
-        jumlah_seed: parseInt(jmlSeed) // Kirim jumlah seed ke server
-    })
-});
-            
+            const res = await fetch('/simpan-tim', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    kategori: kategori,
+                    teams: listTeams,
+                    jumlah_seed: parseInt(jmlSeed) // Kirim jumlah seed ke server
+                })
+            });
+
             const result = await res.json();
             alert(result.message);
-            
+
             // Kosongkan textarea setelah sukses agar bisa input kategori lain
             if (res.ok) {
                 document.getElementById('daftar_nama').value = '';
@@ -96,4 +146,5 @@ const res = await fetch('/simpan-tim', {
         }
     </script>
 </body>
+
 </html>
