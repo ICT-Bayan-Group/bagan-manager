@@ -136,21 +136,35 @@
         if(categories.length > 0) render(categories[0]);
     }
 
-    function buildMatchCard(m, isClickable) {
-        let isP1Clickable = isClickable && m.p1 !== 'TBD';
-        let isP2Clickable = isClickable && m.p2 !== 'TBD';
-        
-        let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
-        let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
-        
-        return `
-            <div class="match-card">
-                <div class="match-id">${m.id}</div>
-                <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1}>${m.p1}</div>
-                <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2}>${m.p2}</div>
+function buildMatchCard(m, isClickable) {
+    let isP1Clickable = isClickable && m.p1 !== 'TBD';
+    let isP2Clickable = isClickable && m.p2 !== 'TBD';
+    
+    let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
+    let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
+    
+    // Fungsi pembantu untuk memformat Nama (PB) menjadi baris bertingkat
+    const formatPlayerName = (name) => {
+        if (name.includes(' (')) {
+            return name.replace(/ \((.*?)\)/g, (match, pb) => {
+                return `<div style="font-size: 9px; color: #64748b; font-weight: 800; line-height: 1;">(${pb})</div><div style="margin-top:2px;">`
+            }) + `</div>`;
+        }
+        return name;
+    };
+
+    return `
+        <div class="match-card">
+            <div class="match-id">${m.id}</div>
+            <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1}>
+                ${formatPlayerName(m.p1)}
             </div>
-        `;
-    }
+            <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2}>
+                ${formatPlayerName(m.p2)}
+            </div>
+        </div>
+    `;
+}
 
     function createRound(matches, name, isFirstRound) {
         const roundDiv = document.createElement('div');
@@ -215,20 +229,30 @@
         });
 
         // Render FINAL di tengah
-        if(finalMatch) {
-            centerSide.innerHTML = `
-                <div class="final-area">
-                    <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="round-title" style="width: 100%;">GRAND FINAL</div>
-                    <div class="final-box">
-                        <div class="final-id">ID ${finalMatch.id}</div>
-                        <strong>${finalMatch.p1}</strong>
-                        <div style="margin: 8px 0; font-weight:bold; color:#cbd5e1; font-size:12px;">VS</div>
-                        <strong>${finalMatch.p2}</strong>
-                    </div>
-                </div>
-            `;
+       // Render FINAL di tengah (Sesuaikan di dalam fungsi render)
+if(finalMatch) {
+    // Gunakan logika format yang sama
+    const formatFinal = (name) => {
+        if (name.includes(' (')) {
+            return name.replace(/ \((.*?)\)/g, `<div style="font-size: 10px; color: #64748b; font-weight: 800;">($1)</div>`) 
+                   + `<div style="font-size: 14px;">${name.split(' (')[0]}</div>`;
         }
+        return `<div>${name}</div>`;
+    };
+
+    centerSide.innerHTML = `
+        <div class="final-area">
+            <div class="trophy-icon"><i class="fas fa-trophy"></i></div>
+            <div class="round-title" style="width: 100%;">GRAND FINAL</div>
+            <div class="final-box">
+                <div class="final-id">ID ${finalMatch.id}</div>
+                ${formatFinal(finalMatch.p1)}
+                <div style="margin: 8px 0; font-weight:bold; color:#cbd5e1; font-size:12px;">VS</div>
+                ${formatFinal(finalMatch.p2)}
+            </div>
+        </div>
+    `;
+}
     }
 
     function handlePlayerSwap(matchId, pos, el) {

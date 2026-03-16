@@ -7,18 +7,18 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Kevin - Marcus vs Kurnia - Sandi",
+        "partai": "Fajar Alfian / Muhammad Rian Ardianto (PB SGS Bandung) vs Eko / Budi (PB Rajawali)",
         "status": "OK"
     },
     {
-        "match_id": 2,
+        "match_id": 3,
         "jam": "08:00:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Chandra - Gupta vs Panji - Dimas",
+        "partai": "Kenas Adi Haryanto / Ryan Agung Saputra (PB Djarum) vs Gajah / Mada (PB Majapahit)",
         "status": "OK"
     },
     {
@@ -29,7 +29,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Sigit - Budi vs Cello - Kenzie",
+        "partai": "Summarecon / Serpong (PB Gading) vs Rahmat Hidayat / Yeremia Rambitan (PB Djarum)",
         "status": "OK"
     },
     {
@@ -40,7 +40,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Vin - Rex vs Satya - Negara",
+        "partai": "Kota / Baru (PB Parahyangan) vs Tri Kusharjanto / Bambang Suprianto (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -51,7 +51,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Wibisana - Yoga vs Bintang - Timur",
+        "partai": "Cempaka / Putih (PB Jakarta Timur) vs Lutfi Erlangga / Muhammad Ridho (PB Tangkas)",
         "status": "OK"
     },
     {
@@ -62,7 +62,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Guntur - Haryo vs Fino - Aris",
+        "partai": "Fajar / Ramadhan (PB Angkasa) vs Markis Kido / Hendra Setiawan (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -73,29 +73,18 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Liem - Christian vs Ash - Blu",
+        "partai": "Lippo / Karawaci (PB Tangerang) vs Surya / Kencana (PB Garuda)",
         "status": "OK"
     },
     {
-        "match_id": 9,
+        "match_id": 10,
         "jam": "09:30:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Jonatan - Anthony vs Jo - Han",
-        "status": "OK"
-    },
-    {
-        "match_id": 10,
-        "jam": "10:00:00",
-        "tanggal": "2026-03-10",
-        "venue": "DOME",
-        "court": "C1",
-        "kategori": "GANDA PUTRA",
-        "babak": "R128",
-        "partai": "Oki - Setiawan vs Candra - Tony",
+        "partai": "Mulawarman / Kutai (PB Mahakam) vs Indra / Jaka (PB Suryanaga)",
         "status": "OK"
     },
     {
@@ -103,21 +92,21 @@
         "jam": "10:00:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Karang - Tajam vs Markis - Hendra",
+        "partai": "Ghifari Anandaffa Prihardika / Ferdian Mahardika (PB Jaya Raya) vs Bagus / Kahfi (PB Barito)",
         "status": "OK"
     },
     {
         "match_id": 12,
-        "jam": "10:30:00",
+        "jam": "10:00:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Azril - Irfan vs Bo - Nas",
+        "partai": "Dedi / Irawan (PB SGS PLN Bandung) vs Rexy Mainaky / Ricky Subagja (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -125,21 +114,32 @@
         "jam": "10:30:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Edi - Siswanto vs Ken - Kai",
+        "partai": "Untung / Suropati (PB Wira) vs Krisna / Mukti (PB Dewa)",
         "status": "OK"
     },
     {
         "match_id": 14,
+        "jam": "10:30:00",
+        "tanggal": "2026-03-10",
+        "venue": "DOME",
+        "court": "C2",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "partai": "Hayam / Wuruk (PB Wilwatikta) vs Ken / Arok (PB Singasari)",
+        "status": "OK"
+    },
+    {
+        "match_id": 15,
         "jam": "11:00:00",
         "tanggal": "2026-03-10",
         "venue": "DOME",
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Gunawan - Heru vs Satria - Wiguna",
+        "partai": "Yohanes Rendy Sugiarto / Afiat Yuris Wirawan (PB Djarum) vs Bagas / Kaffa (PB Putera)",
         "status": "OK"
     },
     {
@@ -150,7 +150,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Kilat - Badai vs Chico - Alwi",
+        "partai": "Hasanuddin / Makassar (PB Gowa) vs Dwiki Rafian Restu / Bernadus Bagas Kusuma Wardana (PB Djarum)",
         "status": "OK"
     },
     {
@@ -161,7 +161,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Bagas - Fikri vs Gema - Swara",
+        "partai": "Raden / Saleh (PB Seni) vs Rangga / Wijaya (PB Galaksi)",
         "status": "OK"
     },
     {
@@ -172,7 +172,18 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Zacky - Reno vs Arka - Buana",
+        "partai": "Anggun Nugroho / Yohan Hadikusumo (PB Jaya Raya) vs Kafi Raditya Pandika / Nathan Barkah (PB Mutiara Cardinal)",
+        "status": "OK"
+    },
+    {
+        "match_id": 20,
+        "jam": "08:00:00",
+        "tanggal": "2026-03-11",
+        "venue": "DOME",
+        "court": "C1",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "partai": "Wahyu Nayaka / Ade Yusuf Santoso (PB Tangkas) vs Arjuna / Sasrabahu (PB Wayang)",
         "status": "OK"
     },
     {
@@ -180,21 +191,21 @@
         "jam": "08:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Irwan - Syah vs Qomar - Zaman",
+        "partai": "Deryansyah / Ikhsan Rumbay (PB Golden Star) vs Nikolaus Joaquin / Muhammad Al Farizi (PB Djarum)",
         "status": "OK"
     },
     {
         "match_id": 22,
-        "jam": "08:00:00",
+        "jam": "08:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Van - Sol vs Langit - Senja",
+        "partai": "Aditya / Warman (PB Sejarah) vs Luluk Hadiyanto / Alvent Yulianto (PB Djarum)",
         "status": "OK"
     },
     {
@@ -202,21 +213,21 @@
         "jam": "08:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Teguh - Iman vs Oki - Rio",
+        "partai": "Bima / Sakti (PB Nusantara) vs Hendra Aprida Gunawan / Alvent Yulianto (PB Suryanaga)",
         "status": "OK"
     },
     {
         "match_id": 24,
-        "jam": "08:30:00",
+        "jam": "09:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Kusuma - Laksana vs Ade - Wahyu",
+        "partai": "Cibubur / Junction (PB Wisata) vs Hendra / Kurniawan (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -224,21 +235,21 @@
         "jam": "09:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Pandu - Qadafi vs Vic - Ron",
+        "partai": "Adrian Pratama / Jonathan Farrell Gosal (PB Jaya Raya) vs Fauzan Majid / Firdi Hakim (PB Power Rajawali)",
         "status": "OK"
     },
     {
         "match_id": 26,
-        "jam": "09:00:00",
+        "jam": "09:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Rizky - Ramadhan vs Bhakti - Nusa",
+        "partai": "Airlangga / Kahuripan (PB Brantas) vs Teges Satriaji Cahyo Hutomo / Christopher David Wijaya (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -246,21 +257,21 @@
         "jam": "09:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Gani - Abdul vs Hariyanto - Arbi",
+        "partai": "M. Juan Elgiffani / Muhammad Nendi (PB Victory Bogor) vs Pangeran / Antasari (PB Banjar)",
         "status": "OK"
     },
     {
         "match_id": 28,
-        "jam": "09:30:00",
+        "jam": "10:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Darma - Eka vs Berry - Hardianto",
+        "partai": "Pandu / Dewanata (PB Mahkota) vs Kertanegara / Jaya (PB Kediri)",
         "status": "OK"
     },
     {
@@ -268,21 +279,21 @@
         "jam": "10:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Puncak - Jaya vs Taj - Raf",
+        "partai": "Agripina Prima / Marcus Fernaldi Gideon (PB Jaya Raya) vs Asghar Herfanda / Rian Canna Varo (PB Djarum)",
         "status": "OK"
     },
     {
         "match_id": 30,
-        "jam": "10:00:00",
+        "jam": "10:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Davin - Erlangga vs Sayap - Garuda",
+        "partai": "M. Lucky Andres Apriyanda / Yoga Prasetyo (PB Mutiara Cardinal) vs Hendru / Steven (PB Hi-Qua Wima)",
         "status": "OK"
     },
     {
@@ -290,21 +301,21 @@
         "jam": "10:30:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Dex - Neo vs Bambang - Rudy",
+        "partai": "Ricky Karanda Suwardi / Angga Pratama (PB Mutiara Cardinal) vs Andi / Rizky (PB Mutiara Cardinal)",
         "status": "OK"
     },
     {
         "match_id": 32,
-        "jam": "10:30:00",
+        "jam": "11:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Akar - Jati vs Leo - Daniel",
+        "partai": "Trunojoyo / Madura (PB Sakera) vs Leo Rolly Carnando / Daniel Marthin (PB Djarum)",
         "status": "OK"
     },
     {
@@ -312,21 +323,10 @@
         "jam": "11:00:00",
         "tanggal": "2026-03-11",
         "venue": "DOME",
-        "court": "C1",
-        "kategori": "GANDA PUTRA",
-        "babak": "R128",
-        "partai": "Hendra - Ahsan vs Farel - Raditya",
-        "status": "OK"
-    },
-    {
-        "match_id": 34,
-        "jam": "11:00:00",
-        "tanggal": "2026-03-11",
-        "venue": "DOME",
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Jay - Sky vs Jaka - Tingkir",
+        "partai": "Mohammad Ahsan / Hendra Setiawan (PB Djarum) vs Taufik / Wisnu (PB Semen Gresik)",
         "status": "OK"
     },
     {
@@ -337,7 +337,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Evan - Shaka vs Putu - Gede",
+        "partai": "Taman / Anggrek (PB Jakarta Barat) vs Kenashadi / Reinard Dhanriano (PB Mutiara Cardinal)",
         "status": "OK"
     },
     {
@@ -348,7 +348,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Saleh - Ridho vs Yanto - Basna",
+        "partai": "Bagas Maulana / Muhammad Shohibul Fikri (PB Djarum) vs Bintang / Kejora (PB Langit)",
         "status": "OK"
     },
     {
@@ -359,7 +359,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Dirga - Hayat vs Angga - Pratama",
+        "partai": "Bumi / Serpong (PB Damai) vs Senayan / City (PB Jakarta Pusat)",
         "status": "OK"
     },
     {
@@ -370,7 +370,18 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Kamal - Latif vs Hugo - Liam",
+        "partai": "Tony Gunawan / Halim Haryanto (PB Djarum) vs Yuda / Pratama (PB Satria)",
+        "status": "OK"
+    },
+    {
+        "match_id": 39,
+        "jam": "08:30:00",
+        "tanggal": "2026-03-12",
+        "venue": "DOME",
+        "court": "C1",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "partai": "Amri Syahnawi / Christopher Rusdianto (PB Jaya Raya) vs Gatot / Kaca (PB Perkasa)",
         "status": "OK"
     },
     {
@@ -378,21 +389,21 @@
         "jam": "08:30:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Restu - Saputra vs Banyu - Biru",
+        "partai": "Rizki Hidayat / Frengky Wijaya Putra (PB Exist) vs Gading / Serpong (PB Banten)",
         "status": "OK"
     },
     {
         "match_id": 41,
-        "jam": "08:30:00",
+        "jam": "09:00:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Ezra - Mika vs Mahardika - Nanda",
+        "partai": "Imam / Bonjol (PB Minang) vs Setyo / Nugroho (PB Pelita Bakrie)",
         "status": "OK"
     },
     {
@@ -400,21 +411,21 @@
         "jam": "09:00:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Kenzo - Alaric vs Wira - Usaha",
+        "partai": "Hidayat / Syarif (PB Putra) vs Sultan / Baabullah (PB Ternate)",
         "status": "OK"
     },
     {
         "match_id": 43,
-        "jam": "09:00:00",
+        "jam": "09:30:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Max - Leo vs Indra - Jaya",
+        "partai": "Emanuel Randhy Febryanto / Alfandy Rizki Kasturo (PB Chandra Wijaya) vs Muhammad Rayhan Nur Fadillah / Marcus Fernaldi Gideon (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -422,21 +433,21 @@
         "jam": "09:30:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Bima - Perkasa vs Ted - Kim",
+        "partai": "Nuku / Tidore (PB Maluku Utara) vs Flandy Limpele / Eng Hian (PB SGS Bandung)",
         "status": "OK"
     },
     {
         "match_id": 45,
-        "jam": "09:30:00",
+        "jam": "10:00:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Ihsan - Jatmiko vs Niko - Andre",
+        "partai": "Eka / Saputra (PB Bintaro Jaya) vs Rudi / Gunawan (PB Bimantara)",
         "status": "OK"
     },
     {
@@ -444,21 +455,21 @@
         "jam": "10:00:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C1",
+        "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Dion - Rafli vs Arkan - Gibran",
+        "partai": "Fajar / Menyingsing (PB Mentari) vs Guntur / Satria (PB Exist Jakarta)",
         "status": "OK"
     },
     {
         "match_id": 47,
-        "jam": "10:00:00",
+        "jam": "10:30:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C2",
+        "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Intan - Berlian vs Rayyan - Pradipta",
+        "partai": "Patra Harapan Rindorindo / Muhammad Putra Erwiansyah (PB Djarum) vs Fran Kurniawan / Bona Septano (PB Djarum)",
         "status": "OK"
     },
     {
@@ -466,21 +477,10 @@
         "jam": "10:30:00",
         "tanggal": "2026-03-12",
         "venue": "DOME",
-        "court": "C1",
-        "kategori": "GANDA PUTRA",
-        "babak": "R128",
-        "partai": "Totok - Sudarsono vs Pramudya - Yeremia",
-        "status": "OK"
-    },
-    {
-        "match_id": 49,
-        "jam": "10:30:00",
-        "tanggal": "2026-03-12",
-        "venue": "DOME",
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Sabar - Reza vs Bryan - Axel",
+        "partai": "Rama / Shinta (PB Kasmaran) vs Candra Wijaya / Sigit Budiarto (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -491,7 +491,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Raka - Danendra vs Sam - Tom",
+        "partai": "Reza Pahlevi / Akbar Bintang Cahyono (PB Jaya Raya) vs I Gusti / Ngurah Rai (PB Bali)",
         "status": "OK"
     },
     {
@@ -502,7 +502,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Dicky - Wahyu vs Zul - Karnain",
+        "partai": "Galuh Dwi Putra / Gabriel Christopher Frinta (PB Power Rajawali) vs Mega / Mendung (PB Awan)",
         "status": "OK"
     },
     {
@@ -513,7 +513,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Wahyu - Ade vs Hadi - Kusumo",
+        "partai": "Sultan / Agung (PB Mataram) vs Andika Ramadiansyah / Rinov Rivaldy (PB Djarum)",
         "status": "OK"
     },
     {
@@ -524,7 +524,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Guy - Len vs Bobby - Sandy",
+        "partai": "Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani (PB Jaya Raya) vs Siliwangi / Pajajaran (PB Sunda)",
         "status": "OK"
     },
     {
@@ -535,7 +535,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Dafa - Firdaus vs Rudi - Hartono",
+        "partai": "Agung / Podomoro (PB Properti) vs Abiyyu Fauzan / Syahrizal Dafandi Arafixqli (PB Mutiara Cardinal)",
         "status": "OK"
     },
     {
@@ -546,7 +546,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Samudra - Pasai vs Mega - Mendung",
+        "partai": "Alam / Sutera (PB Sutera) vs Davin Rutama / Michael Owen (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -557,7 +557,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Panah - Asmara vs Fajar - Shadiq",
+        "partai": "Arif / Dimas (PB Guna Dharma) vs Dexter Farrell / Wahyu Agung Prasetyo (PB Exist)",
         "status": "OK"
     },
     {
@@ -568,7 +568,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Taufik - Sigit vs Yan - Zen",
+        "partai": "Anselmus Breagit Fredy Prasetya / Pulung Ramadhan (PB Djarum) vs Berry Angriawan / Hardianto (PB Djarum)",
         "status": "OK"
     },
     {
@@ -579,7 +579,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Cahaya - Abadi vs Ry - Go",
+        "partai": "Putra / Wijaya (PB Mentari) vs Teuku / Umar (PB Meulaboh)",
         "status": "OK"
     },
     {
@@ -590,7 +590,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Adnan - Ghani vs Fadhil - Irawan",
+        "partai": "Sisingamangaraja / Toba (PB Batak) vs Pattimura / Maluku (PB Sahapory)",
         "status": "OK"
     },
     {
@@ -601,7 +601,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Embun - Pagi vs Ricky - Rexy",
+        "partai": "Pramudya Kusumawardana / Yeremia Rambitan (PB Exist) vs Bona Septano / Mohammad Ahsan (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -612,7 +612,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Zidan - Hamzah vs Trisna - Utama",
+        "partai": "Diponegoro / Sentot (PB Pahlawan) vs Zaidan Arrafi Nabawi / Kleopas Binar Putra Prakoso (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -623,7 +623,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Mono - Karyo vs Roy - Ace",
+        "partai": "Agus / Susanto (PB Tangkas Jakarta) vs Pondok / Indah (PB Jakarta Selatan)",
         "status": "OK"
     },
     {
@@ -634,7 +634,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Feri - Irawan vs Lucky - Perdana",
+        "partai": "Daniel Edgar Marvino / Raymond Indra (PB Djarum) vs Kelapa / Gading (PB Jakarta Utara)",
         "status": "OK"
     },
     {
@@ -645,7 +645,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
-        "partai": "Matahari - Terbit vs Fajar - Rian",
+        "partai": "Rian Sukmawan / Yonathan Suryatama Dasuki (PB Djarum) vs Marcus Fernaldi Gideon / Kevin Sanjaya Sukamuljo (PB Jaya Raya)",
         "status": "OK"
     },
     {
@@ -656,7 +656,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs TBD",
+        "partai": "TBD vs Wisnu / Wardhana (PB Kerajaan)",
         "status": "OK"
     },
     {
@@ -667,7 +667,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "Galang - Baskara vs TBD",
+        "partai": "TBD vs TBD",
         "status": "CONFLICT"
     },
     {
@@ -700,7 +700,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs TBD",
+        "partai": "Bambang / Hartono (PB Djarum Kudus) vs TBD",
         "status": "OK"
     },
     {
@@ -733,7 +733,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "Nur - Cahyo vs TBD",
+        "partai": "TBD vs TBD",
         "status": "CONFLICT"
     },
     {
@@ -744,7 +744,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs Al - Ben",
+        "partai": "TBD vs Purnawarman / Taruma (PB Nagara)",
         "status": "OK"
     },
     {
@@ -755,7 +755,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs Lu - Ka",
+        "partai": "TBD vs TBD",
         "status": "CONFLICT"
     },
     {
@@ -832,7 +832,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs TBD",
+        "partai": "TBD vs Muh. Fachrikar / Muhammad Zaki Ubaidillah (PB Exist)",
         "status": "OK"
     },
     {
@@ -865,7 +865,7 @@
         "court": "C2",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "Bara - Api vs TBD",
+        "partai": "TBD vs TBD",
         "status": "CONFLICT"
     },
     {
@@ -920,7 +920,7 @@
         "court": "C1",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
-        "partai": "TBD vs TBD",
+        "partai": "Rian / Pratama (PB Kasih) vs TBD",
         "status": "OK"
     },
     {
@@ -1701,7 +1701,7 @@
         "court": "LP1.LP2",
         "kategori": "GANDA PUTRI",
         "babak": "R64",
-        "partai": "Apriyani - Fadia vs TBD",
+        "partai": "TBD vs TBD",
         "status": "CONFLICT"
     },
     {
