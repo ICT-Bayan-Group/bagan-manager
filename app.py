@@ -644,4 +644,4 @@ def get_full_schedule():
 
 if __name__ == '__main__':
     init_skor_db()  # <--- Baris ini WAJIB ada di sini
-    app.run(host='0.0.0.0', port=2052, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
