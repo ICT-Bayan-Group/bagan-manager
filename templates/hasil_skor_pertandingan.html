@@ -1,227 +1,349 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id">filteredData.forEach
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Score - Balikpapan Open</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --primary: #1e3a8a; 
-            --accent: #f59e0b; 
-            --success: #10b981; 
-            --bg: #f1f5f9; 
+        :root {
+            --primary: #1e3a8a;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --bg: #f1f5f9;
         }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            padding: 10px; 
-            background: var(--bg); 
-            margin: 0; 
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 10px;
+            background: var(--bg);
+            margin: 0;
         }
-        
-        .container { 
-            background: white; 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            max-width: 1100px; 
-            margin: 0 auto; 
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        
-        .header-wrapper { 
-            border-bottom: 2px solid var(--bg); 
-            padding-bottom: 15px; 
+
+        .header-wrapper {
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 15px;
             margin-bottom: 20px;
         }
 
-        h2 { color: var(--primary); margin: 0 0 15px 0; display: flex; align-items: center; gap: 10px; font-size: 1.5rem; }
+        h2 {
+            color: var(--primary);
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
 
         /* Grouping Filter agar Rapih */
-        .filter-group { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 10px; 
+        .filter-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
         }
-        
-        .filter-item { display: flex; flex-direction: column; gap: 5px; }
-        .filter-item label { font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase; }
 
-        select { 
-            padding: 10px; 
-            border-radius: 8px; 
-            border: 1px solid #cbd5e1; 
-            font-size: 13px; 
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-item label {
+            font-size: 11px;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-size: 13px;
             font-weight: 600;
             color: var(--primary);
             background-color: #fff;
             width: 100%;
         }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th { background: var(--primary); color: white; padding: 12px; text-align: left; font-size: 12px; text-transform: uppercase; }
-        td { padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: middle; font-size: 14px; }
-        
-        tr:hover { background-color: #f8fafc; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-        .skor-box { font-family: 'Courier New', monospace; font-weight: 800; color: var(--primary); font-size: 18px; }
-        .status-selesai { color: var(--success); font-weight: bold; }
-        .status-menunggu { color: #94a3b8; font-style: italic; font-size: 12px; }
-        
-        .court-badge { background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: bold; color: var(--primary); }
-        .round-badge { font-size: 11px; font-weight: 700; color: #475569; background: #f1f5f9; padding: 2px 6px; border-radius: 4px; border: 1px solid #e2e8f0; }
-        .kategori-text { font-size: 11px; font-weight: bold; color: #64748b; text-transform: uppercase; display: block; }
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .skor-box {
+            font-family: 'Courier New', monospace;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .status-selesai {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .status-menunggu {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .court-badge {
+            background: #e2e8f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .round-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: #475569;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .kategori-text {
+            font-size: 11px;
+            font-weight: bold;
+            color: #64748b;
+            text-transform: uppercase;
+            display: block;
+        }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .filter-group { grid-template-columns: 1fr; }
-            thead { display: none; }
-            tr { display: block; border: 1px solid #e2e8f0; margin-bottom: 15px; border-radius: 10px; padding: 10px; background: #fff; }
-            td { display: block; text-align: right; padding: 8px 5px; border-bottom: 1px dashed #f1f5f9; position: relative; }
-            td::before { content: attr(data-label); position: absolute; left: 5px; font-weight: bold; color: #64748b; text-transform: uppercase; font-size: 10px; }
-            td:last-child { border-bottom: none; }
+            .filter-group {
+                grid-template-columns: 1fr;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                display: block;
+                border: 1px solid #e2e8f0;
+                margin-bottom: 15px;
+                border-radius: 10px;
+                padding: 10px;
+                background: #fff;
+            }
+
+            td {
+                display: block;
+                text-align: right;
+                padding: 8px 5px;
+                border-bottom: 1px dashed #f1f5f9;
+                position: relative;
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 5px;
+                font-weight: bold;
+                color: #64748b;
+                text-transform: uppercase;
+                font-size: 10px;
+            }
+
+            td:last-child {
+                border-bottom: none;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="header-wrapper">
-        <h2><i class="fas fa-poll"></i> Live Score & Jadwal</h2>
-        
-        <div class="filter-group">
-            <div class="filter-item">
-                <label>Tanggal</label>
-                <select id="filter-tanggal" onchange="loadLiveResults()">
-                    <option value="ALL">Semua Tanggal</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Kategori</label>
-                <select id="filter-kategori" onchange="loadLiveResults()">
-                    <option value="ALL">Semua Kategori</option>
-                </select>
-            </div>
-            <div class="filter-item">
-                <label>Lapangan</label>
-                <select id="filter-lapangan" onchange="loadLiveResults()">
-                    <option value="ALL">Semua Lapangan</option>
-                </select>
+    <div class="container">
+        <div class="header-wrapper">
+            <h2><i class="fas fa-poll"></i> Live Score & Jadwal</h2>
+
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label>Tanggal</label>
+                    <select id="filter-tanggal" onchange="loadLiveResults()">
+                        <option value="ALL">Semua Tanggal</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>Kategori</label>
+                    <select id="filter-kategori" onchange="loadLiveResults()">
+                        <option value="ALL">Semua Kategori</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>Lapangan</label>
+                    <select id="filter-lapangan" onchange="loadLiveResults()">
+                        <option value="ALL">Semua Lapangan</option>
+                    </select>
+                </div>
             </div>
         </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="90">Jam</th>
+                    <th width="70">Lap.</th>
+                    <th width="110">Babak</th>
+                    <th>Partai</th>
+                    <th width="110">Skor</th>
+                    <th>Pemenang</th>
+                </tr>
+            </thead>
+            <tbody id="result-body"></tbody>
+        </table>
     </div>
-    
-    <table>
-        <thead>
-            <tr>
-                <th width="90">Jam</th>
-                <th width="70">Lap.</th>
-                <th width="110">Babak</th> 
-                <th>Partai</th>
-                <th width="110">Skor</th>
-                <th>Pemenang</th>
-            </tr>
-        </thead>
-        <tbody id="result-body"></tbody>
-    </table>
-</div>
 
-<script>
-    // Penampung data agar tidak fetch ulang-ulang saat filter berubah
-    let masterData = [];
+    <script>
+        // Penampung data agar tidak fetch ulang-ulang saat filter berubah
+        let masterData = [];
 
-    async function initFilters() {
-        try {
-            // Ambil data untuk mendapatkan daftar Tanggal & Lapangan yang unik
-            const res = await fetch('/api/get-full-schedule');
-            masterData = await res.json();
-
-            // 1. Populate Kategori
-            const resCat = await fetch('/get-categories');
-            const dataCat = await resCat.json();
-            const selKat = document.getElementById('filter-kategori');
-            dataCat.categories.forEach(c => {
-                let opt = new Option(c, c);
-                selKat.add(opt);
-            });
-
-            // 2. Populate Tanggal Unik
-            const selTgl = document.getElementById('filter-tanggal');
-            const unikTgl = [...new Set(masterData.map(m => m.tanggal))].sort();
-            unikTgl.forEach(t => {
-                let opt = new Option(t, t);
-                selTgl.add(opt);
-            });
-
-            // 3. Populate Lapangan Unik
-            const selLap = document.getElementById('filter-lapangan');
-            const unikLap = [...new Set(masterData.map(m => m.court))].sort();
-            unikLap.forEach(l => {
-                let opt = new Option(l, l);
-                selLap.add(opt);
-            });
-
-            loadLiveResults(false); // Render pertama kali
-        } catch (err) {
-            console.error("Gagal inisialisasi filter:", err);
-        }
-    }
-
-    async function loadLiveResults(shouldFetch = true) {
-        try {
-            if (shouldFetch) {
+        async function initFilters() {
+            try {
+                // Ambil data untuk mendapatkan daftar Tanggal & Lapangan yang unik
                 const res = await fetch('/api/get-full-schedule');
                 masterData = await res.json();
+
+                // 1. Populate Kategori
+                const resCat = await fetch('/get-categories');
+                const dataCat = await resCat.json();
+                const selKat = document.getElementById('filter-kategori');
+                dataCat.categories.forEach(c => {
+                    let opt = new Option(c, c);
+                    selKat.add(opt);
+                });
+
+                // 2. Populate Tanggal Unik
+                const selTgl = document.getElementById('filter-tanggal');
+                const unikTgl = [...new Set(masterData.map(m => m.tanggal))].sort();
+                unikTgl.forEach(t => {
+                    let opt = new Option(t, t);
+                    selTgl.add(opt);
+                });
+
+                // 3. Populate Lapangan Unik
+                const selLap = document.getElementById('filter-lapangan');
+                const unikLap = [...new Set(masterData.map(m => m.court))].sort();
+                unikLap.forEach(l => {
+                    let opt = new Option(l, l);
+                    selLap.add(opt);
+                });
+
+                loadLiveResults(false); // Render pertama kali
+            } catch (err) {
+                console.error("Gagal inisialisasi filter:", err);
             }
-
-            const valTgl = document.getElementById('filter-tanggal').value;
-            const valKat = document.getElementById('filter-kategori').value;
-            const valLap = document.getElementById('filter-lapangan').value;
-
-            const tbody = document.getElementById('result-body');
-            
-            // Logika Filter 3 Lapis
-            const filteredData = masterData.filter(m => {
-                const matchTgl = (valTgl === "ALL" || m.tanggal === valTgl);
-                const matchKat = (valKat === "ALL" || m.kategori === valKat);
-                const matchLap = (valLap === "ALL" || m.court === valLap);
-                return matchTgl && matchKat && matchLap;
-            });
-
-            if (filteredData.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px;">Data tidak ditemukan.</td></tr>';
-                return;
-            }
-
-            tbody.innerHTML = '';
-            filteredData.forEach(m => {
-                const tr = document.createElement('tr');
-                const isSelesai = m.status_label === "SELESAI";
-                
-                tr.innerHTML = `
-                    <td data-label="Jam"><strong>${m.jam}</strong></td>
-                    <td data-label="Lap."><span class="court-badge">${m.court}</span></td>
-                    <td data-label="Babak"><span class="round-badge">${m.babak || '-'}</span></td> 
-                    <td data-label="Partai">
-                        <span class="kategori-text">${m.kategori}</span>
-                        ${m.partai}
-                    </td>
-                    <td data-label="Skor" class="skor-box">${m.skor || '-'}</td>
-                    <td data-label="Pemenang" class="${isSelesai ? 'status-selesai' : 'status-menunggu'}">
-                        ${isSelesai ? '🏆 ' + m.winner : 'Menunggu'}
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        } catch (err) {
-            console.error("Gagal memuat data:", err);
         }
-    }
 
-    window.onload = initFilters;
-    // Auto refresh data tiap 30 detik tanpa reset filter
-    setInterval(() => loadLiveResults(true), 30000);
-</script>
+        async function loadLiveResults(shouldFetch = true) {
+            try {
+                if (shouldFetch) {
+                    const res = await fetch('/api/get-full-schedule');
+                    masterData = await res.json();
+                }
+
+                const valTgl = document.getElementById('filter-tanggal').value;
+                const valKat = document.getElementById('filter-kategori').value;
+                const valLap = document.getElementById('filter-lapangan').value;
+
+                const tbody = document.getElementById('result-body');
+
+                // Logika Filter 3 Lapis
+                const filteredData = masterData.filter(m => {
+                    const matchTgl = (valTgl === "ALL" || m.tanggal === valTgl);
+                    const matchKat = (valKat === "ALL" || m.kategori === valKat);
+                    const matchLap = (valLap === "ALL" || m.court === valLap);
+                    return matchTgl && matchKat && matchLap;
+                });
+
+                if (filteredData.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px;">Data tidak ditemukan.</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = '';
+                filteredData.forEach(m => {
+                    // Ganti blok di dalam filteredData.forEach(m => { ... })
+                    const tr = document.createElement('tr');
+                    const isSelesai = m.status_label === "SELESAI";
+
+                    // Fungsi untuk memindahkan (PB) ke atas nama
+                    const formatPartai = (text) => {
+                        if (!text) return '-';
+                        if (text.includes(' (')) {
+                            return text.replace(/ \((.*?)\)/g, (match, pb) => {
+                                return `<div style="font-size: 10px; color: #64748b; font-weight: 800; line-height: 1.2; margin-bottom: 2px;">(${pb})</div>`;
+                            });
+                        }
+                        return `<div>${text}</div>`;
+                    };
+
+                    tr.innerHTML = `
+    <td data-label="Jam"><strong>${m.jam}</strong></td>
+    <td data-label="Lap."><span class="court-badge">${m.court}</span></td>
+    <td data-label="Babak"><span class="round-badge">${m.babak || '-'}</span></td> 
+    <td data-label="Partai">
+        <span class="kategori-text">${m.kategori}</span>
+        <div style="display: flex; flex-direction: column; gap: 2px; margin-top: 5px;">
+            ${formatPartai(m.partai)}
+        </div>
+    </td>
+    <td data-label="Skor" class="skor-box">${m.skor || '-'}</td>
+    <td data-label="Pemenang" class="${isSelesai ? 'status-selesai' : 'status-menunggu'}">
+        ${isSelesai ? '🏆 ' + m.winner : 'Menunggu'}
+    </td>
+`;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                console.error("Gagal memuat data:", err);
+            }
+        }
+
+        window.onload = initFilters;
+        // Auto refresh data tiap 30 detik tanpa reset filter
+        setInterval(() => loadLiveResults(true), 30000);
+    </script>
 
 </body>
+
 </html>
