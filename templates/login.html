@@ -11,7 +11,7 @@
         :root {
             --primary: #1e3a8a;
             --accent: #3b82f6;
-            --bg: #f1f5f9;
+            --bg: #f8fafc; /* Warna background lebih bersih */
             --text-main: #1e293b;
         }
 
@@ -20,8 +20,9 @@
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg);
+            /* Pola titik tetap dipertahankan agar tidak terlalu polos */
             background-image: radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0);
-            background-size: 40px 40px; /* Pola titik halus di background */
+            background-size: 40px 40px; 
             margin: 0;
             display: flex;
             justify-content: center;
@@ -31,43 +32,45 @@
         }
 
         .login-card {
-            background: white;
+            background: transparent; /* KOTAK DIHAPUS */
             width: 100%;
-            max-width: 400px;
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 360px; /* Sedikit lebih ramping */
+            padding: 20px;
+            box-shadow: none; /* BAYANGAN DIHAPUS */
             text-align: center;
         }
 
         .logo-area {
             color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            /* Memberikan sedikit efek glow pada logo karena tidak ada kotak */
+            text-shadow: 0 0 20px rgba(30, 58, 138, 0.1);
         }
 
         h2 {
             color: var(--text-main);
             font-weight: 800;
             margin: 0 0 8px 0;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            letter-spacing: -0.025em;
         }
 
         p.subtitle {
             color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
         }
 
         .input-group {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: left;
         }
 
         .input-group i {
             position: absolute;
-            left: 15px;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: #94a3b8;
@@ -76,31 +79,28 @@
 
         input {
             width: 100%;
-            padding: 14px 15px 14px 45px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            padding: 16px 16px 16px 48px;
+            background: white; /* Input tetap putih agar kontras */
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px; /* Lebih bulat/rounded */
             font-size: 1rem;
-            font-family: inherit;
             transition: all 0.2s;
             outline: none;
         }
 
         input:focus {
             border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-        }
-
-        input:focus + i {
-            color: var(--accent);
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1);
         }
 
         button {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 16px;
             font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
@@ -108,51 +108,35 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 12px;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
         }
 
         button:hover {
             background: #152a61;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
-        }
-
-        button:active {
-            transform: translateY(0);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
         }
 
         #error-msg {
-            background: #fef2f2;
-            color: #dc2626;
-            padding: 10px;
-            border-radius: 8px;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 12px;
+            border-radius: 12px;
             font-size: 0.85rem;
             font-weight: 600;
             margin-top: 20px;
-            display: none; /* Sembunyi jika tidak ada error */
-            border: 1px solid #fee2e2;
-        }
-
-        /* Footer Copyright */
-        .footer {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: #94a3b8;
-        }
-
-        /* Animasi Loading pada Tombol */
-        .spinner {
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
             display: none;
+            border: 1px solid #fecaca;
         }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
 
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -161,11 +145,11 @@
         <div class="logo-area">
             <i class="fas fa-shuttlecock"></i>
         </div>
-        <h2>BPN OPEN</h2>
-        <p class="subtitle">Silakan login ke Command Center</p>
+        <h2>BAYAN OPEN</h2>
+        <p class="subtitle">Command Center Login</p>
 
         <div class="input-group">
-            <input type="text" id="username" placeholder="Username" required>
+            <input type="text" id="username" placeholder="Username" required autocomplete="off">
             <i class="fas fa-user"></i>
         </div>
 
@@ -175,18 +159,23 @@
         </div>
 
         <button onclick="login()" id="login-btn">
-            <span id="btn-text">Masuk Sekarang</span>
-            <div class="spinner" id="btn-spinner"></div>
+            <span id="btn-text">Masuk</span>
+            <div class="spinner" id="btn-spinner" style="display:none; width:18px; height:18px; border:2px solid rgba(255,255,255,.3); border-top:2px solid white; border-radius:50%; animation:spin .8s linear infinite;"></div>
         </button>
 
         <p id="error-msg"></p>
 
         <div class="footer">
-            &copy; 2026 Balikpapan Open Tournament
+            &copy; 2026 Balikpapan Open
         </div>
     </div>
 
     <script>
+        // Animasi spin tetap diperlukan di CSS/JS
+        const style = document.createElement('style');
+        style.innerHTML = '@keyframes spin { 100% { transform: rotate(360deg); } }';
+        document.head.appendChild(style);
+
         async function login() {
             const user = document.getElementById('username').value;
             const pass = document.getElementById('password').value;
@@ -196,13 +185,12 @@
             const loginBtn = document.getElementById('login-btn');
 
             if (!user || !pass) {
-                showError("Username dan password wajib diisi!");
+                showError("Isi username & password!");
                 return;
             }
 
-            // Loading State
             loginBtn.disabled = true;
-            btnText.innerText = "Memproses...";
+            btnText.innerText = "Memverifikasi...";
             btnSpinner.style.display = "block";
             errorElement.style.display = "none";
 
@@ -217,13 +205,13 @@
                     window.location.href = '/admin'; 
                 } else {
                     const data = await res.json();
-                    showError(data.message || "Login gagal!");
+                    showError(data.message || "Akses ditolak!");
                 }
             } catch (err) {
-                showError("Gagal terhubung ke server.");
+                showError("Server tidak merespon.");
             } finally {
                 loginBtn.disabled = false;
-                btnText.innerText = "Masuk Sekarang";
+                btnText.innerText = "Masuk";
                 btnSpinner.style.display = "none";
             }
         }
@@ -234,12 +222,7 @@
             errorElement.style.display = "block";
         }
 
-        // Jalankan login saat tekan tombol "Enter" di keyboard
-        document.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                login();
-            }
-        });
+        document.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
     </script>
 </body>
 </html>
