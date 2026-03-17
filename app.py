@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, send_file, make_response
+from flask import Flask, request, jsonify, render_template, make_response, after_this_request
 from flask_cors import CORS 
 import json
 import subprocess
@@ -17,7 +17,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['SECRET_KEY'] = 'kunci_rahasia_bagan_2026' # Pastikan ini sama di semua fungsi
 CONFIG_FILE = 'config.json'
 
-app.config['SECRET_KEY'] = 'kunci_rahasia_bagan'
+app.config['SECRET_KEY'] = 'iasdhfiuasfuiasyfiusi48756324772345kjh$#@$#fksdjkfg'
 
 # 1. SATPAM VERSI COOKIE
 def token_required(f):
@@ -25,20 +25,27 @@ def token_required(f):
     def decorated(*args, **kwargs):
         token = request.cookies.get('adminToken')
         
-        # Daftar halaman yang kalau diakses tanpa login, harus balik ke login.html
-        halaman_admin = ['/admin', '/pendaftaran', '/manage-categories','/jadwal','/run-schedule','/reset-all']
+        # Daftar halaman admin
+        halaman_admin = ['/admin', '/pendaftaran', '/manage-categories', '/jadwal', '/run-schedule', '/reset-all']
         
         if not token:
             if request.path in halaman_admin:
-                # Balikkan ke login.html biar user bisa login lagi
                 return render_template('login.html', error="Silakan login dahulu.")
-            
-            # Jika ini request data (API), kasih pesan JSON
             return jsonify({'message': 'Akses ditolak. Token tidak ditemukan!'}), 401
             
         try:
+            # 1. Validasi Token
             data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
             current_user = data['user']
+
+            # 2. LOGIKA IDLE TIMEOUT: Perbarui durasi cookie setiap ada aktivitas
+            @after_this_request
+            def refresh_cookie(response):
+                # Set durasi baru, misal 1800 detik (30 Menit)
+                # Setiap kamu klik menu, durasi 30 menit ini akan dihitung dari awal lagi
+                response.set_cookie('adminToken', token, httponly=True, max_age=1800)
+                return response
+
         except Exception:
             if request.path in halaman_admin:
                 return render_template('login.html', error="Sesi habis. Silakan login ulang.")
@@ -83,11 +90,17 @@ def init_skor_db():
     conn.commit()
     conn.close()
 
-# --- TAMBAHKAN RUTE INI ---
 @app.route('/')
 def home():
     return render_template('login.html')
 # --------------------------
+
+@app.route('/logout')
+def logout():
+    resp = make_response(render_template('login.html', error="Anda telah berhasil keluar."))
+    # Menghapus cookie dengan cara menimpa isinya dan set durasi ke 0
+    resp.set_cookie('adminToken', '', expires=0)
+    return resp
 
 @app.route('/admin')
 @token_required
