@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "p1": "Fajar Alfian / Muhammad Rian Ardianto (PB SGS Bandung)",
-        "p2": "Gajah / Mada (PB Majapahit)",
+        "p1": "Gajah / Mada (PB Majapahit)",
+        "p2": "Fajar Alfian / Muhammad Rian Ardianto (PB SGS Bandung)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -289,8 +289,8 @@
     },
     {
         "id": 33,
-        "p1": "Mohammad Ahsan / Hendra Setiawan (PB Djarum)",
-        "p2": "Rama / Shinta (PB Kasmaran)",
+        "p1": "Rama / Shinta (PB Kasmaran)",
+        "p2": "Mohammad Ahsan / Hendra Setiawan (PB Djarum)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -334,8 +334,8 @@
     },
     {
         "id": 38,
-        "p1": "BYE",
-        "p2": "Eko / Budi (PB Rajawali)",
+        "p1": "Eko / Budi (PB Rajawali)",
+        "p2": "BYE",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
