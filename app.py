@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, send_file
+from flask import Flask, request, jsonify, render_template, send_file, make_response
 from flask_cors import CORS 
 import json
 import subprocess
@@ -6,11 +6,66 @@ import pandas as pd
 import os
 import math
 import sqlite3
+import jwt
+import datetime
+from functools import wraps
 
 app = Flask(__name__)
-CORS(app)
+# Izinkan semua domain (atau domain tertentu) dan izinkan header 'Authorization'
+CORS(app, supports_credentials=True, allow_headers=["Content-Type", "Authorization"])
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['SECRET_KEY'] = 'kunci_rahasia_bagan_2026' # Pastikan ini sama di semua fungsi
 CONFIG_FILE = 'config.json'
+
+app.config['SECRET_KEY'] = 'kunci_rahasia_bagan'
+
+# 1. SATPAM VERSI COOKIE
+def token_required(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        token = request.cookies.get('adminToken')
+        
+        # Daftar halaman yang kalau diakses tanpa login, harus balik ke login.html
+        halaman_admin = ['/admin', '/pendaftaran', '/manage-categories','/jadwal','/run-schedule','/reset-all']
+        
+        if not token:
+            if request.path in halaman_admin:
+                # Balikkan ke login.html biar user bisa login lagi
+                return render_template('login.html', error="Silakan login dahulu.")
+            
+            # Jika ini request data (API), kasih pesan JSON
+            return jsonify({'message': 'Akses ditolak. Token tidak ditemukan!'}), 401
+            
+        try:
+            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=["HS256"])
+            current_user = data['user']
+        except Exception:
+            if request.path in halaman_admin:
+                return render_template('login.html', error="Sesi habis. Silakan login ulang.")
+            return jsonify({'message': 'Token tidak valid/kedaluwarsa!'}), 401
+            
+        return f(current_user, *args, **kwargs)
+    return decorated
+
+# 2. ENDPOINT LOGIN (Simpan ke Cookie)
+@app.route('/api/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    if data and data.get('username') == 'admin' and data.get('password') == '12345':
+        token = jwt.encode({
+            'user': data['username'],
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+        }, app.config['SECRET_KEY'], algorithm="HS256")
+        
+        # Buat response sukses
+        resp = make_response(jsonify({'message': 'Login berhasil'}))
+        # Simpan token ke Cookie browser (httponly=True membuatnya sangat aman dari hacker)
+        resp.set_cookie('adminToken', token, httponly=True) 
+        return resp
+        
+    return jsonify({'message': 'Username atau password salah!'}), 401
+
+# (Lanjutkan dengan rute /get-categories dan /simpan-tim yang juga pakai @token_required)
 
 # 1. Database hanya untuk menyimpan skor (Buku Catatan)
 def init_skor_db():
@@ -31,11 +86,12 @@ def init_skor_db():
 # --- TAMBAHKAN RUTE INI ---
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('login.html')
 # --------------------------
 
 @app.route('/admin')
-def tampil_adminl():
+@token_required
+def tampil_adminl(current_user):
     return render_template('admin.html')
 
 
@@ -66,7 +122,8 @@ def input_skor_page():
 
 
 @app.route('/jadwal')
-def tampil_jadwal():
+@token_required
+def tampil_jadwal(current_user):
     return render_template('jadwal.html')
 # --------------------------
 
@@ -88,12 +145,14 @@ def simulasi():
     return render_template('simulator.html')
 
 @app.route('/pendaftaran')
-def pendaftaran():
+@token_required
+def pendaftaran(current_user):
     return render_template('pendaftaran.html')
 
 
 
 @app.route('/get-categories', methods=['GET'])
+#@token_required
 def get_categories():
     try:
         # Mencari file categories.json
@@ -148,7 +207,8 @@ def execute_bagan():
     
 
 @app.route('/run-schedule', methods=['POST'])
-def execute_generate():
+@token_required
+def execute_generate(current_user):
     try:
         # Menjalankan script bagan.py
         result = subprocess.run(["python3", "generate_main.py"], capture_output=True, text=True)
@@ -164,7 +224,8 @@ def execute_generate():
 import subprocess
 
 @app.route('/reset-all', methods=['POST'])
-def reset_all():
+@token_required
+def reset_all(current_user):
     data = request.json
     password_input = data.get('password')
     
@@ -493,7 +554,8 @@ def simpan_tim():
     return jsonify({"message": f"Berhasil! {jumlah_seed} Seed dikunci, sisanya diacak."})
 
 @app.route('/manage-categories')
-def manage_categories_page():
+@token_required
+def manage_categories_page(current_user):
     return render_template('manage_categories.html')
 
 @app.route('/save-categories', methods=['POST'])

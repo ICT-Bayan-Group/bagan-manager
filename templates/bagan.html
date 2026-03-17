@@ -276,6 +276,7 @@
             fetch('/api/save-swap-bracket', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
+                'Authorization': 'Bearer ' + token // <--- TAMBAHKAN INI
                 body: JSON.stringify({ kategori: cat, teams: newTeamsList })
             })
             .then(res => res.json())
