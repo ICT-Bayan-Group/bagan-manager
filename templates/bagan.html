@@ -89,7 +89,7 @@
         .trophy-icon { font-size: 40px; color: var(--accent); margin-bottom: 10px; }
         .final-id { position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 10px; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
 
-        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 55px; z-index: 999; }
+        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0px; z-index: 999; }
         .btn-cat { padding: 8px 16px; border-radius: 20px; border: 1px solid #cbd5e1; background: white; cursor: pointer; font-weight: bold; font-size: 12px; }
         .btn-cat.active { background: var(--primary); color: white; border-color: var(--primary); }
 
@@ -98,22 +98,12 @@
 </head>
 <body>
 
-<div class="navbar">
-    <h1><i class="fas fa-sitemap"></i> BAGAN PERTANDINGAN BALIKPAPAN OPEN</h1>
-    <p style="margin:0; font-size:12px; color:#cbd5e1;">Klik nama pemain di babak pertama untuk menukar posisi (Seeding)</p>
-</div>
 
 <div class="filter-nav" id="catNav"></div>
-
 <div class="main-bracket" id="bracket-container">
     <div class="side left" id="bracket-left"></div>
 
     <div class="side center" id="bracket-center"></div>
-
-
-
-   
-
 <script>
     let allMatches = [];
     let firstSelectedPlayer = null;
