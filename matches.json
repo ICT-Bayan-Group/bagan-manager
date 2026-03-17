@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "p1": "Gajah / Mada (PB Majapahit)",
-        "p2": "Fajar Alfian / Muhammad Rian Ardianto (PB SGS Bandung)",
+        "p1": "An Se-young (BKA - Korea Selatan)",
+        "p2": "Hina Akechi (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -10,8 +10,8 @@
     },
     {
         "id": 2,
-        "p1": "Kenashadi / Reinard Dhanriano (PB Mutiara Cardinal)",
-        "p2": "M. Juan Elgiffani / Muhammad Nendi (PB Victory Bogor)",
+        "p1": "Niki Rapoport (IBA - Israel)",
+        "p2": "Nikisita Shrestha (NBA - Nepal)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -19,8 +19,8 @@
     },
     {
         "id": 3,
-        "p1": "Arif / Dimas (PB Guna Dharma)",
-        "p2": "Dwiki Rafian Restu / Bernadus Bagas Kusuma Wardana (PB Djarum)",
+        "p1": "Julie Dawall Jakobsen (DB - Denmark)",
+        "p2": "Liang Ting-yu (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -28,8 +28,8 @@
     },
     {
         "id": 4,
-        "p1": "Teges Satriaji Cahyo Hutomo / Christopher David Wijaya (PB Jaya Raya)",
-        "p2": "Senayan / City (PB Jakarta Pusat)",
+        "p1": "Nozomi Okuhara (NBA - Jepang)",
+        "p2": "Sonia Cheah (BAM - Malaysia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -37,8 +37,8 @@
     },
     {
         "id": 5,
-        "p1": "Yuda / Pratama (PB Satria)",
-        "p2": "Dedi / Irawan (PB SGS PLN Bandung)",
+        "p1": "Li Xuerui (CBA - Tiongkok)",
+        "p2": "Huang Yu-hsun (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -46,8 +46,8 @@
     },
     {
         "id": 6,
-        "p1": "Fajar / Ramadhan (PB Angkasa)",
-        "p2": "Imam / Bonjol (PB Minang)",
+        "p1": "Wen Yu Zhang (CanB - Kanada)",
+        "p2": "Ashmita Chaliha (BAI - India)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -55,8 +55,8 @@
     },
     {
         "id": 7,
-        "p1": "Adrian Pratama / Jonathan Farrell Gosal (PB Jaya Raya)",
-        "p2": "Hendra Aprida Gunawan / Alvent Yulianto (PB Suryanaga)",
+        "p1": "Rachel Chan (CanB - Kanada)",
+        "p2": "Kaloyana Nalbantova (BBA - Bulgaria)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -64,8 +64,8 @@
     },
     {
         "id": 8,
-        "p1": "Rangga / Wijaya (PB Galaksi)",
-        "p2": "Nikolaus Joaquin / Muhammad Al Farizi (PB Djarum)",
+        "p1": "Beatriz Corrales (FESBA - Spanyol)",
+        "p2": "Zhang Yiman (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -73,8 +73,8 @@
     },
     {
         "id": 9,
-        "p1": "Ricky Karanda Suwardi / Angga Pratama (PB Mutiara Cardinal)",
-        "p2": "Reza Pahlevi / Akbar Bintang Cahyono (PB Jaya Raya)",
+        "p1": "Yataweemin Ketklieng (BAT - Thailand)",
+        "p2": "Talia Ng (CanB - Kanada)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -82,8 +82,8 @@
     },
     {
         "id": 10,
-        "p1": "Muh. Fachrikar / Muhammad Zaki Ubaidillah (PB Exist)",
-        "p2": "Rian / Pratama (PB Kasih)",
+        "p1": "Lo Sin Yan (HKBA - Hong Kong)",
+        "p2": "Lalinrat Chaiwan (BAT - Thailand)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -91,8 +91,8 @@
     },
     {
         "id": 11,
-        "p1": "Guntur / Satria (PB Exist Jakarta)",
-        "p2": "Kafi Raditya Pandika / Nathan Barkah (PB Mutiara Cardinal)",
+        "p1": "Lianne Tan (LFBW - Belgia)",
+        "p2": "Sim Yu-jin (BKA - Korea Selatan)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -100,8 +100,8 @@
     },
     {
         "id": 12,
-        "p1": "Lutfi Erlangga / Muhammad Ridho (PB Tangkas)",
-        "p2": "M. Lucky Andres Apriyanda / Yoga Prasetyo (PB Mutiara Cardinal)",
+        "p1": "Mutiara Ayu Puspitasari (PBSI - Indonesia)",
+        "p2": "Hsu Wen-chi (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -109,8 +109,8 @@
     },
     {
         "id": 13,
-        "p1": "Bona Septano / Mohammad Ahsan (PB Jaya Raya)",
-        "p2": "Amri Syahnawi / Christopher Rusdianto (PB Jaya Raya)",
+        "p1": "Petra Polanc (BZS - Slovenia)",
+        "p2": "Johanita Scholtz (BSA - Afrika Selatan)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -118,8 +118,8 @@
     },
     {
         "id": 14,
-        "p1": "Raden / Saleh (PB Seni)",
-        "p2": "Diponegoro / Sentot (PB Pahlawan)",
+        "p1": "Teresoh Ng (BAM - Malaysia)",
+        "p2": "Chiu Pin-chian (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -127,8 +127,8 @@
     },
     {
         "id": 15,
-        "p1": "Agus / Susanto (PB Tangkas Jakarta)",
-        "p2": "Davin Rutama / Michael Owen (PB Jaya Raya)",
+        "p1": "Han Yue (CBA - Tiongkok)",
+        "p2": "Frederikke Lund (DB - Denmark)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -136,8 +136,8 @@
     },
     {
         "id": 16,
-        "p1": "Taufik / Wisnu (PB Semen Gresik)",
-        "p2": "Wahyu Nayaka / Ade Yusuf Santoso (PB Tangkas)",
+        "p1": "Anna Tatranova (FFBaD - Prancis)",
+        "p2": "Amalie Schulz (DB - Denmark)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -145,8 +145,8 @@
     },
     {
         "id": 17,
-        "p1": "Bagas Maulana / Muhammad Shohibul Fikri (PB Djarum)",
-        "p2": "Nuku / Tidore (PB Maluku Utara)",
+        "p1": "Carolina Marin (FESBA - Spanyol)",
+        "p2": "Tasya Farahnailah (PBSI - Indonesia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -154,8 +154,8 @@
     },
     {
         "id": 18,
-        "p1": "Bintang / Kejora (PB Langit)",
-        "p2": "Hendru / Steven (PB Hi-Qua Wima)",
+        "p1": "Doha Hany (EBF - Mesir)",
+        "p2": "Mia Blichfeldt (DB - Denmark)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -163,8 +163,8 @@
     },
     {
         "id": 19,
-        "p1": "Bima / Sakti (PB Nusantara)",
-        "p2": "Kenas Adi Haryanto / Ryan Agung Saputra (PB Djarum)",
+        "p1": "Kim Joo-eun (BKA - Korea Selatan)",
+        "p2": "Kim Ga-eun (BKA - Korea Selatan)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -172,8 +172,8 @@
     },
     {
         "id": 20,
-        "p1": "Anggun Nugroho / Yohan Hadikusumo (PB Jaya Raya)",
-        "p2": "BYE",
+        "p1": "Haramara Gaitan (FMB - Meksiko)",
+        "p2": "Unnati Hooda (BAI - India)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -181,8 +181,8 @@
     },
     {
         "id": 21,
-        "p1": "BYE",
-        "p2": "Teuku / Umar (PB Meulaboh)",
+        "p1": "Tiffany Ho (BA - Australia)",
+        "p2": "Saena Kawakami (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -190,8 +190,8 @@
     },
     {
         "id": 22,
-        "p1": "Arjuna / Sasrabahu (PB Wayang)",
-        "p2": "Hasanuddin / Makassar (PB Gowa)",
+        "p1": "Park Ga-eun (BKA - Korea Selatan)",
+        "p2": "Lauren Lam (USA Badminton - Amerika Serikat)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -199,8 +199,8 @@
     },
     {
         "id": 23,
-        "p1": "Lippo / Karawaci (PB Tangerang)",
-        "p2": "Rahmat Hidayat / Yeremia Rambitan (PB Djarum)",
+        "p1": "Tereza Svabikova (CaBaS - Ceko)",
+        "p2": "Gronya Somerville (BA - Australia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -208,8 +208,8 @@
     },
     {
         "id": 24,
-        "p1": "Eka / Saputra (PB Bintaro Jaya)",
-        "p2": "Rexy Mainaky / Ricky Subagja (PB Jaya Raya)",
+        "p1": "Natsuki Nidaira (NBA - Jepang)",
+        "p2": "Neslihan Arin (TBF - Turki)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -217,8 +217,8 @@
     },
     {
         "id": 25,
-        "p1": "Candra Wijaya / Sigit Budiarto (PB Jaya Raya)",
-        "p2": "Zaidan Arrafi Nabawi / Kleopas Binar Putra Prakoso (PB Jaya Raya)",
+        "p1": "Mihane Endo (NBA - Jepang)",
+        "p2": "Tzu-Wei Wang (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -226,8 +226,8 @@
     },
     {
         "id": 26,
-        "p1": "Surya / Kencana (PB Garuda)",
-        "p2": "BYE",
+        "p1": "Clara Azurmendi (FESBA - Spanyol)",
+        "p2": "Riko Gunji (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -235,8 +235,8 @@
     },
     {
         "id": 27,
-        "p1": "Airlangga / Kahuripan (PB Brantas)",
-        "p2": "Mega / Mendung (PB Awan)",
+        "p1": "Anupama Upadhyaya (BAI - India)",
+        "p2": "Wang Zhiyi (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -244,8 +244,8 @@
     },
     {
         "id": 28,
-        "p1": "Kertanegara / Jaya (PB Kediri)",
-        "p2": "Kelapa / Gading (PB Jakarta Utara)",
+        "p1": "Fadhilah Irawan (PBSI - Indonesia)",
+        "p2": "Gao Fangjie (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -253,8 +253,8 @@
     },
     {
         "id": 29,
-        "p1": "Hayam / Wuruk (PB Wilwatikta)",
-        "p2": "Sultan / Baabullah (PB Ternate)",
+        "p1": "Putri Kusuma Wardani (PBSI - Indonesia)",
+        "p2": "Chiu Pin-chian (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -262,8 +262,8 @@
     },
     {
         "id": 30,
-        "p1": "Bambang / Hartono (PB Djarum Kudus)",
-        "p2": "Tri Kusharjanto / Bambang Suprianto (PB Jaya Raya)",
+        "p1": "Leonice Huet (FFBaD - Prancis)",
+        "p2": "Polina Buhrova (UBF - Ukraina)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -271,8 +271,8 @@
     },
     {
         "id": 31,
-        "p1": "Purnawarman / Taruma (PB Nagara)",
-        "p2": "Ken / Arok (PB Singasari)",
+        "p1": "Chae Hee-su (BKA - Korea Selatan)",
+        "p2": "Juliana Viana Vieira (CBB - Brasil)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -280,8 +280,8 @@
     },
     {
         "id": 32,
-        "p1": "Fajar / Menyingsing (PB Mentari)",
-        "p2": "Leo Rolly Carnando / Daniel Marthin (PB Djarum)",
+        "p1": "Sung Shuo-yun (CTBA - Chinese Taipei)",
+        "p2": "Akane Yamaguchi (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "LEFT",
@@ -289,8 +289,8 @@
     },
     {
         "id": 33,
-        "p1": "Mohammad Ahsan / Hendra Setiawan (PB Djarum)",
-        "p2": "Rama / Shinta (PB Kasmaran)",
+        "p1": "Tai Tzu-ying (CTBA - Chinese Taipei)",
+        "p2": "Asuka Takahashi (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -298,8 +298,8 @@
     },
     {
         "id": 34,
-        "p1": "Fran Kurniawan / Bona Septano (PB Djarum)",
-        "p2": "Fauzan Majid / Firdi Hakim (PB Power Rajawali)",
+        "p1": "Kirsty Gilmour (BS - Skotlandia)",
+        "p2": "Zhou Meng (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -307,8 +307,8 @@
     },
     {
         "id": 35,
-        "p1": "Sisingamangaraja / Toba (PB Batak)",
-        "p2": "Gading / Serpong (PB Banten)",
+        "p1": "Line H\u00f8jmark Kjaersfeldt (DB - Denmark)",
+        "p2": "Hana Sato (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -316,8 +316,8 @@
     },
     {
         "id": 36,
-        "p1": "Andika Ramadiansyah / Rinov Rivaldy (PB Djarum)",
-        "p2": "Setyo / Nugroho (PB Pelita Bakrie)",
+        "p1": "Pitchamon Opatniputh (BAT - Thailand)",
+        "p2": "Hadia Hosny (EBF - Mesir)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -325,8 +325,8 @@
     },
     {
         "id": 37,
-        "p1": "Putra / Wijaya (PB Mentari)",
-        "p2": "Rian Sukmawan / Yonathan Suryatama Dasuki (PB Djarum)",
+        "p1": "Busanan Ongbamrungphan (BAT - Thailand)",
+        "p2": "Pornpawee Chochuwong (BAT - Thailand)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -334,8 +334,8 @@
     },
     {
         "id": 38,
-        "p1": "Eko / Budi (PB Rajawali)",
-        "p2": "BYE",
+        "p1": "Vivien Sandorhazi (MTLSZ - Hungaria)",
+        "p2": "Judith Mair (FIBa - Italia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -343,8 +343,8 @@
     },
     {
         "id": 39,
-        "p1": "Rizki Hidayat / Frengky Wijaya Putra (PB Exist)",
-        "p2": "Agripina Prima / Marcus Fernaldi Gideon (PB Jaya Raya)",
+        "p1": "Iris Wang (USA Badminton - Amerika Serikat)",
+        "p2": "Aya Ohori (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -352,8 +352,8 @@
     },
     {
         "id": 40,
-        "p1": "Agung / Podomoro (PB Properti)",
-        "p2": "Tony Gunawan / Halim Haryanto (PB Djarum)",
+        "p1": "Michelle Li (CanB - Kanada)",
+        "p2": "Pai Yu-po (CTBA - Chinese Taipei)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -361,8 +361,8 @@
     },
     {
         "id": 41,
-        "p1": "Markis Kido / Hendra Setiawan (PB Jaya Raya)",
-        "p2": "Rudi / Gunawan (PB Bimantara)",
+        "p1": "Wen Chi-hsu (CTBA - Chinese Taipei)",
+        "p2": "Thet Htar Thuzar (MBA - Myanmar)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -370,8 +370,8 @@
     },
     {
         "id": 42,
-        "p1": "Patra Harapan Rindorindo / Muhammad Putra Erwiansyah (PB Djarum)",
-        "p2": "Muhammad Rayhan Nur Fadillah / Marcus Fernaldi Gideon (PB Jaya Raya)",
+        "p1": "Kate Ludik (MBA - Mauritius)",
+        "p2": "Yasmine Hamza (FIBa - Italia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -379,8 +379,8 @@
     },
     {
         "id": 43,
-        "p1": "Wisnu / Wardhana (PB Kerajaan)",
-        "p2": "Emanuel Randhy Febryanto / Alfandy Rizki Kasturo (PB Chandra Wijaya)",
+        "p1": "Ruzana (PBSI - Indonesia)",
+        "p2": "Yevheniia Kantemyr (UBF - Ukraina)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -388,8 +388,8 @@
     },
     {
         "id": 44,
-        "p1": "Asghar Herfanda / Rian Canna Varo (PB Djarum)",
-        "p2": "Bagus / Kahfi (PB Barito)",
+        "p1": "Goh Jin Wei (BAM - Malaysia)",
+        "p2": "Aakarshi Kashyap (BAI - India)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -397,8 +397,8 @@
     },
     {
         "id": 45,
-        "p1": "Dexter Farrell / Wahyu Agung Prasetyo (PB Exist)",
-        "p2": "Bagas / Kaffa (PB Putera)",
+        "p1": "Pusarla V. Sindhu (BAI - India)",
+        "p2": "Marija Ulitina (UBF - Ukraina)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -406,8 +406,8 @@
     },
     {
         "id": 46,
-        "p1": "Krisna / Mukti (PB Dewa)",
-        "p2": "Indra / Jaka (PB Suryanaga)",
+        "p1": "Siti Nurshuhaini (BAM - Malaysia)",
+        "p2": "Manami Suizu (NBA - Jepang)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -415,8 +415,8 @@
     },
     {
         "id": 47,
-        "p1": "Cempaka / Putih (PB Jakarta Timur)",
-        "p2": "Summarecon / Serpong (PB Gading)",
+        "p1": "Ines Castillo (FDPB - Peru)",
+        "p2": "Tara Shah (BAI - India)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -424,8 +424,8 @@
     },
     {
         "id": 48,
-        "p1": "Pattimura / Maluku (PB Sahapory)",
-        "p2": "Sabar Karyaman Gutama / Moh Reza Pahlevi Isfahani (PB Jaya Raya)",
+        "p1": "Thamonwan Nithiittikrai (BAT - Thailand)",
+        "p2": "Gregoria Mariska Tunjung (PBSI - Indonesia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -433,8 +433,8 @@
     },
     {
         "id": 49,
-        "p1": "Pramudya Kusumawardana / Yeremia Rambitan (PB Exist)",
-        "p2": "I Gusti / Ngurah Rai (PB Bali)",
+        "p1": "He Bingjiao (CBA - Tiongkok)",
+        "p2": "Saina Nehwal (BAI - India)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -442,8 +442,8 @@
     },
     {
         "id": 50,
-        "p1": "Galuh Dwi Putra / Gabriel Christopher Frinta (PB Power Rajawali)",
-        "p2": "Flandy Limpele / Eng Hian (PB SGS Bandung)",
+        "p1": "Malvika Bansod (BAI - India)",
+        "p2": "Yeo Jia Min (SBA - Singapura)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -451,8 +451,8 @@
     },
     {
         "id": 51,
-        "p1": "Hendra / Kurniawan (PB Jaya Raya)",
-        "p2": "Hidayat / Syarif (PB Putra)",
+        "p1": "Jenjira Stadelmann (SB - Swiss)",
+        "p2": "Ksenia Polikarpova (IBA - Israel)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -460,8 +460,8 @@
     },
     {
         "id": 52,
-        "p1": "Abiyyu Fauzan / Syahrizal Dafandi Arafixqli (PB Mutiara Cardinal)",
-        "p2": "Pangeran / Antasari (PB Banjar)",
+        "p1": "Sung Ji-hyun (BKA - Korea Selatan)",
+        "p2": "Wang Shixian (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -469,8 +469,8 @@
     },
     {
         "id": 53,
-        "p1": "Daniel Edgar Marvino / Raymond Indra (PB Djarum)",
-        "p2": "Cibubur / Junction (PB Wisata)",
+        "p1": "Ester Nurumi Tri Wardoyo (PBSI - Indonesia)",
+        "p2": "Qi Xuefei (FFBaD - Prancis)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -478,8 +478,8 @@
     },
     {
         "id": 54,
-        "p1": "Gatot / Kaca (PB Perkasa)",
-        "p2": "Ghifari Anandaffa Prihardika / Ferdian Mahardika (PB Jaya Raya)",
+        "p1": "Fatima Nabaaha Abdul Razzaq (BAM - Maladewa)",
+        "p2": "Letshanaa Karupathevan (BAM - Malaysia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -487,8 +487,8 @@
     },
     {
         "id": 55,
-        "p1": "Bumi / Serpong (PB Damai)",
-        "p2": "Taman / Anggrek (PB Jakarta Barat)",
+        "p1": "Wu Luo Yu (CBA - Tiongkok)",
+        "p2": "Keisha Fatimah Azzahra (Baku - Azerbaijan)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -496,8 +496,8 @@
     },
     {
         "id": 56,
-        "p1": "Mulawarman / Kutai (PB Mahakam)",
-        "p2": "Luluk Hadiyanto / Alvent Yulianto (PB Djarum)",
+        "p1": "Tomoka Miyazaki (NBA - Jepang)",
+        "p2": "Beiwen Zhang (USA Badminton - Amerika Serikat)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -505,8 +505,8 @@
     },
     {
         "id": 57,
-        "p1": "Berry Angriawan / Hardianto (PB Djarum)",
-        "p2": "BYE",
+        "p1": "Ratchanok Intanon (BAT - Thailand)",
+        "p2": "Rosy Oktavia Pancasari (FFBaD - Prancis)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -514,8 +514,8 @@
     },
     {
         "id": 58,
-        "p1": "Anselmus Breagit Fredy Prasetya / Pulung Ramadhan (PB Djarum)",
-        "p2": "Pondok / Indah (PB Jakarta Selatan)",
+        "p1": "Kisona Selvaduray (BAM - Malaysia)",
+        "p2": "Supanida Katethong (BAT - Thailand)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -523,8 +523,8 @@
     },
     {
         "id": 59,
-        "p1": "Sultan / Agung (PB Mataram)",
-        "p2": "Alam / Sutera (PB Sutera)",
+        "p1": "Bilqis Prasista (PBSI - Indonesia)",
+        "p2": "Komang Ayu Cahya Dewi (PBSI - Indonesia)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -532,8 +532,8 @@
     },
     {
         "id": 60,
-        "p1": "Siliwangi / Pajajaran (PB Sunda)",
-        "p2": "Kota / Baru (PB Parahyangan)",
+        "p1": "Dai Wang (CBA - Tiongkok)",
+        "p2": "Hany Hosny (EBF - Mesir)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -541,8 +541,8 @@
     },
     {
         "id": 61,
-        "p1": "Trunojoyo / Madura (PB Sakera)",
-        "p2": "Aditya / Warman (PB Sejarah)",
+        "p1": "Kim Min-sun (BKA - Korea Selatan)",
+        "p2": "Line Christophersen (DB - Denmark)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -550,8 +550,8 @@
     },
     {
         "id": 62,
-        "p1": "Yohanes Rendy Sugiarto / Afiat Yuris Wirawan (PB Djarum)",
-        "p2": "Pandu / Dewanata (PB Mahkota)",
+        "p1": "Yvonne Li (DBV - Jerman)",
+        "p2": "Sabina Milova (BBA - Bulgaria)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -559,8 +559,8 @@
     },
     {
         "id": 63,
-        "p1": "Deryansyah / Ikhsan Rumbay (PB Golden Star)",
-        "p2": "Untung / Suropati (PB Wira)",
+        "p1": "Lin Hsiang-ti (CTBA - Chinese Taipei)",
+        "p2": "Fabiana Silva (CBB - Brasil)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -568,8 +568,8 @@
     },
     {
         "id": 64,
-        "p1": "Andi / Rizky (PB Mutiara Cardinal)",
-        "p2": "Marcus Fernaldi Gideon / Kevin Sanjaya Sukamuljo (PB Jaya Raya)",
+        "p1": "Agnes Korosi (MTLSZ - Hungaria)",
+        "p2": "Chen Yufei (CBA - Tiongkok)",
         "kategori": "GANDA PUTRA",
         "babak": "R128",
         "side": "RIGHT",
@@ -659,7 +659,7 @@
     {
         "id": 74,
         "p1": "TBD",
-        "p2": "Anggun Nugroho / Yohan Hadikusumo (PB Jaya Raya)",
+        "p2": "TBD",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
         "side": "LEFT",
@@ -667,7 +667,7 @@
     },
     {
         "id": 75,
-        "p1": "Teuku / Umar (PB Meulaboh)",
+        "p1": "TBD",
         "p2": "TBD",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
@@ -686,7 +686,7 @@
     {
         "id": 77,
         "p1": "TBD",
-        "p2": "Surya / Kencana (PB Garuda)",
+        "p2": "TBD",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
         "side": "LEFT",
@@ -740,7 +740,7 @@
     {
         "id": 83,
         "p1": "TBD",
-        "p2": "Eko / Budi (PB Rajawali)",
+        "p2": "TBD",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
         "side": "RIGHT",
@@ -829,7 +829,7 @@
     },
     {
         "id": 93,
-        "p1": "Berry Angriawan / Hardianto (PB Djarum)",
+        "p1": "TBD",
         "p2": "TBD",
         "kategori": "GANDA PUTRA",
         "babak": "R64",
@@ -2281,6 +2281,1149 @@
         "p1": "TBD",
         "p2": "TBD",
         "kategori": "GANDA PUTRI",
+        "babak": "FINAL",
+        "side": "CENTER",
+        "pemenang_ke": "JUARA"
+    },
+    {
+        "id": 1,
+        "p1": "An Se-young (BKA - Korea Selatan)",
+        "p2": "Hana Sato (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M65"
+    },
+    {
+        "id": 2,
+        "p1": "Unnati Hooda (BAI - India)",
+        "p2": "Tasya Farahnailah (PBSI - Indonesia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M65"
+    },
+    {
+        "id": 3,
+        "p1": "Neslihan Arin (TBF - Turki)",
+        "p2": "Komang Ayu Cahya Dewi (PBSI - Indonesia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M66"
+    },
+    {
+        "id": 4,
+        "p1": "Pitchamon Opatniputh (BAT - Thailand)",
+        "p2": "Pai Yu-po (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M66"
+    },
+    {
+        "id": 5,
+        "p1": "Chiu Pin-chian (CTBA - Chinese Taipei)",
+        "p2": "Pornpawee Chochuwong (BAT - Thailand)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M67"
+    },
+    {
+        "id": 6,
+        "p1": "Ester Nurumi Tri Wardoyo (PBSI - Indonesia)",
+        "p2": "Bilqis Prasista (PBSI - Indonesia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M67"
+    },
+    {
+        "id": 7,
+        "p1": "Doha Hany (EBF - Mesir)",
+        "p2": "Sung Shuo-yun (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M68"
+    },
+    {
+        "id": 8,
+        "p1": "Nikisita Shrestha (NBA - Nepal)",
+        "p2": "Johanita Scholtz (BSA - Afrika Selatan)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M68"
+    },
+    {
+        "id": 9,
+        "p1": "Sim Yu-jin (BKA - Korea Selatan)",
+        "p2": "Saena Kawakami (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M69"
+    },
+    {
+        "id": 10,
+        "p1": "Zhou Meng (CBA - Tiongkok)",
+        "p2": "Busanan Ongbamrungphan (BAT - Thailand)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M69"
+    },
+    {
+        "id": 11,
+        "p1": "Putri Kusuma Wardani (PBSI - Indonesia)",
+        "p2": "Judith Mair (FIBa - Italia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M70"
+    },
+    {
+        "id": 12,
+        "p1": "Tomoka Miyazaki (NBA - Jepang)",
+        "p2": "Yvonne Li (DBV - Jerman)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M70"
+    },
+    {
+        "id": 13,
+        "p1": "Chae Hee-su (BKA - Korea Selatan)",
+        "p2": "Leonice Huet (FFBaD - Prancis)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M71"
+    },
+    {
+        "id": 14,
+        "p1": "Yataweemin Ketklieng (BAT - Thailand)",
+        "p2": "Hadia Hosny (EBF - Mesir)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M71"
+    },
+    {
+        "id": 15,
+        "p1": "Kim Min-sun (BKA - Korea Selatan)",
+        "p2": "Teresoh Ng (BAM - Malaysia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M72"
+    },
+    {
+        "id": 16,
+        "p1": "Fadhilah Irawan (PBSI - Indonesia)",
+        "p2": "Juliana Viana Vieira (CBB - Brasil)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M72"
+    },
+    {
+        "id": 17,
+        "p1": "Carolina Marin (FESBA - Spanyol)",
+        "p2": "Gao Fangjie (CBA - Tiongkok)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M73"
+    },
+    {
+        "id": 18,
+        "p1": "Petra Polanc (BZS - Slovenia)",
+        "p2": "Frederikke Lund (DB - Denmark)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M73"
+    },
+    {
+        "id": 19,
+        "p1": "Ashmita Chaliha (BAI - India)",
+        "p2": "Lo Sin Yan (HKBA - Hong Kong)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M74"
+    },
+    {
+        "id": 20,
+        "p1": "Ruzana (PBSI - Indonesia)",
+        "p2": "Iris Wang (USA Badminton - Amerika Serikat)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M74"
+    },
+    {
+        "id": 21,
+        "p1": "Qi Xuefei (FFBaD - Prancis)",
+        "p2": "Tzu-Wei Wang (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M75"
+    },
+    {
+        "id": 22,
+        "p1": "Agnes Korosi (MTLSZ - Hungaria)",
+        "p2": "Tara Shah (BAI - India)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M75"
+    },
+    {
+        "id": 23,
+        "p1": "Goh Jin Wei (BAM - Malaysia)",
+        "p2": "Vivien Sandorhazi (MTLSZ - Hungaria)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M76"
+    },
+    {
+        "id": 24,
+        "p1": "Li Xuerui (CBA - Tiongkok)",
+        "p2": "Yasmine Hamza (FIBa - Italia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M76"
+    },
+    {
+        "id": 25,
+        "p1": "Park Ga-eun (BKA - Korea Selatan)",
+        "p2": "Mia Blichfeldt (DB - Denmark)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M77"
+    },
+    {
+        "id": 26,
+        "p1": "Riko Gunji (NBA - Jepang)",
+        "p2": "Mutiara Ayu Puspitasari (PBSI - Indonesia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M77"
+    },
+    {
+        "id": 27,
+        "p1": "Kisona Selvaduray (BAM - Malaysia)",
+        "p2": "Tereza Svabikova (CaBaS - Ceko)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M78"
+    },
+    {
+        "id": 28,
+        "p1": "Wang Zhiyi (CBA - Tiongkok)",
+        "p2": "Malvika Bansod (BAI - India)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M78"
+    },
+    {
+        "id": 29,
+        "p1": "Gronya Somerville (BA - Australia)",
+        "p2": "Natsuki Nidaira (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M79"
+    },
+    {
+        "id": 30,
+        "p1": "Clara Azurmendi (FESBA - Spanyol)",
+        "p2": "Nozomi Okuhara (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M79"
+    },
+    {
+        "id": 31,
+        "p1": "Tiffany Ho (BA - Australia)",
+        "p2": "Beatriz Corrales (FESBA - Spanyol)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M80"
+    },
+    {
+        "id": 32,
+        "p1": "Beiwen Zhang (USA Badminton - Amerika Serikat)",
+        "p2": "Akane Yamaguchi (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M80"
+    },
+    {
+        "id": 33,
+        "p1": "Tai Tzu-ying (CTBA - Chinese Taipei)",
+        "p2": "Ratchanok Intanon (BAT - Thailand)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M81"
+    },
+    {
+        "id": 34,
+        "p1": "Lianne Tan (LFBW - Belgia)",
+        "p2": "Wen Yu Zhang (CanB - Kanada)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M81"
+    },
+    {
+        "id": 35,
+        "p1": "Kate Ludik (MBA - Mauritius)",
+        "p2": "Michelle Li (CanB - Kanada)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M82"
+    },
+    {
+        "id": 36,
+        "p1": "Aya Ohori (NBA - Jepang)",
+        "p2": "Dai Wang (CBA - Tiongkok)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M82"
+    },
+    {
+        "id": 37,
+        "p1": "Amalie Schulz (DB - Denmark)",
+        "p2": "Sonia Cheah (BAM - Malaysia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M83"
+    },
+    {
+        "id": 38,
+        "p1": "Kim Joo-eun (BKA - Korea Selatan)",
+        "p2": "Sabina Milova (BBA - Bulgaria)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M83"
+    },
+    {
+        "id": 39,
+        "p1": "Hina Akechi (NBA - Jepang)",
+        "p2": "Siti Nurshuhaini (BAM - Malaysia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M84"
+    },
+    {
+        "id": 40,
+        "p1": "Lalinrat Chaiwan (BAT - Thailand)",
+        "p2": "Wu Luo Yu (CBA - Tiongkok)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M84"
+    },
+    {
+        "id": 41,
+        "p1": "Jenjira Stadelmann (SB - Swiss)",
+        "p2": "Talia Ng (CanB - Kanada)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M85"
+    },
+    {
+        "id": 42,
+        "p1": "Liang Ting-yu (CTBA - Chinese Taipei)",
+        "p2": "Sung Ji-hyun (BKA - Korea Selatan)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M85"
+    },
+    {
+        "id": 43,
+        "p1": "Hany Hosny (EBF - Mesir)",
+        "p2": "Zhang Yiman (CBA - Tiongkok)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M86"
+    },
+    {
+        "id": 44,
+        "p1": "Supanida Katethong (BAT - Thailand)",
+        "p2": "Letshanaa Karupathevan (BAM - Malaysia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M86"
+    },
+    {
+        "id": 45,
+        "p1": "Keisha Fatimah Azzahra (Baku - Azerbaijan)",
+        "p2": "Haramara Gaitan (FMB - Meksiko)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M87"
+    },
+    {
+        "id": 46,
+        "p1": "Han Yue (CBA - Tiongkok)",
+        "p2": "Polina Buhrova (UBF - Ukraina)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M87"
+    },
+    {
+        "id": 47,
+        "p1": "Fabiana Silva (CBB - Brasil)",
+        "p2": "Huang Yu-hsun (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M88"
+    },
+    {
+        "id": 48,
+        "p1": "Rachel Chan (CanB - Kanada)",
+        "p2": "Gregoria Mariska Tunjung (PBSI - Indonesia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M88"
+    },
+    {
+        "id": 49,
+        "p1": "He Bingjiao (CBA - Tiongkok)",
+        "p2": "Yevheniia Kantemyr (UBF - Ukraina)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M89"
+    },
+    {
+        "id": 50,
+        "p1": "Line H\u00f8jmark Kjaersfeldt (DB - Denmark)",
+        "p2": "Saina Nehwal (BAI - India)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M89"
+    },
+    {
+        "id": 51,
+        "p1": "Pusarla V. Sindhu (BAI - India)",
+        "p2": "Anna Tatranova (FFBaD - Prancis)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M90"
+    },
+    {
+        "id": 52,
+        "p1": "Fatima Nabaaha Abdul Razzaq (BAM - Maladewa)",
+        "p2": "Wen Chi-hsu (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M90"
+    },
+    {
+        "id": 53,
+        "p1": "Yeo Jia Min (SBA - Singapura)",
+        "p2": "Chiu Pin-chian (CTBA - Chinese Taipei)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M91"
+    },
+    {
+        "id": 54,
+        "p1": "Anupama Upadhyaya (BAI - India)",
+        "p2": "Mihane Endo (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M91"
+    },
+    {
+        "id": 55,
+        "p1": "Ines Castillo (FDPB - Peru)",
+        "p2": "Marija Ulitina (UBF - Ukraina)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M92"
+    },
+    {
+        "id": 56,
+        "p1": "Ksenia Polikarpova (IBA - Israel)",
+        "p2": "Lauren Lam (USA Badminton - Amerika Serikat)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M92"
+    },
+    {
+        "id": 57,
+        "p1": "Wang Shixian (CBA - Tiongkok)",
+        "p2": "Thamonwan Nithiittikrai (BAT - Thailand)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M93"
+    },
+    {
+        "id": 58,
+        "p1": "Hsu Wen-chi (CTBA - Chinese Taipei)",
+        "p2": "Aakarshi Kashyap (BAI - India)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M93"
+    },
+    {
+        "id": 59,
+        "p1": "Line Christophersen (DB - Denmark)",
+        "p2": "Rosy Oktavia Pancasari (FFBaD - Prancis)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M94"
+    },
+    {
+        "id": 60,
+        "p1": "Manami Suizu (NBA - Jepang)",
+        "p2": "Kirsty Gilmour (BS - Skotlandia)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M94"
+    },
+    {
+        "id": 61,
+        "p1": "Thet Htar Thuzar (MBA - Myanmar)",
+        "p2": "Asuka Takahashi (NBA - Jepang)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M95"
+    },
+    {
+        "id": 62,
+        "p1": "Lin Hsiang-ti (CTBA - Chinese Taipei)",
+        "p2": "Julie Dawall Jakobsen (DB - Denmark)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M95"
+    },
+    {
+        "id": 63,
+        "p1": "Niki Rapoport (IBA - Israel)",
+        "p2": "Kim Ga-eun (BKA - Korea Selatan)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M96"
+    },
+    {
+        "id": 64,
+        "p1": "Kaloyana Nalbantova (BBA - Bulgaria)",
+        "p2": "Chen Yufei (CBA - Tiongkok)",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M96"
+    },
+    {
+        "id": 65,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M97"
+    },
+    {
+        "id": 66,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M97"
+    },
+    {
+        "id": 67,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M98"
+    },
+    {
+        "id": 68,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M98"
+    },
+    {
+        "id": 69,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M99"
+    },
+    {
+        "id": 70,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M99"
+    },
+    {
+        "id": 71,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M100"
+    },
+    {
+        "id": 72,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M100"
+    },
+    {
+        "id": 73,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M101"
+    },
+    {
+        "id": 74,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M101"
+    },
+    {
+        "id": 75,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M102"
+    },
+    {
+        "id": 76,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M102"
+    },
+    {
+        "id": 77,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M103"
+    },
+    {
+        "id": 78,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M103"
+    },
+    {
+        "id": 79,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M104"
+    },
+    {
+        "id": 80,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M104"
+    },
+    {
+        "id": 81,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M105"
+    },
+    {
+        "id": 82,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M105"
+    },
+    {
+        "id": 83,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M106"
+    },
+    {
+        "id": 84,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M106"
+    },
+    {
+        "id": 85,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M107"
+    },
+    {
+        "id": 86,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M107"
+    },
+    {
+        "id": 87,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M108"
+    },
+    {
+        "id": 88,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M108"
+    },
+    {
+        "id": 89,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M109"
+    },
+    {
+        "id": 90,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M109"
+    },
+    {
+        "id": 91,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M110"
+    },
+    {
+        "id": 92,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M110"
+    },
+    {
+        "id": 93,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M111"
+    },
+    {
+        "id": 94,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M111"
+    },
+    {
+        "id": 95,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M112"
+    },
+    {
+        "id": 96,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M112"
+    },
+    {
+        "id": 97,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M113"
+    },
+    {
+        "id": 98,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M113"
+    },
+    {
+        "id": 99,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M114"
+    },
+    {
+        "id": 100,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M114"
+    },
+    {
+        "id": 101,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M115"
+    },
+    {
+        "id": 102,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M115"
+    },
+    {
+        "id": 103,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M116"
+    },
+    {
+        "id": 104,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M116"
+    },
+    {
+        "id": 105,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M117"
+    },
+    {
+        "id": 106,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M117"
+    },
+    {
+        "id": 107,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M118"
+    },
+    {
+        "id": 108,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M118"
+    },
+    {
+        "id": 109,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M119"
+    },
+    {
+        "id": 110,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M119"
+    },
+    {
+        "id": 111,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M120"
+    },
+    {
+        "id": 112,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M120"
+    },
+    {
+        "id": 113,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M121"
+    },
+    {
+        "id": 114,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M121"
+    },
+    {
+        "id": 115,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M122"
+    },
+    {
+        "id": 116,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M122"
+    },
+    {
+        "id": 117,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M123"
+    },
+    {
+        "id": 118,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M123"
+    },
+    {
+        "id": 119,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M124"
+    },
+    {
+        "id": 120,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M124"
+    },
+    {
+        "id": 121,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M125"
+    },
+    {
+        "id": 122,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M125"
+    },
+    {
+        "id": 123,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M126"
+    },
+    {
+        "id": 124,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M126"
+    },
+    {
+        "id": 125,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "SEMI FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M127"
+    },
+    {
+        "id": 126,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
+        "babak": "SEMI FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M127"
+    },
+    {
+        "id": 127,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "TUNGGAL PUTRI",
         "babak": "FINAL",
         "side": "CENTER",
         "pemenang_ke": "JUARA"

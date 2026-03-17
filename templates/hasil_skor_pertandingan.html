@@ -1,191 +1,205 @@
 <!DOCTYPE html>
-<html lang="id">filteredData.forEach
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Live Score - Balikpapan Open</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #1e3a8a;
-            --accent: #f59e0b;
+            --accent: #3b82f6;
             --success: #10b981;
-            --bg: #f1f5f9;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
         }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
             font-family: 'Inter', sans-serif;
-            padding: 10px;
             background: var(--bg);
             margin: 0;
+            padding: 16px;
+            color: #1e293b;
         }
 
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+        .container { max-width: 800px; margin: 0 auto; }
 
-        .header-wrapper {
-            border-bottom: 2px solid var(--bg);
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-
+        /* HEADER & FILTER */
+        .header-section { margin-bottom: 24px; }
+        
         h2 {
+            font-weight: 800;
             color: var(--primary);
-            margin: 0 0 15px 0;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin: 0 0 20px 0;
             font-size: 1.5rem;
         }
 
-        /* Grouping Filter agar Rapih */
-        .filter-group {
+        .filter-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .filter-item {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            gap: 8px;
+            background: #fff;
+            padding: 12px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
         .filter-item label {
-            font-size: 11px;
-            font-weight: bold;
-            color: #64748b;
-            text-transform: uppercase;
-        }
-
-        select {
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            background-color: #fff;
-            width: 100%;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            text-align: left;
-            font-size: 12px;
-            text-transform: uppercase;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #e2e8f0;
-            vertical-align: middle;
-            font-size: 14px;
-        }
-
-        tr:hover {
-            background-color: #f8fafc;
-        }
-
-        .skor-box {
-            font-family: 'Courier New', monospace;
+            font-size: 10px;
             font-weight: 800;
-            color: var(--primary);
-            font-size: 18px;
-        }
-
-        .status-selesai {
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        .status-menunggu {
             color: #94a3b8;
-            font-style: italic;
-            font-size: 12px;
-        }
-
-        .court-badge {
-            background: #e2e8f0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .round-badge {
-            font-size: 11px;
-            font-weight: 700;
-            color: #475569;
-            background: #f1f5f9;
-            padding: 2px 6px;
-            border-radius: 4px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .kategori-text {
-            font-size: 11px;
-            font-weight: bold;
-            color: #64748b;
             text-transform: uppercase;
+            margin-bottom: 4px;
             display: block;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .filter-group {
-                grid-template-columns: 1fr;
-            }
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            outline: none;
+            background: #f8fafc;
+        }
 
-            thead {
-                display: none;
-            }
+        /* CARD STYLE (MOBILE DEFAULT) */
+        #result-body { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
 
-            tr {
-                display: block;
-                border: 1px solid #e2e8f0;
-                margin-bottom: 15px;
-                border-radius: 10px;
-                padding: 10px;
-                background: #fff;
-            }
+        .score-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
 
-            td {
-                display: block;
-                text-align: right;
-                padding: 8px 5px;
-                border-bottom: 1px dashed #f1f5f9;
-                position: relative;
-            }
+        /* Info Bar di atas kartu */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+        }
 
-            td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 5px;
-                font-weight: bold;
-                color: #64748b;
-                text-transform: uppercase;
-                font-size: 10px;
-            }
+        .badge-info {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: var(--primary);
+        }
 
-            td:last-child {
-                border-bottom: none;
-            }
+        .court-label { color: var(--accent); }
+
+        /* Tampilan Partai & Skor */
+        .match-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .team-box { flex: 1; text-align: center; }
+
+        .team-name {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .pb-name {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .score-display {
+            background: #1e3a8a;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+
+        .vs-divider { font-size: 10px; font-weight: 800; color: #cbd5e1; margin-top: 4px; }
+
+        /* Pemenang Footer */
+        .card-footer {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px dashed #e2e8f0;
+            text-align: center;
+        }
+
+        .winner-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--success);
+        }
+
+        .waiting-text { font-size: 11px; color: #94a3b8; font-style: italic; }
+
+        /* Tag Kategori Melayang */
+        .category-tag {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            font-size: 9px;
+            font-weight: 800;
+            border-radius: 0 0 10px 10px;
+            text-transform: uppercase;
+        }
+
+        /* Loader */
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Desktop View: Kembali ke Tabel Professional */
+        @media (min-width: 992px) {
+            #result-body { display: table-row-group; }
+            table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; }
+            th { background: var(--primary); color: white; padding: 15px; font-size: 12px; text-align: left; }
+            td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
+            .score-card { display: table-row; background: none; box-shadow: none; border: none; }
+            .category-tag, .card-header, .card-footer { display: none; }
+            /* Penyesuaian konten tabel desktop di sini jika diperlukan */
         }
     </style>
 </head>
@@ -193,157 +207,133 @@
 <body>
 
     <div class="container">
-        <div class="header-wrapper">
-            <h2><i class="fas fa-poll"></i> Live Score & Jadwal</h2>
+        <div class="header-section">
+            <h2><div class="live-indicator"></div> Live Results</h2>
 
-            <div class="filter-group">
+            <div class="filter-grid">
                 <div class="filter-item">
                     <label>Tanggal</label>
                     <select id="filter-tanggal" onchange="loadLiveResults()">
-                        <option value="ALL">Semua Tanggal</option>
+                        <option value="ALL">Semua</option>
                     </select>
                 </div>
                 <div class="filter-item">
                     <label>Kategori</label>
                     <select id="filter-kategori" onchange="loadLiveResults()">
-                        <option value="ALL">Semua Kategori</option>
+                        <option value="ALL">Semua</option>
                     </select>
                 </div>
                 <div class="filter-item">
                     <label>Lapangan</label>
                     <select id="filter-lapangan" onchange="loadLiveResults()">
-                        <option value="ALL">Semua Lapangan</option>
+                        <option value="ALL">Semua</option>
                     </select>
                 </div>
             </div>
         </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th width="90">Jam</th>
-                    <th width="70">Lap.</th>
-                    <th width="110">Babak</th>
-                    <th>Partai</th>
-                    <th width="110">Skor</th>
-                    <th>Pemenang</th>
-                </tr>
-            </thead>
-            <tbody id="result-body"></tbody>
-        </table>
+        <div id="result-body">
+            </div>
     </div>
 
     <script>
-        // Penampung data agar tidak fetch ulang-ulang saat filter berubah
         let masterData = [];
 
         async function initFilters() {
             try {
-                // Ambil data untuk mendapatkan daftar Tanggal & Lapangan yang unik
                 const res = await fetch('/api/get-full-schedule');
                 masterData = await res.json();
 
-                // 1. Populate Kategori
-                const resCat = await fetch('/get-categories');
-                const dataCat = await resCat.json();
                 const selKat = document.getElementById('filter-kategori');
-                dataCat.categories.forEach(c => {
-                    let opt = new Option(c, c);
-                    selKat.add(opt);
-                });
+                const unikKat = [...new Set(masterData.map(m => m.kategori))].sort();
+                unikKat.forEach(c => selKat.add(new Option(c, c)));
 
-                // 2. Populate Tanggal Unik
                 const selTgl = document.getElementById('filter-tanggal');
                 const unikTgl = [...new Set(masterData.map(m => m.tanggal))].sort();
-                unikTgl.forEach(t => {
-                    let opt = new Option(t, t);
-                    selTgl.add(opt);
-                });
+                unikTgl.forEach(t => selTgl.add(new Option(t, t)));
 
-                // 3. Populate Lapangan Unik
                 const selLap = document.getElementById('filter-lapangan');
                 const unikLap = [...new Set(masterData.map(m => m.court))].sort();
-                unikLap.forEach(l => {
-                    let opt = new Option(l, l);
-                    selLap.add(opt);
-                });
+                unikLap.forEach(l => selLap.add(new Option(l, l)));
 
-                loadLiveResults(false); // Render pertama kali
-            } catch (err) {
-                console.error("Gagal inisialisasi filter:", err);
-            }
+                loadLiveResults(false);
+            } catch (err) { console.error(err); }
         }
 
         async function loadLiveResults(shouldFetch = true) {
-            try {
-                if (shouldFetch) {
-                    const res = await fetch('/api/get-full-schedule');
-                    masterData = await res.json();
-                }
-
-                const valTgl = document.getElementById('filter-tanggal').value;
-                const valKat = document.getElementById('filter-kategori').value;
-                const valLap = document.getElementById('filter-lapangan').value;
-
-                const tbody = document.getElementById('result-body');
-
-                // Logika Filter 3 Lapis
-                const filteredData = masterData.filter(m => {
-                    const matchTgl = (valTgl === "ALL" || m.tanggal === valTgl);
-                    const matchKat = (valKat === "ALL" || m.kategori === valKat);
-                    const matchLap = (valLap === "ALL" || m.court === valLap);
-                    return matchTgl && matchKat && matchLap;
-                });
-
-                if (filteredData.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px;">Data tidak ditemukan.</td></tr>';
-                    return;
-                }
-
-                tbody.innerHTML = '';
-                filteredData.forEach(m => {
-                    // Ganti blok di dalam filteredData.forEach(m => { ... })
-                    const tr = document.createElement('tr');
-                    const isSelesai = m.status_label === "SELESAI";
-
-                    // Fungsi untuk memindahkan (PB) ke atas nama
-                    const formatPartai = (text) => {
-                        if (!text) return '-';
-                        if (text.includes(' (')) {
-                            return text.replace(/ \((.*?)\)/g, (match, pb) => {
-                                return `<div style="font-size: 10px; color: #64748b; font-weight: 800; line-height: 1.2; margin-bottom: 2px;">(${pb})</div>`;
-                            });
-                        }
-                        return `<div>${text}</div>`;
-                    };
-
-                    tr.innerHTML = `
-    <td data-label="Jam"><strong>${m.jam}</strong></td>
-    <td data-label="Lap."><span class="court-badge">${m.court}</span></td>
-    <td data-label="Babak"><span class="round-badge">${m.babak || '-'}</span></td> 
-    <td data-label="Partai">
-        <span class="kategori-text">${m.kategori}</span>
-        <div style="display: flex; flex-direction: column; gap: 2px; margin-top: 5px;">
-            ${formatPartai(m.partai)}
-        </div>
-    </td>
-    <td data-label="Skor" class="skor-box">${m.skor || '-'}</td>
-    <td data-label="Pemenang" class="${isSelesai ? 'status-selesai' : 'status-menunggu'}">
-        ${isSelesai ? '🏆 ' + m.winner : 'Menunggu'}
-    </td>
-`;
-                    tbody.appendChild(tr);
-                });
-            } catch (err) {
-                console.error("Gagal memuat data:", err);
+            if (shouldFetch) {
+                const res = await fetch('/api/get-full-schedule');
+                masterData = await res.json();
             }
+
+            const valTgl = document.getElementById('filter-tanggal').value;
+            const valKat = document.getElementById('filter-kategori').value;
+            const valLap = document.getElementById('filter-lapangan').value;
+
+            const container = document.getElementById('result-body');
+            
+            const filteredData = masterData.filter(m => {
+                return (valTgl === "ALL" || m.tanggal === valTgl) &&
+                       (valKat === "ALL" || m.kategori === valKat) &&
+                       (valLap === "ALL" || m.court === valLap);
+            });
+
+            if (filteredData.length === 0) {
+                container.innerHTML = '<p style="text-align:center; color:#94a3b8; margin-top:50px;">Tidak ada jadwal.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            filteredData.forEach(m => {
+                const isSelesai = m.status_label === "SELESAI";
+                
+                // Pecah Nama Pemain dan PB (asumsi format: Nama (PB))
+                const parsePlayer = (text) => {
+                    const match = text.match(/(.*?) \((.*?)\)/);
+                    return match ? { name: match[1], pb: match[2] } : { name: text, pb: '' };
+                };
+
+                const sep = m.partai.includes(' vs ') ? ' vs ' : ' VS ';
+                const players = m.partai.split(sep);
+                const p1 = parsePlayer(players[0] || 'TBD');
+                const p2 = parsePlayer(players[1] || 'TBD');
+
+                const card = document.createElement('div');
+                card.className = 'score-card';
+                card.innerHTML = `
+                    <div class="category-tag">${m.kategori}</div>
+                    <div class="card-header">
+                        <span><i class="far fa-clock"></i> ${m.jam}</span>
+                        <span class="court-label"><i class="fas fa-map-marker-alt"></i> ${m.court}</span>
+                        <span class="badge-info">${m.babak || 'Partai'}</span>
+                    </div>
+                    <div class="match-main">
+                        <div class="team-box">
+                            <div class="pb-name">${p1.pb}</div>
+                            <div class="team-name">${p1.name}</div>
+                        </div>
+                        <div style="text-align:center">
+                            <div class="score-display">${m.skor || '0 - 0'}</div>
+                            <div class="vs-divider">VS</div>
+                        </div>
+                        <div class="team-box">
+                            <div class="pb-name">${p2.pb}</div>
+                            <div class="team-name">${p2.name}</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        ${isSelesai ? 
+                            `<div class="winner-text"><i class="fas fa-trophy"></i> Winner: ${m.winner}</div>` : 
+                            `<div class="waiting-text">Pertandingan Belum Dimulai</div>`}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
         }
 
         window.onload = initFilters;
-        // Auto refresh data tiap 30 detik tanpa reset filter
         setInterval(() => loadLiveResults(true), 30000);
     </script>
-
 </body>
 
 </html>

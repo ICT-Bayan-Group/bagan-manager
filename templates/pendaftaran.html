@@ -1,90 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <title>Input Peserta Turnamen</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pendaftaran Peserta - BPN OPEN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
+            --text-main: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: sans-serif;
-            padding: 40px;
-            background: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            margin: 0;
+            padding: 15px;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            min-height: 100dvh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .header h2 {
+            color: var(--primary);
+            font-weight: 800;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 1.5rem;
         }
 
         .box {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: auto;
-        }
-
-        textarea {
-            width: 100%;
-            height: 300px;
-            margin: 10px 0;
-            padding: 10px;
-            box-sizing: border-box;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
-        select,
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background: #1e3a8a;
-            color: white;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background: #152a61;
+            padding: 24px;
+            border-radius: 20px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
         label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #64748b;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        select,
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #f1f5f9;
+            border-radius: 12px;
+            background: #f8fafc;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
+            color: var(--text-main);
+        }
+
+        select:focus,
+        input:focus,
+        textarea:focus {
+            border-color: var(--accent);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .seed-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #eff6ff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .seed-row p {
+            margin: 0;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        textarea {
+            height: 250px;
+            resize: none;
+            line-height: 1.6;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 16px;
+            width: 100%;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+            transition: 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        button i {
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Loading State */
+        .btn-loading {
+            opacity: 0.7;
+            pointer-events: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="box">
-        <h2>Pendaftaran Per Kategori</h2>
-        <label for="kategori">Pilih Kategori:</label>
-        <select id="kategori">
-            <option value="">-- Memuat Kategori... --</option>
-        </select>
+    <div class="container">
+        <div class="header">
+            <h2><i class="fas fa-user-plus"></i> Input Peserta</h2>
+        </div>
 
-          <p style="font-size: 11px; color: #666;">*Sistem akan mengambil nama pertama dan seterusnya sebagai Seeded</p>
-        <label>Jumlah Pemain Unggulan (Seed):</label>
-        
-        <input type="number" id="jumlah_seed" value="4" min="0" style="width: 80px;">
-        <br>
+        <div class="box">
+            <div class="form-group">
+                <label for="kategori">Pilih Kategori Pertandingan</label>
+                <select id="kategori">
+                    <option value="">-- Memuat Kategori... --</option>
+                </select>
+            </div>
 
-        <label for="daftar_nama">Daftar Tim/Pemain (Satu nama per baris):</label>
-        <textarea id="daftar_nama"
-            placeholder="Contoh:&#10;Andi / Budi (nama pb)&#10;Kevin / Marcus (nama pb)&#10;Fajar / Rian (nama pb)"></textarea>
+            <div class="seed-row">
+                <i class="fas fa-seedling" style="color: #3b82f6; font-size: 20px;"></i>
+                <div>
+                    <p>Sistem akan mengambil nama urutan pertama sebagai pemain unggulan (Seeded).</p>
+                    <div style="display: flex; align-items: center; gap: 8px; margin-top: 5px;">
+                        <span style="font-size: 12px; font-weight: 800;">JUMLAH SEED:</span>
+                        <input type="number" id="jumlah_seed" value="4" min="0" style="width: 70px; padding: 5px 8px; border-radius: 6px;">
+                    </div>
+                </div>
+            </div>
 
-        <button onclick="prosesSimpan()">Buat File JSON Otomatis</button>
-        <p style="text-align: center; margin-top: 15px;">
-            <a href="/manage-categories" style="font-size: 13px; color: #666; text-decoration: none;">+ Kelola Daftar
-                Kategori</a>
-        </p>
+            <div class="form-group">
+                <label for="daftar_nama">Daftar Tim/Pemain (Satu per baris)</label>
+                <textarea id="daftar_nama" spellcheck="false"
+                    placeholder="Contoh:&#10;Fajar / Rian (SGS PLN)&#10;Kevin / Marcus (PB Djarum)&#10;Ahsan / Hendra (Jaya Raya)"></textarea>
+            </div>
+
+            <button id="btn-simpan" onclick="prosesSimpan()">
+                <i class="fas fa-save"></i> <span id="btn-text">Simpan & Daftarkan</span>
+            </button>
+        </div>
+
+    
     </div>
 
     <script>
@@ -113,35 +240,45 @@
             }
         }
 
-        // 2. Jalankan fungsi load saat halaman siap
         window.onload = loadCategories;
 
         async function prosesSimpan() {
             const kategori = document.getElementById('kategori').value;
             const teks = document.getElementById('daftar_nama').value;
             const jmlSeed = document.getElementById('jumlah_seed').value;
+            const btn = document.getElementById('btn-simpan');
+            const btnText = document.getElementById('btn-text');
 
             if (!kategori) return alert("Pilih kategori terlebih dahulu!");
             if (!teks.trim()) return alert("Masukkan daftar nama peserta!");
 
-            // Pecah teks menjadi array berdasarkan baris, hapus baris kosong
-            const listTeams = teks.split('\n').map(t => t.trim()).filter(t => t !== "");
-            const res = await fetch('/simpan-tim', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    kategori: kategori,
-                    teams: listTeams,
-                    jumlah_seed: parseInt(jmlSeed) // Kirim jumlah seed ke server
-                })
-            });
+            // Visual Loading
+            btn.classList.add('btn-loading');
+            btnText.innerText = "Mendaftarkan...";
 
-            const result = await res.json();
-            alert(result.message);
+            try {
+                const listTeams = teks.split('\n').map(t => t.trim()).filter(t => t !== "");
+                const res = await fetch('/simpan-tim', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        kategori: kategori,
+                        teams: listTeams,
+                        jumlah_seed: parseInt(jmlSeed)
+                    })
+                });
 
-            // Kosongkan textarea setelah sukses agar bisa input kategori lain
-            if (res.ok) {
-                document.getElementById('daftar_nama').value = '';
+                const result = await res.json();
+                alert(result.message);
+
+                if (res.ok) {
+                    document.getElementById('daftar_nama').value = '';
+                }
+            } catch (err) {
+                alert("Terjadi kesalahan koneksi.");
+            } finally {
+                btn.classList.remove('btn-loading');
+                btnText.innerText = "Simpan & Daftarkan";
             }
         }
     </script>
