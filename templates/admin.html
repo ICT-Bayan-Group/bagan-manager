@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -12,10 +13,13 @@
             --bg: #f8fafc;
             --sidebar-bg: #ffffff;
             /* Menggunakan dvh (Dynamic Viewport Height) agar pas di HP walau ada bar navigasi browser */
-            --full-height: 100dvh; 
+            --full-height: 100dvh;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -35,7 +39,8 @@
             display: flex;
             flex-direction: column;
             position: fixed;
-            left: -280px; /* Sembunyi secara default */
+            left: -280px;
+            /* Sembunyi secara default */
             top: 0;
             bottom: 0;
             z-index: 2000;
@@ -43,7 +48,9 @@
             padding: 20px;
         }
 
-        .sidebar.open { transform: translateX(280px); }
+        .sidebar.open {
+            transform: translateX(280px);
+        }
 
         .sidebar h2 {
             color: var(--primary);
@@ -67,7 +74,8 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 14px 16px; /* Lebih besar untuk sentuhan jari */
+            padding: 14px 16px;
+            /* Lebih besar untuk sentuhan jari */
             border-radius: 10px;
             color: #475569;
             text-decoration: none;
@@ -82,9 +90,14 @@
             transition: 0.2s;
         }
 
-        .nav-item i { width: 20px; text-align: center; font-size: 1.1rem; }
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
 
-        .nav-item:active, .nav-item.active {
+        .nav-item:active,
+        .nav-item.active {
             background: var(--primary);
             color: white;
         }
@@ -158,7 +171,10 @@
             backdrop-filter: blur(2px);
             z-index: 1500;
         }
-        .overlay.active { display: block; }
+
+        .overlay.active {
+            display: block;
+        }
 
         /* --- DESKTOP VIEW --- */
         @media (min-width: 992px) {
@@ -167,10 +183,24 @@
                 left: 0;
                 transform: none;
             }
-            .menu-toggle { display: none; }
-            .overlay { display: none !important; }
-            #page-title { max-width: none; font-size: 1.2rem; }
-            .top-bar { padding: 0 30px; height: 70px; }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .overlay {
+                display: none !important;
+            }
+
+            #page-title {
+                max-width: none;
+                font-size: 1.2rem;
+            }
+
+            .top-bar {
+                padding: 0 30px;
+                height: 70px;
+            }
         }
 
         /* --- LOADER --- */
@@ -184,16 +214,28 @@
             justify-content: center;
             align-items: center;
         }
+
         .spinner {
             border: 3px solid #e2e8f0;
             border-top: 3px solid var(--primary);
             border-radius: 50%;
-            width: 30px; height: 30px;
+            width: 30px;
+            height: 30px;
             animation: spin 0.8s linear infinite;
         }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -205,7 +247,7 @@
             <button class="nav-item active" onclick="loadPage('/stats')">
                 <i class="fas fa-chart-line"></i> Ringkasan
             </button>
-            
+
             <div class="nav-label">Setup</div>
             <button class="nav-item" onclick="loadPage('/manage-categories')">
                 <i class="fas fa-tags"></i> Kategori
@@ -223,12 +265,15 @@
             </button>
 
             <div class="nav-label">Monitoring</div>
-            <a href="/lihat-jadwal" target="_blank" class="nav-item">
-                <i class="fas fa-eye"></i> View Jadwal
-            </a>
-            <a href="/lihat-bagan" target="_blank" class="nav-item">
-                <i class="fas fa-project-diagram"></i> View Bagan
-            </a>
+           
+
+            <button class="nav-item" onclick="loadPage('/lihat-jadwal')">
+                <i class="fas fa-calendar-alt"></i> Lihat Jadwal
+            </button>
+
+            <button class="nav-item" onclick="loadPage('/lihat-bagan')">
+                <i class="fas fa-calendar-alt"></i> Lihat Bagan
+            </button>
             <button class="nav-item" onclick="loadPage('/skor-pertandingan')">
                 <i class="fas fa-poll"></i> Hasil & Skor
             </button>
@@ -248,7 +293,8 @@
                 </button>
                 <h1 id="page-title">Ringkasan Event</h1>
             </div>
-            <div style="font-size: 10px; color: #10b981; font-weight: bold; background: #ecfdf5; padding: 4px 8px; border-radius: 6px;">
+            <div
+                style="font-size: 10px; color: #10b981; font-weight: bold; background: #ecfdf5; padding: 4px 8px; border-radius: 6px;">
                 <i class="fas fa-circle" style="font-size: 6px;"></i> ONLINE
             </div>
         </header>
@@ -271,7 +317,7 @@
         function loadPage(url) {
             const frame = document.getElementById('content-frame');
             const title = document.getElementById('page-title');
-            
+
             // Tampilkan loader saat ganti halaman
             document.getElementById('loader').style.display = 'flex';
             frame.src = url;
@@ -289,7 +335,7 @@
             // Menu Aktif
             document.querySelectorAll('.nav-item').forEach(btn => {
                 btn.classList.remove('active');
-                if(btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(url)) {
+                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(url)) {
                     btn.classList.add('active');
                 }
             });
@@ -341,4 +387,5 @@
         }
     </script>
 </body>
+
 </html>
