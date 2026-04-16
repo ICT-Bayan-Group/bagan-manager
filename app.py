@@ -476,7 +476,7 @@ def update_skor():
             with open('matches.json', 'w') as f:
                 json.dump(all_matches, f, indent=4)
 
-        subprocess.run(["python3", "generate_main.py"], check=True)
+        #subprocess.run(["python3", "generate_main.py"], check=True)
     return jsonify({"status": "success", "message": "Skor berhasil diperbarui!"})
 
 # --- RUTE LAINNYA ---
