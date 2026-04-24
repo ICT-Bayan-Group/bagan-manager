@@ -9,8 +9,10 @@ import sqlite3
 import jwt
 import datetime
 from functools import wraps
+from flask_compress import Compress # 1. Import library kompresi
 
 app = Flask(__name__)
+Compress(app) # 2. Inisialisasi Kompresi
 # Izinkan semua domain (atau domain tertentu) dan izinkan header 'Authorization'
 CORS(app, supports_credentials=True, allow_headers=["Content-Type", "Authorization"])
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -438,46 +440,83 @@ def get_ready_matches(kategori):
 
 @app.route('/update-skor', methods=['POST'])
 def update_skor():
-    data = request.json
-    # Perbaikan: Mengambil 'match_id' (dari HTML baru) atau 'id' (dari HTML lama)
-    match_id = data.get('match_id') or data.get('id') 
-    kategori = data.get('kategori')
-    skor_p1 = data.get('skor_p1')
-    skor_p2 = data.get('skor_p2')
-    winner = data.get('winner')
+    try:
+        data = request.json
+        if not data:
+            return jsonify({"status": "error", "message": "Data tidak valid"}), 400
 
-    if not match_id or not kategori:
-        return jsonify({"status": "error", "message": "ID Match atau Kategori tidak ditemukan"}), 400
+        # Ambil data utama
+        match_id = data.get('match_id') or data.get('id') 
+        kategori = data.get('kategori')
+        skor_p1 = data.get('skor_p1')
+        skor_p2 = data.get('skor_p2')
+        winner = data.get('winner')
 
-    # Simpan ke Database SQLite
-    conn = sqlite3.connect('skor.db')
-    conn.execute('''
-        INSERT OR REPLACE INTO tabel_skor (kategori, match_id, skor_p1, skor_p2, winner)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (kategori, match_id, skor_p1, skor_p2, winner))
-    conn.commit()
-    conn.close()
+        if not match_id or not kategori:
+            return jsonify({"status": "error", "message": "ID Match atau Kategori tidak ditemukan"}), 400
 
-    # Update matches.json untuk Bagan
-    if os.path.exists('matches.json'):
-        with open('matches.json', 'r') as f:
-            all_matches = json.load(f)
-        
-        curr = next((m for m in all_matches if m['id'] == match_id and m['kategori'] == kategori), None)
-        if curr:
-            next_target = curr.get('pemenang_ke')
-            if next_target and next_target != "JUARA":
-                t_id = int(str(next_target).replace('M', ''))
-                target = next((m for m in all_matches if m['id'] == t_id and m['kategori'] == kategori), None)
-                if target:
-                    if target['p1'] == "TBD" or target['p1'] == "": target['p1'] = winner
-                    else: target['p2'] = winner
+        # 1. CEK DATABASE (IDEMPOTENSI)
+        # Jika jaringan putus-putus, frontend mungkin kirim ulang data yang sama.
+        # Kita cek apakah skor yang dikirim SUDAH SAMA dengan yang ada di DB.
+        with sqlite3.connect('skor.db') as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+                SELECT skor_p1, skor_p2 FROM tabel_skor 
+                WHERE match_id = ? AND kategori = ?
+            ''', (match_id, kategori))
+            existing = cursor.fetchone()
 
-            with open('matches.json', 'w') as f:
-                json.dump(all_matches, f, indent=4)
+            # Jika data sudah ada dan skornya sama, stop di sini (berhasil tanpa proses ulang bagan)
+            if existing and existing[0] == skor_p1 and existing[1] == skor_p2:
+                return jsonify({"status": "success", "message": "Skor sudah tersinkronisasi sebelumnya"})
 
-        #subprocess.run(["python3", "generate_main.py"], check=True)
-    return jsonify({"status": "success", "message": "Skor berhasil diperbarui!"})
+            # Simpan atau Perbarui Database
+            conn.execute('''
+                INSERT OR REPLACE INTO tabel_skor (kategori, match_id, skor_p1, skor_p2, winner)
+                VALUES (?, ?, ?, ?, ?)
+            ''', (kategori, match_id, skor_p1, skor_p2, winner))
+            conn.commit()
+
+        # 2. UPDATE MATCHES.JSON (LOGIKA BAGAN)
+        if os.path.exists('matches.json'):
+            all_matches = []
+            with open('matches.json', 'r') as f:
+                all_matches = json.load(f)
+            
+            # Cari pertandingan saat ini
+            curr = next((m for m in all_matches if str(m['id']) == str(match_id) and m['kategori'] == kategori), None)
+            
+            if curr:
+                # Set skor di match saat ini agar visual bagan berubah
+                curr['skor_akhir'] = f"{skor_p1} - {skor_p2}"
+                curr['pemenang'] = winner
+                
+                next_target = curr.get('pemenang_ke')
+                if next_target and next_target != "JUARA":
+                    # Bersihkan ID target (misal 'M5' -> 5)
+                    try:
+                        t_id = int(str(next_target).upper().replace('M', ''))
+                        target = next((m for m in all_matches if m['id'] == t_id and m['kategori'] == kategori), None)
+                        
+                        if target:
+                            # Cek apakah pemenang sudah ada di slot p1 atau p2 untuk menghindari duplikasi
+                            if target['p1'] != winner and target['p2'] != winner:
+                                if target['p1'] == "TBD" or target['p1'] == "":
+                                    target['p1'] = winner
+                                else:
+                                    target['p2'] = winner
+                    except ValueError:
+                        print(f"Format ID Match Target {next_target} tidak valid")
+
+                # Tulis kembali file secara aman
+                with open('matches.json', 'w') as f:
+                    json.dump(all_matches, f, indent=4)
+
+        return jsonify({"status": "success", "message": "Skor dan Bagan berhasil diperbarui!"})
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return jsonify({"status": "error", "message": f"Terjadi kesalahan sistem: {str(e)}"}), 500
 
 # --- RUTE LAINNYA ---
 
