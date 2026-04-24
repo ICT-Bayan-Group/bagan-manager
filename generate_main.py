@@ -16,13 +16,31 @@ def save_json(data, filename):
         json.dump(data, f, indent=4)
 
 def parse_time_flexible(date_str, time_str):
-    time_str = time_str.strip()
+    # 1. Bersihkan spasi di awal/akhir
+    date_str = date_str.strip() if date_str else ""
+    time_str = time_str.strip() if time_str else ""
+
+    # 2. Jika tanggal kosong, jangan dipaksakan parse (return None)
+    if not date_str or not time_str:
+        return None
+
+    # 3. Pastikan jam punya format HH:MM:SS
     if len(time_str.split(':')) == 2:
         time_str += ":00"
-    try:
-        return datetime.strptime(f"{date_str} {time_str}", "%Y-%m-%d %H:%M:%S")
-    except:
-        return datetime.strptime(f"{date_str} {time_str}", "%Y/%m/%d %H:%M:%S")
+    
+    # Gabungkan
+    full_str = f"{date_str} {time_str}"
+    
+    # 4. Coba parse dengan format yang didukung simulator (Strip spasi ganda juga)
+    full_str = " ".join(full_str.split()) 
+    
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y/%m/%d %H:%M:%S"):
+        try:
+            return datetime.strptime(full_str, fmt)
+        except ValueError:
+            continue
+            
+    return None
 
 def generate_schedule():
     configs = load_json('config.json')

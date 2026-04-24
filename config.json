@@ -1,251 +1,210 @@
 [
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-10",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R128",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-11",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R128",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-12",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R128",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-13",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R128",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-14",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R64",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "GANDA PUTRA",
         "tanggal": "2026-03-15",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRA",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R64",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
-        "tanggal": "2026-03-16",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
         "kategori": "GANDA PUTRA",
+        "tanggal": "2026-03-16",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R32",
         "venue": "DOME",
         "lapangan": [
-            "C1",
-            "C2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
-        "tanggal": "2026-03-17",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
         "kategori": "GANDA PUTRA",
+        "tanggal": "2026-03-17",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R16",
         "venue": "DOME",
         "lapangan": [
-            "C1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-18",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "10:00:00",
         "kategori": "GANDA PUTRA",
+        "tanggal": "2026-03-18",
+        "jam_mulai": "08:00",
+        "jam_selesai": "10:00",
         "babak": "PEREMPAT FINAL",
         "venue": "DOME",
         "lapangan": [
-            "C1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-19",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "09:00:00",
         "kategori": "GANDA PUTRA",
+        "tanggal": "2026-03-19",
+        "jam_mulai": "08:00",
+        "jam_selesai": "09:00",
         "babak": "SEMI FINAL",
         "venue": "DOME",
         "lapangan": [
-            "C1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-20",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "09:00:00",
         "kategori": "GANDA PUTRA",
+        "tanggal": "2026-03-20",
+        "jam_mulai": "08:00",
+        "jam_selesai": "08:30",
         "babak": "FINAL",
         "venue": "DOME",
         "lapangan": [
-            "C1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-16",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R128",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
-        "tanggal": "2026-03-17",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R128",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
+        "kategori": "TUNGGAL PUTRA",
         "tanggal": "2026-03-18",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R128",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
-        "tanggal": "2026-03-19",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R128",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
-        "tanggal": "2026-03-20",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R64",
-        "venue": "HEVINDO",
+        "venue": "TENNIS INDOOR",
         "lapangan": [
-            "LP1.LP2"
+            "Court-1",
+            "Court-2"
         ]
     },
     {
+        "kategori": "TUNGGAL PUTRA",
+        "tanggal": "2026-03-19",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
+        "babak": "R64",
+        "venue": "TENNIS INDOOR",
+        "lapangan": [
+            "Court-1",
+            "Court-2"
+        ]
+    },
+    {
+        "kategori": "TUNGGAL PUTRA",
+        "tanggal": "2026-03-20",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
+        "babak": "R32",
+        "venue": "TENNIS INDOOR",
+        "lapangan": [
+            "Court-1",
+            "Court-2"
+        ]
+    },
+    {
+        "kategori": "TUNGGAL PUTRA",
         "tanggal": "2026-03-21",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R64",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
-        "tanggal": "2026-03-22",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
-        "babak": "R32",
-        "venue": "HEVINDO",
-        "lapangan": [
-            "LP1.LP2"
-        ]
-    },
-    {
-        "tanggal": "2026-03-23",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "12:00:00",
-        "kategori": "GANDA PUTRI",
+        "jam_mulai": "08:00",
+        "jam_selesai": "12:00",
         "babak": "R16",
-        "venue": "HEVINDO",
+        "venue": "TENNIS INDOOR",
         "lapangan": [
-            "LP1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-24",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "09:00:00",
-        "kategori": "GANDA PUTRI",
+        "kategori": "TUNGGAL PUTRA",
+        "tanggal": "2026-03-22",
+        "jam_mulai": "08:00",
+        "jam_selesai": "10:00",
         "babak": "PEREMPAT FINAL",
-        "venue": "HEVINDO",
+        "venue": "TENNIS INDOOR",
         "lapangan": [
-            "LP1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-25",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "09:00:00",
-        "kategori": "GANDA PUTRI",
+        "kategori": "TUNGGAL PUTRA",
+        "tanggal": "2026-03-23",
+        "jam_mulai": "08:00",
+        "jam_selesai": "09:00",
         "babak": "SEMI FINAL",
-        "venue": "HEVINDO",
+        "venue": "TENNIS INDOOR",
         "lapangan": [
-            "LP1"
+            "Court-1"
         ]
     },
     {
-        "tanggal": "2026-03-26",
-        "jam_mulai": "08:00:00",
-        "jam_selesai": "09:00:00",
-        "kategori": "GANDA PUTRI",
+        "kategori": "TUNGGAL PUTRA",
+        "tanggal": "2026-03-24",
+        "jam_mulai": "08:00",
+        "jam_selesai": "08:30",
         "babak": "FINAL",
-        "venue": "HEVINDO",
+        "venue": "TENNIS INDOOR",
         "lapangan": [
-            "LP1"
+            "Court-1"
         ]
     }
 ]
