@@ -1,0 +1,1712 @@
+[
+    {
+        "id": 1,
+        "p1": "Andi Wijaya / Budi Santoso PB Djarum",
+        "p2": "Wira Usaha / Bakti Pertiwi PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M65"
+    },
+    {
+        "id": 2,
+        "p1": "Tanah Air / Bangsa Satu PB Semen Indonesia",
+        "p2": "Sejahtera / Adil Makmur PB Hevindo",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M65"
+    },
+    {
+        "id": 3,
+        "p1": "Chico Aura / Christian Adinata PB Jaya Raya",
+        "p2": "Wahyu Nayaka / Ade Yusuf PB Tangkas",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M66"
+    },
+    {
+        "id": 4,
+        "p1": "Rudy Heryanto / Hariamanto Kartono PB Djarum",
+        "p2": "Bobby Ertanto / Hadibowo PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M66"
+    },
+    {
+        "id": 5,
+        "p1": "Christian Hadinata / Ade Chandra PB Jaya Raya",
+        "p2": "Rahmat Hidayat / Kevin Sanjaya PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M67"
+    },
+    {
+        "id": 6,
+        "p1": "Sabar Karyaman / Moh Reza Pahlevi PB Mutiara Cardinal",
+        "p2": "Ramah / Tamah PB Tangkas",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M67"
+    },
+    {
+        "id": 7,
+        "p1": "Fajar Alfian / Muhammad Rian PB SGS PLN",
+        "p2": "Hendra Kurniawan / Ahsan Wijaya PB Power Rajawali",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M68"
+    },
+    {
+        "id": 8,
+        "p1": "Rimba Raya / Hutan Rimba PB Hevindo",
+        "p2": "Bagas Maulana / Muhammad Shohibul Fikri PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M68"
+    },
+    {
+        "id": 9,
+        "p1": "Yantoni Edy / Marsheilla Gischa PB Djarum",
+        "p2": "Juara Sejati / Sportivitas PB Suryanaga",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M69"
+    },
+    {
+        "id": 10,
+        "p1": "Hafiz Faizal / Ade Yusuf PB Exist",
+        "p2": "Keluarga / Berencana PB Pengayoman",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M69"
+    },
+    {
+        "id": 11,
+        "p1": "Adnan Maulana / Nita Violina PB Jaya Raya",
+        "p2": "Pelangi / Warna PB Semen Indonesia",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M70"
+    },
+    {
+        "id": 12,
+        "p1": "Leo Rolly / Daniel Marthin PB Djarum",
+        "p2": "Praveen Jordan / Kevin Sanjaya PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M70"
+    },
+    {
+        "id": 13,
+        "p1": "Sakti Mandraguna / Gagah Perkasa PB Djarum",
+        "p2": "Danau Toba / Sungai Musi PB Terpadu",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M71"
+    },
+    {
+        "id": 14,
+        "p1": "Shesar Hiren / Alwi Farhan PB Djarum",
+        "p2": "Eng Hian / Flandy Limpele PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M71"
+    },
+    {
+        "id": 15,
+        "p1": "Merah Putih / Garuda Muda PB Guna Dharma",
+        "p2": "Marcus Fernaldi / Kevin Sanjaya PB Tangkas",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M72"
+    },
+    {
+        "id": 16,
+        "p1": "Made Agus / Komang Tri PB Terpadu",
+        "p2": "Jujur / Terpercaya PB Victory",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M72"
+    },
+    {
+        "id": 17,
+        "p1": "Gideon Marcus / Markis Kido PB Jaya Raya",
+        "p2": "Setia / Kawan PB Terpadu",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M73"
+    },
+    {
+        "id": 18,
+        "p1": "Galang Rambu / Bintang Timur PB Mutiara Cardinal",
+        "p2": "Angga Pratama / Ryan Agung PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M73"
+    },
+    {
+        "id": 19,
+        "p1": "Jonatan Christie / Anthony Ginting PB Tangkas",
+        "p2": "Disiplin / Tanggung Jawab PB Guna Dharma",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M74"
+    },
+    {
+        "id": 20,
+        "p1": "Sapta Giri / Asta Dewa PB Victory",
+        "p2": "Tri Wahyudi / Catur Nugroho PB Semen Indonesia",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M74"
+    },
+    {
+        "id": 21,
+        "p1": "Mufakat / Kebersamaan PB Pengayoman",
+        "p2": "Harmoni / Selaras PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M75"
+    },
+    {
+        "id": 22,
+        "p1": "Mohammad Ahsan / Bona Septano PB Jaya Raya",
+        "p2": "Berry Angriawan / Rian Agung PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M75"
+    },
+    {
+        "id": 23,
+        "p1": "Fran Kurniawan / Bona Septano PB Djarum",
+        "p2": "Ricky Subagja / Rexy Mainaky PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M76"
+    },
+    {
+        "id": 24,
+        "p1": "Rexy Mainaky / Ricky Subagja PB Djarum",
+        "p2": "Dimas Anggara / Kevin Sanjaya PB Tangkas",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M76"
+    },
+    {
+        "id": 25,
+        "p1": "Cahaya / Terang PB Suryanaga",
+        "p2": "Semangat / Pantang Menyerah PB Bakti Jaya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M77"
+    },
+    {
+        "id": 26,
+        "p1": "Wahyu Nayaka / Ade Yusuf PB Tangkas",
+        "p2": "Kerja Keras / Cerdas Ikhlas PB Semen Indonesia",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M77"
+    },
+    {
+        "id": 27,
+        "p1": "Embun / Pagi PB Guna Dharma",
+        "p2": "Surya Kencana / Langit Biru PB Exist",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M78"
+    },
+    {
+        "id": 28,
+        "p1": "Karya Anak / Bangsa Sendiri PB Power Rajawali",
+        "p2": "Alvent Yulianto / Hendra Aprida PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M78"
+    },
+    {
+        "id": 29,
+        "p1": "Panca Sakti / Enam Jati PB Guna Dharma",
+        "p2": "Pramudya Kusumawardana / Yeremia Rambitan PB Exist",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M79"
+    },
+    {
+        "id": 30,
+        "p1": "Frengky Wijaya / Sabar Karyaman PB Exist",
+        "p2": "Bukit Tinggi / Kota Baru PB Bakti Jaya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M79"
+    },
+    {
+        "id": 31,
+        "p1": "Bagas Pratama / Fikri Wardana PB Exist",
+        "p2": "Bersih / Sehat PB Exist",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M80"
+    },
+    {
+        "id": 32,
+        "p1": "Angga Pratama / Ricky Karanda PB Mutiara Cardinal",
+        "p2": "Iwan Setiawan / Agus Heryanto PB Exist",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "LEFT",
+        "pemenang_ke": "M80"
+    },
+    {
+        "id": 33,
+        "p1": "Rendy Pratama / Surya Saputra PB Mutiara Cardinal",
+        "p2": "Pramudya Kusumawardana / Yeremia Rambitan PB Exist",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M81"
+    },
+    {
+        "id": 34,
+        "p1": "Agripina Prima / Marcus Fernaldi PB Jaya Raya",
+        "p2": "Berry Angriawan / Hardianto PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M81"
+    },
+    {
+        "id": 35,
+        "p1": "Nawa Kencana / Dasa Wijaya PB Talenta",
+        "p2": "Hari Esok / Lebih Baik PB Bakti Jaya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M82"
+    },
+    {
+        "id": 36,
+        "p1": "Eko Sulistyo / Dwi Aprianto PB Djarum",
+        "p2": "Andika Ramadiansyah / Mychelle Crhystine PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M82"
+    },
+    {
+        "id": 37,
+        "p1": "Indonesia Raya / Maju Jaya PB Talenta",
+        "p2": "Luluk Hadiyanto / Sigit Budiarto PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M83"
+    },
+    {
+        "id": 38,
+        "p1": "Inovatif / Kolaboratif PB Djarum",
+        "p2": "Bumi Pertiwi / Samudra Luas PB Tangkas",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M83"
+    },
+    {
+        "id": 39,
+        "p1": "Cipta Karya / Bina Marga PB Mutiara Cardinal",
+        "p2": "Amri Syahnawi / Fajar Alfian PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M84"
+    },
+    {
+        "id": 40,
+        "p1": "Taufik Hidayat / Alan Budikusuma PB Bakti Jaya",
+        "p2": "Kevin Sanjaya / Marcus Fernaldi PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M84"
+    },
+    {
+        "id": 41,
+        "p1": "Jafar Hidayatullah / Leo Rolly PB Jaya Raya",
+        "p2": "Gunung Agung / Lembah Hijau PB Power Rajawali",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M85"
+    },
+    {
+        "id": 42,
+        "p1": "Nyoman Gede / Putu Eka PB Bakti Jaya",
+        "p2": "Leo Rolly Carnando / Daniel Marthin PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M85"
+    },
+    {
+        "id": 43,
+        "p1": "Kenyon / Rian PB Exist",
+        "p2": "Akbar Bintang / Moh Reza Pahlevi PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M86"
+    },
+    {
+        "id": 44,
+        "p1": "Berani / Benar PB Hevindo",
+        "p2": "Muhammad Shohibul / Bagas Maulana PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M86"
+    },
+    {
+        "id": 45,
+        "p1": "Muhammad Rayhan / Rahmat Hidayat PB Djarum",
+        "p2": "Fajar Alfian / Muhammad Rian Ardianto PB SGS PLN",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M87"
+    },
+    {
+        "id": 46,
+        "p1": "Markis Kido / Hendra Setiawan PB Jaya Raya",
+        "p2": "Rehan Naufal / Pramudya Kusuma PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M87"
+    },
+    {
+        "id": 47,
+        "p1": "Rinov Rivaldy / Yeremia Rambitan PB Jaya Raya",
+        "p2": "Liem Swie King / Kartono PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M88"
+    },
+    {
+        "id": 48,
+        "p1": "Denny Kantono / Antonius Ariantho PB Djarum",
+        "p2": "Hendra Setiawan / Mohammad Ahsan PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M88"
+    },
+    {
+        "id": 49,
+        "p1": "Putu Danu / Wayan Gede PB Hevindo",
+        "p2": "Angin Mamiri / Awan Putih PB SGS PLN",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M89"
+    },
+    {
+        "id": 50,
+        "p1": "Rian Sukmawan / Yonathan Suryatama PB Djarum",
+        "p2": "Sawah Lunto / Pasir Putih PB Suryanaga",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M89"
+    },
+    {
+        "id": 51,
+        "p1": "Muhammad Rayhan / Marcus Fernaldi PB Jaya Raya",
+        "p2": "Mandiri / Kreatif PB Talenta",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M90"
+    },
+    {
+        "id": 52,
+        "p1": "Zachariah Josiahno / Hediana Julimarbela PB Djarum",
+        "p2": "Candra Wijaya / Tony Gunawan PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M90"
+    },
+    {
+        "id": 53,
+        "p1": "Rizky Fauzi / Aditya Nugraha PB Hevindo",
+        "p2": "Pantai Indah / Pulau Seribu PB Pengayoman",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M91"
+    },
+    {
+        "id": 54,
+        "p1": "Tony Gunawan / Halim Haryanto PB Djarum",
+        "p2": "Pancasila / Bhinneka Tunggal PB Victory",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M91"
+    },
+    {
+        "id": 55,
+        "p1": "Sabar Karyaman / Reza Pahlevi PB Mutiara Cardinal",
+        "p2": "Teges Satriaji / Christopher David PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M92"
+    },
+    {
+        "id": 56,
+        "p1": "Doni Tata / Eko Prasetyo PB SGS PLN",
+        "p2": "Hardianto / Kenas Adi Haryanto PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M92"
+    },
+    {
+        "id": 57,
+        "p1": "Sopan / Santun PB SGS PLN",
+        "p2": "Sigit Budiarto / Candra Wijaya PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M93"
+    },
+    {
+        "id": 58,
+        "p1": "Eka Putra / Dwi Cahyo PB Suryanaga",
+        "p2": "Tulus / Ikhlas PB Power Rajawali",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M93"
+    },
+    {
+        "id": 59,
+        "p1": "Seni Budaya / Adat Istiadat PB Tangkas",
+        "p2": "Ilmu Pengetahuan / Teknologi Tepat PB SGS PLN",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M94"
+    },
+    {
+        "id": 60,
+        "p1": "Dejan Ferdinansyah / Muhammad Rian PB Djarum",
+        "p2": "Triyanto / Fatur Rahman PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M94"
+    },
+    {
+        "id": 61,
+        "p1": "Tata Kota / Ruang Publik PB Exist",
+        "p2": "Mohammad Ahsan / Hendra Setiawan PB Djarum",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M95"
+    },
+    {
+        "id": 62,
+        "p1": "Eddy Hartono / Rudy Gunawan PB Djarum",
+        "p2": "Gede Putu / Ketut Bagus PB Pengayoman",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M95"
+    },
+    {
+        "id": 63,
+        "p1": "Hendra Aprida / Alvent Yulianto PB Jaya Raya",
+        "p2": "Lestari / Alam Indah PB Mutiara Cardinal",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M96"
+    },
+    {
+        "id": 64,
+        "p1": "Gotong Royong / Musyawarah PB Terpadu",
+        "p2": "Fajar Ramadhan / Guntur Putra PB Jaya Raya",
+        "kategori": "GANDA PUTRA",
+        "babak": "R128",
+        "side": "RIGHT",
+        "pemenang_ke": "M96"
+    },
+    {
+        "id": 65,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M97"
+    },
+    {
+        "id": 66,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M97"
+    },
+    {
+        "id": 67,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M98"
+    },
+    {
+        "id": 68,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M98"
+    },
+    {
+        "id": 69,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M99"
+    },
+    {
+        "id": 70,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M99"
+    },
+    {
+        "id": 71,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M100"
+    },
+    {
+        "id": 72,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M100"
+    },
+    {
+        "id": 73,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M101"
+    },
+    {
+        "id": 74,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M101"
+    },
+    {
+        "id": 75,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M102"
+    },
+    {
+        "id": 76,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M102"
+    },
+    {
+        "id": 77,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M103"
+    },
+    {
+        "id": 78,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M103"
+    },
+    {
+        "id": 79,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M104"
+    },
+    {
+        "id": 80,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M104"
+    },
+    {
+        "id": 81,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M105"
+    },
+    {
+        "id": 82,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M105"
+    },
+    {
+        "id": 83,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M106"
+    },
+    {
+        "id": 84,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M106"
+    },
+    {
+        "id": 85,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M107"
+    },
+    {
+        "id": 86,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M107"
+    },
+    {
+        "id": 87,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M108"
+    },
+    {
+        "id": 88,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M108"
+    },
+    {
+        "id": 89,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M109"
+    },
+    {
+        "id": 90,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M109"
+    },
+    {
+        "id": 91,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M110"
+    },
+    {
+        "id": 92,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M110"
+    },
+    {
+        "id": 93,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M111"
+    },
+    {
+        "id": 94,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M111"
+    },
+    {
+        "id": 95,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M112"
+    },
+    {
+        "id": 96,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M112"
+    },
+    {
+        "id": 97,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M113"
+    },
+    {
+        "id": 98,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M113"
+    },
+    {
+        "id": 99,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M114"
+    },
+    {
+        "id": 100,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M114"
+    },
+    {
+        "id": 101,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M115"
+    },
+    {
+        "id": 102,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M115"
+    },
+    {
+        "id": 103,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M116"
+    },
+    {
+        "id": 104,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M116"
+    },
+    {
+        "id": 105,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M117"
+    },
+    {
+        "id": 106,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M117"
+    },
+    {
+        "id": 107,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M118"
+    },
+    {
+        "id": 108,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M118"
+    },
+    {
+        "id": 109,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M119"
+    },
+    {
+        "id": 110,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M119"
+    },
+    {
+        "id": 111,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M120"
+    },
+    {
+        "id": 112,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M120"
+    },
+    {
+        "id": 113,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M121"
+    },
+    {
+        "id": 114,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M121"
+    },
+    {
+        "id": 115,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M122"
+    },
+    {
+        "id": 116,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M122"
+    },
+    {
+        "id": 117,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M123"
+    },
+    {
+        "id": 118,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M123"
+    },
+    {
+        "id": 119,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M124"
+    },
+    {
+        "id": 120,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M124"
+    },
+    {
+        "id": 121,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M125"
+    },
+    {
+        "id": 122,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M125"
+    },
+    {
+        "id": 123,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M126"
+    },
+    {
+        "id": 124,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M126"
+    },
+    {
+        "id": 125,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "SEMI FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M127"
+    },
+    {
+        "id": 126,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "SEMI FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M127"
+    },
+    {
+        "id": 127,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "GANDA PUTRA",
+        "babak": "FINAL",
+        "side": "CENTER",
+        "pemenang_ke": "JUARA"
+    },
+    {
+        "id": 1,
+        "p1": "Bambang Sutrisno / Hartono PB Hevindo",
+        "p2": "Rudy Hartono / Liem Swie King PB Legend",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M33"
+    },
+    {
+        "id": 2,
+        "p1": "Nyoman / Ketut PB Bakti Jaya",
+        "p2": "Edy Susanto / Heri Prasetyo PB Semen Indonesia",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M33"
+    },
+    {
+        "id": 3,
+        "p1": "Bagus / Waras PB Hevindo",
+        "p2": "Luth / Nuh PB SGS PLN",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M34"
+    },
+    {
+        "id": 4,
+        "p1": "Yudistira / Bima PB Pengayoman",
+        "p2": "Hanoman / Sugriwa PB Bakti Jaya",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M34"
+    },
+    {
+        "id": 5,
+        "p1": "Jaka / Tingkir PB Tangkas",
+        "p2": "Suherman / Dadang PB Talenta",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M35"
+    },
+    {
+        "id": 6,
+        "p1": "Antareja / Antasena PB Victory",
+        "p2": "Syukur / Sabar PB Exist",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M35"
+    },
+    {
+        "id": 7,
+        "p1": "Damar / Wulan PB SGS PLN",
+        "p2": "Gatot / Kaca PB Power Rajawali",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M36"
+    },
+    {
+        "id": 8,
+        "p1": "Triyono / Purnomo PB Suryanaga",
+        "p2": "Siswanto / Dwi Cahyono PB Bakti Jaya",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M36"
+    },
+    {
+        "id": 9,
+        "p1": "Aziz / Wahab PB Djarum",
+        "p2": "Ismail / Ishaq PB Talenta",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M37"
+    },
+    {
+        "id": 10,
+        "p1": "Malik / Karim PB Talenta",
+        "p2": "Yusuf / Ibrahim PB Victory",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M37"
+    },
+    {
+        "id": 11,
+        "p1": "Asep / Ujang PB Terpadu",
+        "p2": "Wisnu / Bayu PB Talenta",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M38"
+    },
+    {
+        "id": 12,
+        "p1": "Arif / Rahman PB Mutiara Cardinal",
+        "p2": "Ridwan / Mansyur PB Hevindo",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M38"
+    },
+    {
+        "id": 13,
+        "p1": "Gareng / Semar PB Guna Dharma",
+        "p2": "Teguh / Iman PB Terpadu",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M39"
+    },
+    {
+        "id": 14,
+        "p1": "Nakula / Sadewa PB Terpadu",
+        "p2": "Bagong / Petruk PB Semen Indonesia",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M39"
+    },
+    {
+        "id": 15,
+        "p1": "Kusnadi / Rohmat PB Victory",
+        "p2": "Mega / Mendung PB Exist",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M40"
+    },
+    {
+        "id": 16,
+        "p1": "Musa / Harun PB Jaya Raya",
+        "p2": "Mulyono / Joko Widodo PB Terpadu",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "LEFT",
+        "pemenang_ke": "M40"
+    },
+    {
+        "id": 17,
+        "p1": "Agus Mulyadi / Toto Wijaya PB Jaya Raya",
+        "p2": "Hamid / Hasan PB Guna Dharma",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M41"
+    },
+    {
+        "id": 18,
+        "p1": "Basuki / Tjahyono PB Exist",
+        "p2": "Slamet / Rahayu PB Pengayoman",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M41"
+    },
+    {
+        "id": 19,
+        "p1": "Gunawan / Setiawan PB SGS PLN",
+        "p2": "Idris / Adam PB Power Rajawali",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M42"
+    },
+    {
+        "id": 20,
+        "p1": "Werkudara / Arjuna PB Hevindo",
+        "p2": "Mukhlis / Ihsan PB Suryanaga",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M42"
+    },
+    {
+        "id": 21,
+        "p1": "Latif / Hakim PB Victory",
+        "p2": "Yanto / Mulyadi PB Hevindo",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M43"
+    },
+    {
+        "id": 22,
+        "p1": "Surya / Chandra PB Djarum",
+        "p2": "Anwar / Anas PB Semen Indonesia",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M43"
+    },
+    {
+        "id": 23,
+        "p1": "Hendri / Firman PB Tangkas",
+        "p2": "Daud / Sulaiman PB Djarum",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M44"
+    },
+    {
+        "id": 24,
+        "p1": "Yahya / Zakaria PB Mutiara Cardinal",
+        "p2": "Syaiful / Rizal PB Semen Indonesia",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M44"
+    },
+    {
+        "id": 25,
+        "p1": "Haryanto / Budiono PB Pengayoman",
+        "p2": "Kilat / Guntur PB Mutiara Cardinal",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M45"
+    },
+    {
+        "id": 26,
+        "p1": "Wayan / Made PB Pengayoman",
+        "p2": "Fajar / Senja PB Jaya Raya",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M45"
+    },
+    {
+        "id": 27,
+        "p1": "Rama / Lesmana PB Suryanaga",
+        "p2": "Suhardi / Winarno PB Jaya Raya",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M46"
+    },
+    {
+        "id": 28,
+        "p1": "Wahyudi / Saptono PB Guna Dharma",
+        "p2": "Budianto / Santoso PB Power Rajawali",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M46"
+    },
+    {
+        "id": 29,
+        "p1": "Yunus / Ilyas PB Exist",
+        "p2": "Sutopo / Darmono PB Djarum",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M47"
+    },
+    {
+        "id": 30,
+        "p1": "Gede / Putu PB Suryanaga",
+        "p2": "Nasir / Mansur PB Jaya Raya",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M47"
+    },
+    {
+        "id": 31,
+        "p1": "Saleh / Hud PB Tangkas",
+        "p2": "Fuad / Fikri PB Guna Dharma",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M48"
+    },
+    {
+        "id": 32,
+        "p1": "Untung / Bejo PB Bakti Jaya",
+        "p2": "Sugeng Priyadi / Slamet Riadi PB Djarum",
+        "kategori": "VETERAN",
+        "babak": "R64",
+        "side": "RIGHT",
+        "pemenang_ke": "M48"
+    },
+    {
+        "id": 33,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M49"
+    },
+    {
+        "id": 34,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M49"
+    },
+    {
+        "id": 35,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M50"
+    },
+    {
+        "id": 36,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M50"
+    },
+    {
+        "id": 37,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M51"
+    },
+    {
+        "id": 38,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M51"
+    },
+    {
+        "id": 39,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M52"
+    },
+    {
+        "id": 40,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "LEFT",
+        "pemenang_ke": "M52"
+    },
+    {
+        "id": 41,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M53"
+    },
+    {
+        "id": 42,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M53"
+    },
+    {
+        "id": 43,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M54"
+    },
+    {
+        "id": 44,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M54"
+    },
+    {
+        "id": 45,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M55"
+    },
+    {
+        "id": 46,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M55"
+    },
+    {
+        "id": 47,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M56"
+    },
+    {
+        "id": 48,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R32",
+        "side": "RIGHT",
+        "pemenang_ke": "M56"
+    },
+    {
+        "id": 49,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M57"
+    },
+    {
+        "id": 50,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M57"
+    },
+    {
+        "id": 51,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M58"
+    },
+    {
+        "id": 52,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "LEFT",
+        "pemenang_ke": "M58"
+    },
+    {
+        "id": 53,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M59"
+    },
+    {
+        "id": 54,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M59"
+    },
+    {
+        "id": 55,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M60"
+    },
+    {
+        "id": 56,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "R16",
+        "side": "RIGHT",
+        "pemenang_ke": "M60"
+    },
+    {
+        "id": 57,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M61"
+    },
+    {
+        "id": 58,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "PEREMPAT FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M61"
+    },
+    {
+        "id": 59,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M62"
+    },
+    {
+        "id": 60,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "PEREMPAT FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M62"
+    },
+    {
+        "id": 61,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "SEMI FINAL",
+        "side": "LEFT",
+        "pemenang_ke": "M63"
+    },
+    {
+        "id": 62,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "SEMI FINAL",
+        "side": "RIGHT",
+        "pemenang_ke": "M63"
+    },
+    {
+        "id": 63,
+        "p1": "TBD",
+        "p2": "TBD",
+        "kategori": "VETERAN",
+        "babak": "FINAL",
+        "side": "CENTER",
+        "pemenang_ke": "JUARA"
+    }
+]
