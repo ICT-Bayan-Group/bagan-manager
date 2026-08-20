@@ -250,7 +250,7 @@
 
             <div class="nav-label">Setup</div>
             <button class="nav-item" onclick="loadPage('/manage-categories')">
-                <i class="fas fa-tags"></i> Kategori
+                <i class="fas fa-layer-group"></i> Kategori
             </button>
             <button class="nav-item" onclick="loadPage('/pendaftaran')">
                 <i class="fas fa-user-plus"></i> Peserta
@@ -260,30 +260,39 @@
             <button class="nav-item" onclick="loadPage('/jadwal')">
                 <i class="fas fa-calendar-alt"></i> Atur Jadwal
             </button>
+
+
             <button class="nav-item" onclick="executeScript('/run-schedule')">
-                <i class="fas fa-clock"></i> Generate
+                <i class="fas fa-wand-magic-sparkles"></i> Generate
             </button>
 
             <div class="nav-label">Monitoring</div>
 
 
             <button class="nav-item" onclick="loadPage('/lihat-jadwal')">
-                <i class="fas fa-calendar-alt"></i> Lihat Jadwal
+                <i class="fas fa-calendar-check"></i> Lihat Jadwal
             </button>
 
             <button class="nav-item" onclick="loadPage('/lihat-bagan')">
-                <i class="fas fa-calendar-alt"></i> Lihat Bagan
+                <i class="fas fa-sitemap"></i> Lihat Bagan
             </button>
             <button class="nav-item" onclick="loadPage('/skor-pertandingan')">
                 <i class="fas fa-poll"></i> Hasil & Skor
             </button>
 
+
             <div class="nav-label" style="color: #ef4444;">System</div>
+
+            <button class="nav-item" onclick="loadPage('/admin/backup')">
+                <i class="fas fa-sync-alt"></i> Backup & Restore
+            </button>
+
+
             <button class="nav-item" onclick="executeReset()" style="color: #ef4444;">
                 <i class="fas fa-trash-alt"></i> Reset
             </button>
             <a href="/logout" class="nav-item">
-                <i class="fas fa-eye"></i> Keluar
+                <i class="fas fa-right-from-bracket"></i> Keluar
             </a>
         </nav>
     </aside>
@@ -333,7 +342,8 @@
                 '/jadwal': 'Atur Slot Jadwal',
                 '/skor-pertandingan': 'Hasil & Skor',
                 '/lihat-bagan': 'Bagan Pertandingan',
-                '/lihat-jadwal': 'Jadwal Pertandingan'
+                '/lihat-jadwal': 'Jadwal Pertandingan',
+                '/admin/backup': ':)'
             };
             title.innerText = titles[url] || 'Bayan Open';
 
@@ -360,7 +370,7 @@
             const loader = document.getElementById('loader');
             loader.style.display = 'flex';
             try {
-                const res = await fetch(endpoint, { method: 'POST' });
+                const res = await fetch(endpoint, {method: 'POST'});
                 const data = await res.json();
                 alert(data.message);
                 document.getElementById('content-frame').contentWindow.location.reload();
@@ -380,14 +390,14 @@
                 try {
                     const res = await fetch('/reset-all', {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ password: pwd })
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({password: pwd})
                     });
                     const data = await res.json();
                     alert(data.message);
                     if (res.ok) loadPage('/stats');
-                } catch (err) { alert("Error."); }
-                finally { loader.style.display = 'none'; }
+                } catch (err) {alert("Error.");}
+                finally {loader.style.display = 'none';}
             }
         }
     </script>
