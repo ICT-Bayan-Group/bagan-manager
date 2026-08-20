@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagan Interaktif - Tournament Bracket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bagan Pertandingan Interaktif</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- LIBRARY PANZOOM UNTUK FITUR ZOOM & DRAG -->
@@ -13,13 +13,93 @@
         :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f8fafc; --line: #94a3b8; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; overflow: hidden; height: 100vh; }
         
-        /* CONTAINER FITUR PAN & ZOOM */
+        /* CONTAINER WRAPPER UNTUK NAVIGASI (DIBERI Z-INDEX TINGGI & ISOLASI TOUCH) */
+        .nav-wrapper {
+            position: relative;
+            z-index: 9999;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            width: 100%;
+            touch-action: pan-x; /* MEMAKSA BROWSER MENGIZINKAN SWIPE HORIZONTAL */
+        }
+
+        /* CONTAINER NAVIGASI KATEGORI (HORIZONTAL SCROLL) */
+        .filter-nav { 
+            padding: 10px 15px; 
+            display: flex; 
+            gap: 8px; 
+            justify-content: flex-start; 
+            align-items: center;
+            height: 50px; 
+            box-sizing: border-box;
+            overflow-x: auto !important; 
+            overflow-y: hidden;
+            white-space: nowrap; 
+            -webkit-overflow-scrolling: touch; 
+            scrollbar-width: none; 
+            touch-action: pan-x !important;
+        }
+
+        .filter-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* PETUNJUK INFORMASI BISA DIGESER */
+        .scroll-hint {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(30, 58, 138, 0.85);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 12px;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            transition: opacity 0.3s ease;
+            animation: pulse-swipe 1.5s infinite alternate;
+        }
+
+        @keyframes pulse-swipe {
+            0% { transform: translateY(-50%) translateX(0); }
+            100% { transform: translateY(-50%) translateX(-4px); }
+        }
+
+        /* TOMBOL KATEGORI */
+        .btn-cat { 
+            padding: 6px 16px; 
+            border-radius: 20px; 
+            border: 1px solid #cbd5e1; 
+            background: #f8fafc; 
+            color: #334155;
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 12px; 
+            flex-shrink: 0; 
+            transition: all 0.2s ease;
+            touch-action: manipulation;
+        }
+
+        .btn-cat.active { 
+            background: var(--primary); 
+            color: white; 
+            border-color: var(--primary); 
+            box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+        }
+
+        /* CONTAINER VIEWPORT DRAG & PAN BAGAN */
         .viewport-wrapper {
             width: 100vw;
-            height: calc(100vh - 60px);
+            height: calc(100vh - 50px);
             overflow: hidden;
             position: relative;
             cursor: grab;
+            z-index: 1;
         }
         .viewport-wrapper:active {
             cursor: grabbing;
@@ -82,7 +162,7 @@
         .side.left .match-pair::after { content: ""; position: absolute; right: -20px; top: 25%; bottom: 25%; border-right: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); width: 20px; border-left: none; border-radius: 0 4px 4px 0; z-index: 1; }
         .side.left .match-pair::before { content: ""; position: absolute; right: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
         .side.right .match-pair::after { content: ""; position: absolute; left: -20px; top: 25%; bottom: 25%; border-left: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); width: 20px; border-right: none; border-radius: 4px 0 0 4px; z-index: 1; }
-        .side.right .match-pair::before { content: ""; position: absolute; left: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
+        .side.right .match-pair::before { content: ""; position: absolute; left: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
         
         .single-match { display: flex; flex-direction: column; justify-content: center; flex: 1; position: relative; }
         .side.left .single-match::after { content: ""; position: absolute; right: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
@@ -109,11 +189,7 @@
         .winner-title { font-size: 11px; font-weight: 800; color: #b45309; text-transform: uppercase; }
         .winner-name { font-size: 13px; font-weight: 800; color: var(--primary); margin-top: 4px; line-height: 1.3; }
 
-        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0px; z-index: 999; height: 40px; align-items: center; }
-        .btn-cat { padding: 8px 16px; border-radius: 20px; border: 1px solid #cbd5e1; background: white; cursor: pointer; font-weight: bold; font-size: 12px; }
-        .btn-cat.active { background: var(--primary); color: white; border-color: var(--primary); }
-
-        /* KONTROL TOMBOL ZOOM */
+        /* KONTROL TOMBOL ZOOM MELAYANG */
         .zoom-controls {
             position: fixed;
             bottom: 20px;
@@ -146,16 +222,20 @@
 </head>
 <body>
 
-<div class="filter-nav" id="catNav"></div>
+<!-- BAR KATEGORI (DI-ISOLASI DARI PANZOOM AGAR BISA SWIPE MENDATAR) -->
+<div class="nav-wrapper" id="navWrapper">
+    <div class="filter-nav" id="catNav"></div>
+    <div class="scroll-hint" id="scrollHint">Geser <i class="fas fa-angle-double-right"></i></div>
+</div>
 
-<!-- TOOLBAR KONTROL ZOOM -->
+<!-- TOOLBAR KONTROL ZOOM MELAYANG -->
 <div class="zoom-controls">
     <button class="btn-zoom" id="btn-zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
     <button class="btn-zoom" id="btn-zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
     <button class="btn-zoom" id="btn-zoom-reset" title="Reset Scale"><i class="fas fa-compress-arrows-alt"></i></button>
 </div>
 
-<!-- CONTAINER VIEWPORT (UNTUK DRAG/PAN) -->
+<!-- CONTAINER VIEWPORT -->
 <div class="viewport-wrapper" id="viewport">
     <div class="main-bracket" id="bracket-container">
         <div class="side left" id="bracket-left"></div>
@@ -170,16 +250,17 @@
     let panzoomInstance = null;
 
     async function init() {
-        // INISIALISASI PANZOOM
+        // INISIALISASI PANZOOM KHUSUS UNTUK CONTAINER BAGAN (TIDAK TERMASUK NAVBAR)
         const elem = document.getElementById('bracket-container');
         panzoomInstance = Panzoom(elem, {
             maxScale: 2.5,
             minScale: 0.3,
             contain: 'outside',
-            cursor: 'default'
+            cursor: 'default',
+            excludeClass: 'nav-wrapper' // MENCEGAH PANZOOM MENGAMBIL EVENT DI NAVIGASI
         });
 
-        // BISA ZOOM PAKAI SCROLL MOUSE
+        // ZOOM MENGGUNAKAN SCROLL MOUSE HANYA PADA VIEWPORT BAGAN
         const parent = document.getElementById('viewport');
         parent.addEventListener('wheel', panzoomInstance.zoomWithWheel);
 
@@ -190,19 +271,40 @@
             panzoomInstance.reset();
         });
 
+        // EFEK SEMBUNYIKAN PETUNJUK GESER SAAT USER DIGESER
+        const catNav = document.getElementById('catNav');
+        const scrollHint = document.getElementById('scrollHint');
+        
+        catNav.addEventListener('scroll', () => {
+            if (catNav.scrollLeft > 20) {
+                scrollHint.style.opacity = '0';
+            } else {
+                scrollHint.style.opacity = '1';
+            }
+        });
+
+        // CEK APAKAH SCROLLBAR PERLU PETUNJUK (JIKA TOTAL TOMBOL LEBIH LEBAR DARI DINDING HP)
+        setTimeout(() => {
+            if (catNav.scrollWidth <= catNav.clientWidth) {
+                scrollHint.style.display = 'none';
+            }
+        }, 300);
+
         try {
             const res = await fetch('/get-matches');
             allMatches = await res.json();
             const categories = [...new Set(allMatches.map(m => m.kategori))];
             
-            const nav = document.getElementById('catNav');
             categories.forEach((cat, i) => {
                 if(cat) {
                     const btn = document.createElement('button');
                     btn.className = `btn-cat ${i === 0 ? 'active' : ''}`;
                     btn.innerText = cat;
-                    btn.onclick = () => render(cat, btn);
-                    nav.appendChild(btn);
+                    btn.onclick = (e) => {
+                        e.stopPropagation(); // Mencegah konflik event
+                        render(cat, btn);
+                    };
+                    catNav.appendChild(btn);
                 }
             });
             if(categories.length > 0) render(categories[0]);
@@ -274,6 +376,9 @@
         if(btn) {
             document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
+
+            // AUTO-SCROLL NAVIGASI SUPAYA TOMBOL DITENGAHKAN
+            btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
 
         const data = allMatches.filter(m => m.kategori === cat);
@@ -342,7 +447,7 @@
             `;
         }
 
-        // RESET POSISI & SKALA SAAT GANTI KATEGORI
+        // RESET POSISI & SKALA BAGAN SAAT GANTI KATEGORI
         if(panzoomInstance) {
             setTimeout(() => { panzoomInstance.reset(); }, 50);
         }

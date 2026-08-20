@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
     {
         "id": 1,
@@ -862,9 +861,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M9",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M9"
     },
     {
         "id": 3,
@@ -882,9 +879,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M10",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M10"
     },
     {
         "id": 5,
@@ -893,9 +888,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M11",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M11"
     },
     {
         "id": 6,
@@ -913,9 +906,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M12",
-        "skor_akhir": "2 - 0",
-        "pemenang": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN)"
+        "pemenang_ke": "M12"
     },
     {
         "id": 8,
@@ -929,79 +920,65 @@
     {
         "id": 9,
         "p1": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG)",
-        "p2": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M13"
     },
     {
         "id": 10,
         "p1": "Evelyn Aquina Sucipto / Natasya Chandra Ramadhani (MULYA MANDIRI / SINAR CELCIUS, MOJOKERTO)",
-        "p2": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13",
-        "skor_akhir": "0 - 2",
-        "pemenang": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M13"
     },
     {
         "id": 11,
-        "p1": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)",
+        "p1": "TBD",
         "p2": "Dian Pratiwi / Nuur Layla Devi Ramadania (BERKAT ABADI, BANJAR)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M14",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M14"
     },
     {
         "id": 12,
-        "p1": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN)",
+        "p1": "TBD",
         "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M14",
-        "skor_akhir": "0 - 2",
-        "pemenang": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)"
+        "pemenang_ke": "M14"
     },
     {
         "id": 13,
-        "p1": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
-        "p2": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
+        "p1": "TBD",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M15",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M15"
     },
     {
         "id": 14,
-        "p1": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)",
-        "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
+        "p1": "TBD",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M15",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)"
+        "pemenang_ke": "M15"
     },
     {
         "id": 15,
-        "p1": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
-        "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
+        "p1": "TBD",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "FINAL",
         "side": "FINAL-CENTER",
-        "pemenang_ke": "JUARA",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "JUARA"
     },
     {
         "id": 1,
@@ -9221,5 +9198,3 @@
         "pemenang_ke": "JUARA"
     }
 ]
-=======
->>>>>>> e23839a2ee1fafe403087c03838b2836d3e45689
