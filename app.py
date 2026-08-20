@@ -376,21 +376,25 @@ def lihat_bagan_page():
 def get_matches_data():
     if not os.path.exists('matches.json'):
         return jsonify([])
-    
+
     # A. Baca Struktur dari JSON (Nyawa Bagan)
     with open('matches.json', 'r') as f:
         matches = json.load(f)
 
-    # B. Ambil Skor dari DB (Catatan Skor)
-    conn = sqlite3.connect('skor.db')
-    conn.row_factory = sqlite3.Row
-    skor_rows = conn.execute('SELECT * FROM tabel_skor').fetchall()
-    conn.close()
+    # B. Ambil Skor dari DB (Tahan jika db/tabel hilang)
+    skor_rows = []
+    try:
+        conn = sqlite3.connect('skor.db')
+        conn.row_factory = sqlite3.Row
+        skor_rows = conn.execute('SELECT * FROM tabel_skor').fetchall()
+        conn.close()
+    except sqlite3.OperationalError:
+        # Jika database atau tabel_skor tidak ditemukan, buat ulang tabel secara otomatis
+        init_skor_db()
 
-    # C. Tempelkan Skor ke JSON sebelum dikirim ke Browser
-    # Kita buat map agar cepat: "KATEGORI_ID" -> Data Skor
+    # C. Tempelkan Skor ke JSON
     dict_skor = {f"{row['kategori']}_{row['match_id']}": row for row in skor_rows}
-    
+
     for m in matches:
         key = f"{m['kategori']}_{m['id']}"
         if key in dict_skor:
