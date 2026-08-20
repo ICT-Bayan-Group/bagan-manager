@@ -1,9 +1,7 @@
 import json
 import re
-from datetime import datetime
 import pandas as pd
 
-# Pemetaan Bulan Bahasa Indonesia ke Angka
 MONTH_MAP = {
     'JANUARI': '01',
     'FEBRUARI': '02',
@@ -19,135 +17,117 @@ MONTH_MAP = {
     'DESEMBER': '12',
 }
 
-# Pemetaan Kode Kategori (Sesuaikan jika ada singkatan)
-CATEGORY_MAP = {
-    'GANDA TUNGGAL IPA': 'GTI',
-    'GANDA TUNGGAL IPS': 'GTS',
-    'GDI': 'GDI',
-    'GANDA PUTRA OPEN': 'GPO',
-    'GANDA CAMPURAN OPEN': 'GCO',
-    'GANDA VETERAN OPEN': 'GVO',
-}
 
+def load_category_map(categories_file='categories.json'):
+  """Membaca file categories.json dan membuat pemetaan kategori."""
+  try:
+    with open(categories_file, 'r', encoding='utf-8') as f:
+      data = json.load(f)
+      categories = data.get('categories', [])
 
-def parse_date(text):
-  """Mencari tanggal dalam format 'HARI, DD BULAN YYYY'"""
-  if not isinstance(text, str):
-    return None
-  match = re.search(
-      r'([A-ZA-Za-z]+),\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})', text, re.IGNORECASE
-  )
-  if match:
-    _, day, month, year = match.groups()
-    month_code = MONTH_MAP.get(month.upper(), '01')
-    return f'{year}-{month_code}-{int(day):02d}'
-  return None
+      # Membuat dictionary mapping (misal: {'GTI': 'GTI', 'GPA': 'GPA', ...})
+      category_map = {cat.strip(): cat.strip() for cat in categories}
 
+      # Tambahkan pemetaan deskripsi panjang ke kode jika diperlukan
+      custom_aliases = {
+          'GANDA PUTRA OPEN': 'GPA',
+          'GANDA CAMPURAN OPEN': 'GRC',
+          'GANDA DEWASA INTENSIF': 'GDI',
+      }
+      category_map.update(custom_aliases)
 
-def parse_court_count(text):
-  """Mencari jumlah lapangan (contoh: '1 - 4 Lapangan' -> ['Court-1', 'Court-2', 'Court-3', 'Court-4'])"""
-  if not isinstance(text, str):
-    return ['Court-1']
-  match = re.search(r'(\d+)\s*-\s*(\d+)\s*Lapangan', text, re.IGNORECASE)
-  if match:
-    start_c, end_c = int(match.group(1)), int(match.group(2))
-    return [f'Court-{i}' for i in range(start_c, end_c + 1)]
-  match_single = re.search(r'(\d+)\s*Lapangan', text, re.IGNORECASE)
-  if match_single:
-    return [f'Court-{i}' for i in range(1, int(match_single.group(1)) + 1)]
-  return ['Court-1']
+      return category_map
+  except FileNotFoundError:
+    print(
+        f'⚠️ File {categories_file} tidak ditemukan. Menggunakan fallback'
+        ' default.'
+    )
+    return {}
 
 
 def convert_excel_to_config(
-    excel_path='JADWAL PERTANDINGAN.xls', output_json='config.json'
+    excel_path='JADWAL PERTANDINGAN.xls',
+    categories_path='categories.json',
+    output_json='config.json',
 ):
+  category_map = load_category_map(categories_path)
   xls = pd.ExcelFile(excel_path)
   config_results = []
 
   for sheet_name in xls.sheet_names:
     df = pd.read_excel(excel_path, sheet_name=sheet_name)
-
     current_date = None
-    current_venue = 'GOR NAGA MAS TARAKAN'  # Default venue dari header Excel
-    current_courts = ['Court-1', 'Court-2', 'Court-3', 'Court-4']
+    current_venue = 'GOR NAGA MAS TARAKAN'
 
     for idx, row in df.iterrows():
-      row_str = ' '.join([str(cell) for cell in row.values if pd.notna(cell)])
+      row_vals = [cell for cell in row.values if pd.notna(cell)]
+      row_str = ' '.join([str(c) for c in row_vals])
 
-      # 1. Cek Header Tanggal
-      found_date = parse_date(row_str)
-      if found_date:
-        current_date = found_date
+      # 1. Deteksi Tanggal
+      match_date = re.search(
+          r'([A-Za-z]+),\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})',
+          row_str,
+          re.IGNORECASE,
+      )
+      if match_date:
+        _, day, month, year = match_date.groups()
+        m_code = MONTH_MAP.get(month.upper(), '01')
+        current_date = f'{year}-{m_code}-{int(day):02d}'
         continue
 
-      # 2. Cek Header Lapangan
-      if 'Lapangan' in row_str:
-        current_courts = parse_court_count(row_str)
-        continue
-
-      # 3. Cek Header Venue / GOR
-      if 'GOR' in row_str or 'DOME' in row_str:
-        match_venue = re.search(
-            r'(GOR\s+[A-Za-z0-9\s]+|DOME|HEVINDO ARENA|TENNIS INDOOR)',
-            row_str,
-            re.IGNORECASE,
-        )
-        if match_venue:
-          current_venue = match_venue.group(1).strip().upper()
-
-      # 4. Deteksi Baris Jadwal Pertandingan
-      # Memeriksa keberadaan Waktu/Jam (contoh: '14.00' atau '19.00')
+      # 2. Deteksi Waktu / Jam
       time_match = re.search(r'(\d{1,2})[\.:](\d{2})', row_str)
       if time_match and current_date:
-        jam_start_h = int(time_match.group(1))
-        jam_start_m = int(time_match.group(2))
-        jam_mulai = f'{jam_start_h:02d}:{jam_start_m:02d}'
+        jam_h = int(time_match.group(1))
+        jam_m = int(time_match.group(2))
+        jam_mulai = f'{jam_h:02d}:{jam_m:02d}'
+        jam_selesai = f'{(jam_h + 1) % 24:02d}:{jam_m:02d}'
 
-        # Jam selesai diestimasi (+2 jam atau sesuai slot)
-        jam_selesai = f'{(jam_start_h + 2) % 24:02d}:{jam_start_m:02d}'
-
-        # Ambil Kategori & Babak
+        # Ambil Kategori dari category_map yang dimuat
         kategori = None
-        babak = 'R16'  # Default
+        for cell in row_vals:
+          c_clean = str(cell).strip()
+          if c_clean in category_map:
+            kategori = category_map[c_clean]
+            break
 
-        # Cek keterangan babak di akhir (QF, SEMI FINAL, FINAL, dll)
+        # Hitung berapa nomor pertandingan yang ada di baris ini
+        match_numbers = []
+        for val in row.values:
+          if isinstance(val, (int, float)) and not pd.isna(val):
+            if val == int(val) and int(val) > 0:
+              match_numbers.append(int(val))
+
+        # Tentukan babak
+        babak = 'R16'
         if 'FINAL' in row_str.upper() and 'SEMI' not in row_str.upper():
           babak = 'FINAL'
-        elif 'SEMI FINAL' in row_str.upper() or 'SF' in row_str.upper():
+        elif 'SEMI FINAL' in row_str.upper():
           babak = 'SEMI FINAL'
-        elif 'QF' in row_str.upper() or 'PEREMPAT' in row_str.upper():
+        elif 'QF' in row_str.upper():
           babak = 'PEREMPAT FINAL'
 
-        # Ekstrak Kategori
-        for cell in row.values:
-          if pd.notna(cell) and isinstance(cell, str):
-            cell_clean = cell.strip()
-            if cell_clean in CATEGORY_MAP:
-              kategori = CATEGORY_MAP[cell_clean]
-              break
-            elif cell_clean in CATEGORY_MAP.values():
-              kategori = cell_clean
-              break
+        # Jika ada kategori & pertandingan di baris tersebut
+        if kategori and match_numbers:
+          lapangan_list = [f'Court-{i+1}' for i in range(len(match_numbers))]
 
-        if kategori:
-          config_entry = {
+          config_results.append({
               'kategori': kategori,
               'tanggal': current_date,
               'jam_mulai': jam_mulai,
               'jam_selesai': jam_selesai,
               'babak': babak,
               'venue': current_venue,
-              'lapangan': current_courts,
-          }
-          config_results.append(config_entry)
+              'lapangan': lapangan_list,
+          })
 
   # Simpan ke config.json
   with open(output_json, 'w', encoding='utf-8') as f:
     json.dump(config_results, f, indent=4, ensure_ascii=False)
 
   print(
-      f'✅ Berhasil mengonversi {len(config_results)} slot jadwal dari Excel ke'
-      f' {output_json}'
+      f'✅ Berhasil membuat {output_json} dengan total {len(config_results)}'
+      ' slot jadwal.'
   )
 
 
