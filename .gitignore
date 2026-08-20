@@ -1,2 +1,5 @@
 .venv/
 *.json
+.venv/
+skor.db
+*.json
