@@ -14,7 +14,9 @@
         .side { display: flex; gap: 40px; align-items: stretch; }
         .side.left { flex-direction: row; }
         .side.right { flex-direction: row-reverse; }
-        .round { display: flex; flex-direction: column; width: 160px; }
+        
+        /* Lebar babak diperluas dari 160px ke 210px */
+        .round { display: flex; flex-direction: column; width: 210px; }
         .round-title { text-align: center; font-size: 11px; font-weight: 800; color: var(--primary); margin-bottom: 15px; background: #e2e8f0; padding: 6px; border-radius: 4px; text-transform: uppercase; }
 
         /* KOTAK PERTANDINGAN */
@@ -24,7 +26,7 @@
             border-radius: 6px; 
             font-size: 11px; 
             position: relative; 
-            width: 160px; 
+            width: 210px; /* Diperluas sejajar dengan .round */
             z-index: 2; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
             margin: 5px 0; 
@@ -32,7 +34,7 @@
 
         .match-id { 
             position: absolute; 
-            top:50%; 
+            top: 50%; 
             transform: translateY(-50%); 
             background: #030303; 
             color: white; 
@@ -46,7 +48,16 @@
         .side.left .match-id { right: -27px; }
         .side.right .match-id { left: -27px; }
         
-        .player { padding: 8px 10px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
+        /* Mengizinkan teks berlipat rapi tanpa terpotong */
+        .player { 
+            padding: 8px 10px; 
+            font-weight: 600; 
+            white-space: normal; 
+            word-break: break-word; 
+            line-height: 1.3; 
+            border-bottom: 1px solid #f1f5f9; 
+            transition: 0.2s; 
+        }
         .player:last-child { border-bottom: none; }
         .player.bye { color: #94a3b8; font-style: italic; font-weight: normal; }
         
@@ -66,7 +77,7 @@
         .side.right .single-match::after { content: ""; position: absolute; left: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
 
         /* FINAL */
-        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 220px; position: relative; z-index: 5; }
+        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 240px; position: relative; z-index: 5; }
         .final-box { border: 3px solid var(--accent); background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); width: 100%; position: relative; }
         .final-box strong { font-size: 14px; color: var(--primary); display: block; }
         .trophy-icon { font-size: 40px; color: var(--accent); margin-bottom: 10px; }
@@ -119,22 +130,33 @@
         let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
         let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
         
+        // Formatting nama pemain & pemisahan ganda
         const formatPlayerName = (name) => {
-            if (name.includes(' (')) {
-                return name.replace(/ \((.*?)\)/g, (match, pb) => {
-                    return `<div style="font-size: 9px; color: #64748b; font-weight: 800; line-height: 1;">(${pb})</div><div style="margin-top:2px;">`
-                }) + `</div>`;
+            if (!name) return '';
+            
+            let formatted = name;
+            
+            // Jika ganda, pisahkan nama pemain ke baris baru
+            if (formatted.includes(' / ')) {
+                formatted = formatted.split(' / ').join('<br>');
             }
-            return name;
+
+            // Atur tampilan nama klub/PB di bawah nama pemain
+            if (formatted.includes(' (')) {
+                return formatted.replace(/ \((.*?)\)/g, (match, pb) => {
+                    return `<div style="font-size: 9px; color: #64748b; font-weight: 800; line-height: 1.1; margin-top: 2px;">(${pb})</div>`;
+                });
+            }
+            return formatted;
         };
 
         return `
             <div class="match-card">
                 <div class="match-id">${m.id}</div>
-                <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1}>
+                <div class="player ${m.p1 === 'BYE' ? 'bye clickable' : ''} ${isP1Clickable ? 'clickable' : ''}" ${c1} title="${m.p1}">
                     ${formatPlayerName(m.p1)}
                 </div>
-                <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2}>
+                <div class="player ${m.p2 === 'BYE' ? 'bye clickable' : ''} ${isP2Clickable ? 'clickable' : ''}" ${c2} title="${m.p2}">
                     ${formatPlayerName(m.p2)}
                 </div>
             </div>
@@ -185,11 +207,9 @@
 
         const rounds = ["R256", "R128", "R64", "R32", "R16", "R8", "PEREMPAT FINAL", "SEMI FINAL"];
         
-        // --- PERBAIKAN: Cari babak paling awal yang ada di kategori ini ---
         const firstRoundInCat = rounds.find(roundName => data.some(m => m.babak === roundName));
 
         rounds.forEach(r => {
-            // isFirstRound sekarang bernilai TRUE untuk babak paling awal, baik di kiri maupun kanan
             let isFirstRound = (r === firstRoundInCat);
 
             const leftMatches = leftData.filter(m => m.babak === r);
@@ -205,11 +225,15 @@
 
         if(finalMatch) {
             const formatFinal = (name) => {
-                if (name.includes(' (')) {
-                    return name.replace(/ \((.*?)\)/g, `<div style="font-size: 10px; color: #64748b; font-weight: 800;">($1)</div>`) 
-                           + `<div style="font-size: 14px;">${name.split(' (')[0]}</div>`;
+                if (!name) return '';
+                let formatted = name;
+                if (formatted.includes(' / ')) {
+                    formatted = formatted.split(' / ').join('<br>');
                 }
-                return `<div>${name}</div>`;
+                if (formatted.includes(' (')) {
+                    return formatted.replace(/ \((.*?)\)/g, `<div style="font-size: 10px; color: #64748b; font-weight: 800; margin-top:2px;">($1)</div>`);
+                }
+                return `<div>${formatted}</div>`;
             };
 
             centerSide.innerHTML = `
@@ -258,7 +282,6 @@
             
             catMatches.sort((a, b) => a.id - b.id);
             
-            // --- PERBAIKAN: Ambil babak pertama dinamis untuk ekstraksi array ---
             const rounds = ["R256", "R128", "R64", "R32", "R16", "R8", "PEREMPAT FINAL", "SEMI FINAL"];
             let firstRoundName = rounds.find(roundName => catMatches.some(m => m.babak === roundName));
             

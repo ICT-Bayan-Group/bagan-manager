@@ -15,6 +15,31 @@ def clean_category_name(sheet_name):
     return name.replace(" ", "_")
 
 
+def format_double_entry(p1, c1, p2, c2):
+    """Format gabungan nama pasangan ganda dengan klub di akhir"""
+    players_str = f"{p1} / {p2}" if p2 else p1
+
+    # Olah nama klub agar tidak berulang jika dari klub yang sama
+    clubs = []
+    if c1 and c1.lower() != "nan" and not c1.isdigit():
+        clubs.append(c1)
+    if c2 and c2.lower() != "nan" and not c2.isdigit() and c2 != c1:
+        clubs.append(c2)
+
+    if clubs:
+        club_str = " / ".join(clubs)
+        return f"{players_str} ({club_str})"
+
+    return players_str
+
+
+def format_single_entry(p, c):
+    """Format pemain tunggal"""
+    if c and c.lower() != "nan" and not c.isdigit():
+        return f"{p} ({c})"
+    return p
+
+
 def convert_excel_to_teams_json(excel_path):
     if not os.path.exists(excel_path):
         print(f"❌ File '{excel_path}' tidak ditemukan!")
@@ -33,7 +58,7 @@ def convert_excel_to_teams_json(excel_path):
 
             df = pd.read_excel(excel_path, sheet_name=sheet_name)
 
-            # 1. Cari baris header yang berisi "Round 1"
+            # Cari baris header "Round 1"
             header_row_idx = None
             for idx, row in df.iterrows():
                 row_str = [str(cell) for cell in row.values if pd.notna(cell)]
@@ -44,9 +69,11 @@ def convert_excel_to_teams_json(excel_path):
             if header_row_idx is None:
                 continue
 
+            category_clean = sheet_name.replace("-Main Draw", "").strip()
+            is_ganda = category_clean.startswith("G")
+
             cleaned_players = []
 
-            # 2. BACA DARI FILE MENTAH & LANGSUNG GABUNGKAN NAMA + KLUB
             for idx in range(header_row_idx + 1, len(df)):
                 row = df.iloc[idx]
                 pos_val = row.iloc[0]
@@ -56,34 +83,63 @@ def convert_excel_to_teams_json(excel_path):
                 except (ValueError, TypeError):
                     continue
 
-                club_val = (
-                    str(row.iloc[2]).strip() if pd.notna(row.iloc[2]) else ""
-                )
-                player_val = (
-                    str(row.iloc[3]).strip() if pd.notna(row.iloc[3]) else ""
-                )
+                # --- KATEGORI GANDA ---
+                if is_ganda:
+                    r_p1 = df.iloc[idx - 1] if idx - 1 >= 0 else None
+                    club_1 = (
+                        str(r_p1.iloc[2]).strip()
+                        if r_p1 is not None and pd.notna(r_p1.iloc[2])
+                        else ""
+                    )
+                    player_1 = (
+                        str(r_p1.iloc[3]).strip()
+                        if r_p1 is not None and pd.notna(r_p1.iloc[3])
+                        else ""
+                    )
 
-                player_upper = player_val.upper()
+                    club_2 = (
+                        str(row.iloc[2]).strip() if pd.notna(row.iloc[2]) else ""
+                    )
+                    player_2 = (
+                        str(row.iloc[3]).strip() if pd.notna(row.iloc[3]) else ""
+                    )
 
-                if (
-                    not player_val
-                    or player_val == "nan"
-                    or "BYE" in player_upper
-                ):
-                    cleaned_players.append("BYE")
-                else:
+                    player_2_upper = player_2.upper()
+
                     if (
-                        club_val
-                        and club_val.lower() != "nan"
-                        and not club_val.isdigit()
+                        not player_2
+                        or player_2 == "nan"
+                        or "BYE" in player_2_upper
                     ):
-                        entry = f"{player_val} ({club_val})"
+                        cleaned_players.append("BYE")
                     else:
-                        entry = player_val
+                        entry = format_double_entry(
+                            player_1, club_1, player_2, club_2
+                        )
+                        cleaned_players.append(entry)
 
-                    cleaned_players.append(entry)
+                # --- KATEGORI TUNGGAL ---
+                else:
+                    club_val = (
+                        str(row.iloc[2]).strip() if pd.notna(row.iloc[2]) else ""
+                    )
+                    player_val = (
+                        str(row.iloc[3]).strip() if pd.notna(row.iloc[3]) else ""
+                    )
 
-            # 3. SIMPAN KE teams_*.json & TAMBAHKAN NAMA KATEGORI KE LIST
+                    player_upper = player_val.upper()
+
+                    if (
+                        not player_val
+                        or player_val == "nan"
+                        or "BYE" in player_upper
+                    ):
+                        cleaned_players.append("BYE")
+                    else:
+                        entry = format_single_entry(player_val, club_val)
+                        cleaned_players.append(entry)
+
+            # SIMPAN KE JSON
             if cleaned_players:
                 category_key = clean_category_name(sheet_name)
                 output_json = f"teams_{category_key}.json"
@@ -96,7 +152,6 @@ def convert_excel_to_teams_json(excel_path):
                         ensure_ascii=False,
                     )
 
-                # Ambil nama bersih kategori (misal: "TAPA-Main Draw" -> "TAPA")
                 display_name = sheet_name.replace("-Main Draw", "").strip()
                 categories_names.append(display_name)
 
@@ -105,7 +160,6 @@ def convert_excel_to_teams_json(excel_path):
                 )
                 processed_count += 1
 
-        # 4. SIMPAN categories.json DALAM FORMAT ARRAY STRING
         if categories_names:
             with open("categories.json", "w", encoding="utf-8") as f:
                 json.dump(
