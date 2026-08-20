@@ -1,1 +1,123 @@
-[]
+[
+    {
+        "match_id": 2,
+        "jam": "08:00:00",
+        "tanggal": "2026-08-20",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "R16",
+        "partai": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA) vs Abigael Bunga Marsya / Atika Sari (ALIMO / PB. Central)",
+        "status": "OK"
+    },
+    {
+        "match_id": 4,
+        "jam": "08:30:00",
+        "tanggal": "2026-08-20",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "R16",
+        "partai": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA) vs Aufa Nur Azizah / Nadia Julva Najwa (PB.PENDOWO BANJARBARU / FJR BADMINTON CLUB)",
+        "status": "OK"
+    },
+    {
+        "match_id": 5,
+        "jam": "09:00:00",
+        "tanggal": "2026-08-20",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "R16",
+        "partai": "Nabila / Rossa Amanda (Garuda Mahakam / PENGAIRAN SAMARINDA) vs Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)",
+        "status": "OK"
+    },
+    {
+        "match_id": 7,
+        "jam": "09:30:00",
+        "tanggal": "2026-08-20",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "R16",
+        "partai": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN) vs Farrah Nailatul Izzah / Raisya Syifana Wibowo (PUPUK KALTIM BONTANG / TERPADU BALIKPAPAN)",
+        "status": "OK"
+    },
+    {
+        "match_id": 9,
+        "jam": "08:00:00",
+        "tanggal": "2026-08-21",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "PEREMPAT FINAL",
+        "partai": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG) vs Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
+        "status": "OK"
+    },
+    {
+        "match_id": 10,
+        "jam": "08:30:00",
+        "tanggal": "2026-08-21",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "PEREMPAT FINAL",
+        "partai": "Evelyn Aquina Sucipto / Natasya Chandra Ramadhani (MULYA MANDIRI / SINAR CELCIUS, MOJOKERTO) vs Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
+        "status": "OK"
+    },
+    {
+        "match_id": 11,
+        "jam": "09:00:00",
+        "tanggal": "2026-08-21",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "PEREMPAT FINAL",
+        "partai": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA) vs Dian Pratiwi / Nuur Layla Devi Ramadania (BERKAT ABADI, BANJAR)",
+        "status": "OK"
+    },
+    {
+        "match_id": 12,
+        "jam": "09:30:00",
+        "tanggal": "2026-08-21",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "PEREMPAT FINAL",
+        "partai": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN) vs Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
+        "status": "OK"
+    },
+    {
+        "match_id": 13,
+        "jam": "08:00:00",
+        "tanggal": "2026-08-22",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "SEMI FINAL",
+        "partai": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA) vs Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
+        "status": "OK"
+    },
+    {
+        "match_id": 14,
+        "jam": "08:30:00",
+        "tanggal": "2026-08-22",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "SEMI FINAL",
+        "partai": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA) vs Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
+        "status": "OK"
+    },
+    {
+        "match_id": 15,
+        "jam": "08:00:00",
+        "tanggal": "2026-08-23",
+        "venue": "DOME",
+        "court": "Court-1",
+        "kategori": "GTI",
+        "babak": "FINAL",
+        "partai": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA) vs Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
+        "status": "OK"
+    }
+]

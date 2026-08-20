@@ -34,7 +34,8 @@ def generate_bracket(players, kategori):
         for m_idx in range(num_matches):
             this_id = current_match_id
             
-            if num_matches == 1: side = "CENTER"
+            # KUNCI PERBAIKAN: Set side khusus "FINAL-CENTER" untuk partai puncak
+            if num_matches == 1: side = "FINAL-CENTER"
             elif m_idx < num_matches // 2: side = "LEFT"
             else: side = "RIGHT"
                 
@@ -111,13 +112,11 @@ def main():
                 if list_peserta:
                     print(f"Memproses: {nama_kategori} ({len(list_peserta)} Peserta)")
                     partai = generate_bracket(list_peserta, nama_kategori)
-                    # Jalankan auto-advance khusus untuk kategori ini
                     partai = auto_advance_byes(partai)
                     semua_pertandingan.extend(partai)
         except Exception as e:
             print(f" Error pada {nama_file}: {e}")
 
-    # Simpan hasil akhir
     with open('matches.json', 'w', encoding='utf-8') as f:
         json.dump(semua_pertandingan, f, indent=4)
     print("\n✅ BERHASIL! matches.json siap digunakan.")

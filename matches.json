@@ -563,7 +563,7 @@
         "p2": "TBD",
         "kategori": "TAPI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -842,7 +842,7 @@
         "p2": "TBD",
         "kategori": "TRI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -861,7 +861,9 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M9"
+        "pemenang_ke": "M9",
+        "skor_akhir": "2 - 1",
+        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
     },
     {
         "id": 3,
@@ -879,7 +881,9 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M10"
+        "pemenang_ke": "M10",
+        "skor_akhir": "2 - 1",
+        "pemenang": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)"
     },
     {
         "id": 5,
@@ -888,7 +892,9 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M11"
+        "pemenang_ke": "M11",
+        "skor_akhir": "1 - 2",
+        "pemenang": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)"
     },
     {
         "id": 6,
@@ -906,7 +912,9 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M12"
+        "pemenang_ke": "M12",
+        "skor_akhir": "2 - 0",
+        "pemenang": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN)"
     },
     {
         "id": 8,
@@ -920,65 +928,79 @@
     {
         "id": 9,
         "p1": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG)",
-        "p2": "TBD",
+        "p2": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13"
+        "pemenang_ke": "M13",
+        "skor_akhir": "1 - 2",
+        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
     },
     {
         "id": 10,
         "p1": "Evelyn Aquina Sucipto / Natasya Chandra Ramadhani (MULYA MANDIRI / SINAR CELCIUS, MOJOKERTO)",
-        "p2": "TBD",
+        "p2": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13"
+        "pemenang_ke": "M13",
+        "skor_akhir": "0 - 2",
+        "pemenang": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)"
     },
     {
         "id": 11,
-        "p1": "TBD",
+        "p1": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)",
         "p2": "Dian Pratiwi / Nuur Layla Devi Ramadania (BERKAT ABADI, BANJAR)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M14"
+        "pemenang_ke": "M14",
+        "skor_akhir": "2 - 1",
+        "pemenang": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)"
     },
     {
         "id": 12,
-        "p1": "TBD",
+        "p1": "Azra Haifa Aura Putri / Khansa Dwi Veristiana (HEVINDO, BALIKPAPAN)",
         "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M14"
+        "pemenang_ke": "M14",
+        "skor_akhir": "0 - 2",
+        "pemenang": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)"
     },
     {
         "id": 13,
-        "p1": "TBD",
-        "p2": "TBD",
+        "p1": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
+        "p2": "Bunga Maharani Nasution / Injiliani Christania Tumbol (JAYA RAYA JAKARTA)",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M15"
+        "pemenang_ke": "M15",
+        "skor_akhir": "2 - 1",
+        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
     },
     {
         "id": 14,
-        "p1": "TBD",
-        "p2": "TBD",
+        "p1": "Patricia Regina Adalia / Rhesti Fuji Ardina (JAYA RAYA JAKARTA)",
+        "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M15"
+        "pemenang_ke": "M15",
+        "skor_akhir": "1 - 2",
+        "pemenang": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)"
     },
     {
         "id": 15,
-        "p1": "TBD",
-        "p2": "TBD",
+        "p1": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
+        "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
         "kategori": "GTI",
         "babak": "FINAL",
-        "side": "CENTER",
-        "pemenang_ke": "JUARA"
+        "side": "FINAL-CENTER",
+        "pemenang_ke": "JUARA",
+        "skor_akhir": "2 - 1",
+        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
     },
     {
         "id": 1,
@@ -2120,7 +2142,7 @@
         "p2": "TBD",
         "kategori": "TPA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -2687,7 +2709,7 @@
         "p2": "TBD",
         "kategori": "GPA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -3254,7 +3276,7 @@
         "p2": "TBD",
         "kategori": "TTA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -3389,7 +3411,7 @@
         "p2": "TBD",
         "kategori": "GRI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -3956,7 +3978,7 @@
         "p2": "TBD",
         "kategori": "TPI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -4523,7 +4545,7 @@
         "p2": "TBD",
         "kategori": "GRA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -4802,7 +4824,7 @@
         "p2": "TBD",
         "kategori": "GTC",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -5945,7 +5967,7 @@
         "p2": "TBD",
         "kategori": "TAPA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -6224,7 +6246,7 @@
         "p2": "TBD",
         "kategori": "GRC",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -7367,7 +7389,7 @@
         "p2": "TBD",
         "kategori": "UDPA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -7646,7 +7668,7 @@
         "p2": "TBD",
         "kategori": "GTA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -8213,7 +8235,7 @@
         "p2": "TBD",
         "kategori": "TRA",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -8780,7 +8802,7 @@
         "p2": "TBD",
         "kategori": "UDPI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -9059,7 +9081,7 @@
         "p2": "TBD",
         "kategori": "GPI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     },
     {
@@ -9194,7 +9216,7 @@
         "p2": "TBD",
         "kategori": "TTI",
         "babak": "FINAL",
-        "side": "CENTER",
+        "side": "FINAL-CENTER",
         "pemenang_ke": "JUARA"
     }
 ]

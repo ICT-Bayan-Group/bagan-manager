@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bagan Interaktif - Balikpapan Open</title>
+    <title>Bagan Interaktif - Tournament Bracket</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- LIBRARY PANZOOM UNTUK FITUR ZOOM & DRAG -->
+    <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+
     <style>
         :root { --primary: #1e3a8a; --accent: #f59e0b; --bg: #f8fafc; --line: #94a3b8; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); margin: 0; padding: 0; overflow: hidden; height: 100vh; }
         
-        .navbar { background: var(--primary); color: white; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        .main-bracket { display: flex; justify-content: center; align-items: stretch; padding: 40px; min-width: max-content; gap: 40px; }
+        /* CONTAINER FITUR PAN & ZOOM */
+        .viewport-wrapper {
+            width: 100vw;
+            height: calc(100vh - 60px);
+            overflow: hidden;
+            position: relative;
+            cursor: grab;
+        }
+        .viewport-wrapper:active {
+            cursor: grabbing;
+        }
+
+        .main-bracket { display: flex; justify-content: center; align-items: stretch; padding: 60px; min-width: max-content; gap: 40px; transform-origin: center center; }
         .side { display: flex; gap: 40px; align-items: stretch; }
         .side.left { flex-direction: row; }
         .side.right { flex-direction: row-reverse; }
         
-        /* Lebar babak diperluas dari 160px ke 210px */
         .round { display: flex; flex-direction: column; width: 210px; }
         .round-title { text-align: center; font-size: 11px; font-weight: 800; color: var(--primary); margin-bottom: 15px; background: #e2e8f0; padding: 6px; border-radius: 4px; text-transform: uppercase; }
 
-        /* KOTAK PERTANDINGAN */
         .match-card { 
             background: white; 
             border: 1px solid #cbd5e1; 
             border-radius: 6px; 
             font-size: 11px; 
             position: relative; 
-            width: 210px; /* Diperluas sejajar dengan .round */
+            width: 210px; 
             z-index: 2; 
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
             margin: 5px 0; 
@@ -48,7 +61,6 @@
         .side.left .match-id { right: -27px; }
         .side.right .match-id { left: -27px; }
         
-        /* Mengizinkan teks berlipat rapi tanpa terpotong */
         .player { 
             padding: 8px 10px; 
             font-weight: 600; 
@@ -61,7 +73,6 @@
         .player:last-child { border-bottom: none; }
         .player.bye { color: #94a3b8; font-style: italic; font-weight: normal; }
         
-        /* STYLE UNTUK FITUR KLIK & SWAP */
         .player.clickable { cursor: pointer; }
         .player.clickable:hover { background: #e0f2fe; color: var(--primary); }
         .player.selected-swap { background: #fde68a !important; color: #b45309 !important; font-weight: bold; }
@@ -72,36 +83,113 @@
         .side.left .match-pair::before { content: ""; position: absolute; right: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
         .side.right .match-pair::after { content: ""; position: absolute; left: -20px; top: 25%; bottom: 25%; border-left: 2px solid var(--line); border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); width: 20px; border-right: none; border-radius: 4px 0 0 4px; z-index: 1; }
         .side.right .match-pair::before { content: ""; position: absolute; left: -40px; top: 50%; width: 20px; height: 2px; background: var(--line); z-index: 1; }
+        
         .single-match { display: flex; flex-direction: column; justify-content: center; flex: 1; position: relative; }
         .side.left .single-match::after { content: ""; position: absolute; right: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
         .side.right .single-match::after { content: ""; position: absolute; left: -40px; top: 50%; width: 40px; height: 2px; background: var(--line); z-index: 1; }
 
-        /* FINAL */
-        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 240px; position: relative; z-index: 5; }
-        .final-box { border: 3px solid var(--accent); background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); width: 100%; position: relative; }
-        .final-box strong { font-size: 14px; color: var(--primary); display: block; }
+        /* GRAND FINAL PUSAT */
+        .side.center { display: flex; align-items: center; justify-content: center; z-index: 5; }
+        .final-area { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 240px; position: relative; }
+        .final-box { border: 3px solid var(--accent); background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2); width: 100%; position: relative; box-sizing: border-box; }
         .trophy-icon { font-size: 40px; color: var(--accent); margin-bottom: 10px; }
         .final-id { position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 10px; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
 
-        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0px; z-index: 999; }
+        .winner-box {
+            margin-top: 15px; 
+            padding: 12px; 
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); 
+            border: 2px solid var(--accent); 
+            border-radius: 10px; 
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+            box-sizing: border-box;
+        }
+        .winner-title { font-size: 11px; font-weight: 800; color: #b45309; text-transform: uppercase; }
+        .winner-name { font-size: 13px; font-weight: 800; color: var(--primary); margin-top: 4px; line-height: 1.3; }
+
+        .filter-nav { background: white; padding: 10px; display: flex; gap: 10px; justify-content: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0px; z-index: 999; height: 40px; align-items: center; }
         .btn-cat { padding: 8px 16px; border-radius: 20px; border: 1px solid #cbd5e1; background: white; cursor: pointer; font-weight: bold; font-size: 12px; }
         .btn-cat.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* KONTROL TOMBOL ZOOM */
+        .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+        }
+        .btn-zoom {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #cbd5e1;
+            background: white;
+            color: var(--primary);
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .btn-zoom:hover {
+            background: var(--primary);
+            color: white;
+        }
     </style>
 </head>
 <body>
 
 <div class="filter-nav" id="catNav"></div>
-<div class="main-bracket" id="bracket-container">
-    <div class="side left" id="bracket-left"></div>
-    <div class="side center" id="bracket-center"></div>
-    <div class="side right" id="bracket-right"></div>
+
+<!-- TOOLBAR KONTROL ZOOM -->
+<div class="zoom-controls">
+    <button class="btn-zoom" id="btn-zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+    <button class="btn-zoom" id="btn-zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+    <button class="btn-zoom" id="btn-zoom-reset" title="Reset Scale"><i class="fas fa-compress-arrows-alt"></i></button>
+</div>
+
+<!-- CONTAINER VIEWPORT (UNTUK DRAG/PAN) -->
+<div class="viewport-wrapper" id="viewport">
+    <div class="main-bracket" id="bracket-container">
+        <div class="side left" id="bracket-left"></div>
+        <div class="side center" id="bracket-center"></div>
+        <div class="side right" id="bracket-right"></div>
+    </div>
 </div>
 
 <script>
     let allMatches = [];
     let firstSelectedPlayer = null;
+    let panzoomInstance = null;
 
     async function init() {
+        // INISIALISASI PANZOOM
+        const elem = document.getElementById('bracket-container');
+        panzoomInstance = Panzoom(elem, {
+            maxScale: 2.5,
+            minScale: 0.3,
+            contain: 'outside',
+            cursor: 'default'
+        });
+
+        // BISA ZOOM PAKAI SCROLL MOUSE
+        const parent = document.getElementById('viewport');
+        parent.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+
+        // BINDING TOMBOL ZOOM
+        document.getElementById('btn-zoom-in').addEventListener('click', panzoomInstance.zoomIn);
+        document.getElementById('btn-zoom-out').addEventListener('click', panzoomInstance.zoomOut);
+        document.getElementById('btn-zoom-reset').addEventListener('click', () => {
+            panzoomInstance.reset();
+        });
+
         try {
             const res = await fetch('/get-matches');
             allMatches = await res.json();
@@ -130,18 +218,14 @@
         let c1 = isP1Clickable ? `onclick="handlePlayerSwap(${m.id}, 1, this)"` : "";
         let c2 = isP2Clickable ? `onclick="handlePlayerSwap(${m.id}, 2, this)"` : "";
         
-        // Formatting nama pemain & pemisahan ganda
         const formatPlayerName = (name) => {
-            if (!name) return '';
-            
+            if (!name) return 'TBD';
             let formatted = name;
             
-            // Jika ganda, pisahkan nama pemain ke baris baru
             if (formatted.includes(' / ')) {
                 formatted = formatted.split(' / ').join('<br>');
             }
 
-            // Atur tampilan nama klub/PB di bawah nama pemain
             if (formatted.includes(' (')) {
                 return formatted.replace(/ \((.*?)\)/g, (match, pb) => {
                     return `<div style="font-size: 9px; color: #64748b; font-weight: 800; line-height: 1.1; margin-top: 2px;">(${pb})</div>`;
@@ -206,7 +290,6 @@
         const finalMatch = data.find(m => m.side === "FINAL-CENTER" || m.babak === "FINAL");
 
         const rounds = ["R256", "R128", "R64", "R32", "R16", "R8", "PEREMPAT FINAL", "SEMI FINAL"];
-        
         const firstRoundInCat = rounds.find(roundName => data.some(m => m.babak === roundName));
 
         rounds.forEach(r => {
@@ -225,16 +308,24 @@
 
         if(finalMatch) {
             const formatFinal = (name) => {
-                if (!name) return '';
+                if (!name) return 'TBD';
                 let formatted = name;
                 if (formatted.includes(' / ')) {
                     formatted = formatted.split(' / ').join('<br>');
                 }
                 if (formatted.includes(' (')) {
-                    return formatted.replace(/ \((.*?)\)/g, `<div style="font-size: 10px; color: #64748b; font-weight: 800; margin-top:2px;">($1)</div>`);
+                    return formatted.replace(/ \((.*?)\)/g, `<div style="font-size: 10px; color: #64748b; font-weight: 800; margin-top: 2px;">($1)</div>`);
                 }
                 return `<div>${formatted}</div>`;
             };
+
+            const winnerName = finalMatch.winner || finalMatch.pemenang;
+            const winnerHTML = winnerName ? `
+                <div class="winner-box">
+                    <div class="winner-title"><i class="fas fa-crown"></i> JUARA 1</div>
+                    <div class="winner-name">${formatFinal(winnerName)}</div>
+                </div>
+            ` : '';
 
             centerSide.innerHTML = `
                 <div class="final-area">
@@ -246,8 +337,14 @@
                         <div style="margin: 8px 0; font-weight:bold; color:#cbd5e1; font-size:12px;">VS</div>
                         ${formatFinal(finalMatch.p2)}
                     </div>
+                    ${winnerHTML}
                 </div>
             `;
+        }
+
+        // RESET POSISI & SKALA SAAT GANTI KATEGORI
+        if(panzoomInstance) {
+            setTimeout(() => { panzoomInstance.reset(); }, 50);
         }
     }
 
