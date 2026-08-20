@@ -460,8 +460,6 @@ def update_skor():
             return jsonify({"status": "error", "message": "ID Match atau Kategori tidak ditemukan"}), 400
 
         # 1. CEK DATABASE (IDEMPOTENSI)
-        # Jika jaringan putus-putus, frontend mungkin kirim ulang data yang sama.
-        # Kita cek apakah skor yang dikirim SUDAH SAMA dengan yang ada di DB.
         with sqlite3.connect('skor.db') as conn:
             cursor = conn.cursor()
             cursor.execute('''
@@ -470,7 +468,7 @@ def update_skor():
             ''', (match_id, kategori))
             existing = cursor.fetchone()
 
-            # Jika data sudah ada dan skornya sama, stop di sini (berhasil tanpa proses ulang bagan)
+            # Jika data sudah ada dan skornya sama, stop di sini
             if existing and existing[0] == skor_p1 and existing[1] == skor_p2:
                 return jsonify({"status": "success", "message": "Skor sudah tersinkronisasi sebelumnya"})
 
@@ -497,13 +495,11 @@ def update_skor():
                 
                 next_target = curr.get('pemenang_ke')
                 if next_target and next_target != "JUARA":
-                    # Bersihkan ID target (misal 'M5' -> 5)
                     try:
                         t_id = int(str(next_target).upper().replace('M', ''))
                         target = next((m for m in all_matches if m['id'] == t_id and m['kategori'] == kategori), None)
                         
                         if target:
-                            # Cek apakah pemenang sudah ada di slot p1 atau p2 untuk menghindari duplikasi
                             if target['p1'] != winner and target['p2'] != winner:
                                 if target['p1'] == "TBD" or target['p1'] == "":
                                     target['p1'] = winner
@@ -516,12 +512,18 @@ def update_skor():
                 with open('matches.json', 'w') as f:
                     json.dump(all_matches, f, indent=4)
 
-        return jsonify({"status": "success", "message": "Skor dan Bagan berhasil diperbarui!"})
+        # 3. JALANKAN GENERATE_MAIN.PY SETELAH BAGAN DIUPDATE
+        try:
+            subprocess.run(["python3", "generate_main.py"], check=True)
+            print("✅ generate_main.py berhasil dieksekusi dari /update-skor")
+        except Exception as gen_err:
+            print(f"⚠️ Gagal mengeksekusi generate_main.py: {gen_err}")
+
+        return jsonify({"status": "success", "message": "Skor, Bagan, dan Jadwal berhasil diperbarui!"})
 
     except Exception as e:
         print(f"Error: {str(e)}")
         return jsonify({"status": "error", "message": f"Terjadi kesalahan sistem: {str(e)}"}), 500
-
 # --- RUTE LAINNYA ---
 
 import random # Pastikan import random ada di bagian paling atas file
