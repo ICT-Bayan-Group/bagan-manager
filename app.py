@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, make_response, after_this_request
+from flask import Flask, request, jsonify, render_template, make_response, after_this_request, send_file
 from flask_cors import CORS 
 import json
 import subprocess
@@ -10,6 +10,9 @@ import jwt
 import datetime
 from functools import wraps
 from flask_compress import Compress # 1. Import library kompresi
+
+# Import modul backup terpisah yang telah dibuat
+from backup import create_backup, restore_backup
 
 app = Flask(__name__)
 Compress(app) # 2. Inisialisasi Kompresi
@@ -55,6 +58,33 @@ def token_required(f):
             
         return f(current_user, *args, **kwargs)
     return decorated
+
+@app.route('/download-backup', methods=['GET'])
+@token_required
+def route_download_backup(current_user):
+    try:
+        filepath, filename = create_backup()
+        return send_file(filepath, as_attachment=True, download_name=filename)
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Gagal backup: {str(e)}"}), 500
+
+
+@app.route('/restore-backup', methods=['POST'])
+@token_required
+def route_restore_backup(current_user):
+    if 'file' not in request.files:
+        return jsonify({"status": "error", "message": "File tidak ditemukan"}), 400
+
+    file = request.files['file']
+    if not file.filename.endswith('.zip'):
+        return jsonify({"status": "error", "message": "Format harus .zip"}), 400
+
+    try:
+        restore_backup(file)
+        return jsonify({"status": "success", "message": "Data berhasil di-restore penuh!"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Gagal restore: {str(e)}"}), 500
+
 
 # 2. ENDPOINT LOGIN (Simpan ke Cookie)
 @app.route('/api/login', methods=['POST'])
@@ -104,11 +134,17 @@ def logout():
     resp.set_cookie('adminToken', '', expires=0)
     return resp
 
+
+
 @app.route('/admin')
 @token_required
 def tampil_adminl(current_user):
     return render_template('admin.html')
 
+@app.route('/admin/backup')
+@token_required
+def halaman_backup(current_user):
+    return render_template('backup.html')
 
 @app.route('/admin/view-database')
 def view_database():

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backup & Restore - System Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .card-custom { border-radius: 12px; border: none; }
+    </style>
+</head>
+<body>
+
+<div class="container py-5">
+    <!-- Header Page -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold mb-0">📦 Backup & Restore Data</h3>
+            <p class="text-muted small mb-0">Kelola cadangan database (skor.db), bagan, dan jadwal sistem.</p>
+        </div>
+        <a href="/admin" class="btn btn-outline-secondary btn-sm">
+            <i class="fas fa-arrow-left me-1"></i> Kembali ke Dashboard
+        </a>
+    </div>
+
+    <div class="row g-4">
+        <!-- SEKSI 1: DOWNLOAD BACKUP -->
+        <div class="col-md-6">
+            <div class="card card-custom shadow-sm h-100">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-3 text-primary">
+                            <i class="fas fa-file-archive fa-2x me-3"></i>
+                            <h5 class="fw-bold mb-0">Download Backup</h5>
+                        </div>
+                        <p class="text-muted small">
+                            Unduh arsip <code>.zip</code> yang berisi snapshot lengkap sistem saat ini:
+                        </p>
+                        <ul class="small text-muted ps-3">
+                            <li>Database Skor (<code>skor.db</code>)</li>
+                            <li>Bagan & Struktur Match (<code>matches.json</code>)</li>
+                            <li>Jadwal Pertandingan (<code>schedule.json</code>)</li>
+                            <li>Konfigurasi & Kategori (<code>config.json</code>, <code>teams_*.json</code>)</li>
+                        </ul>
+                    </div>
+                    <div class="mt-4">
+                        <a href="/download-backup" class="btn btn-primary w-100 py-2 fw-semibold">
+                            <i class="fas fa-download me-2"></i> Unduh File Backup (.ZIP)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEKSI 2: RESTORE BACKUP -->
+        <div class="col-md-6">
+            <div class="card card-custom shadow-sm h-100 border-start border-danger border-4">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-3 text-danger">
+                            <i class="fas fa-upload fa-2x me-3"></i>
+                            <h5 class="fw-bold mb-0">Restore System</h5>
+                        </div>
+                        <p class="text-muted small">
+                            Kembalikan seluruh data sistem menggunakan file arsip <code>.zip</code> hasil backup sebelumnya.
+                        </p>
+                        <div class="alert alert-warning small border-0 mb-3" role="alert">
+                            <i class="fas fa-exclamation-triangle me-1"></i>
+                            <strong>Peringatan:</strong> Proses ini akan menimpa seluruh data skor, bagan, dan jadwal yang ada saat ini.
+                        </div>
+                    </div>
+
+                    <form id="formRestore" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="restoreFile" class="form-label small fw-semibold">Pilih File Backup (.zip)</label>
+                            <input class="form-control" type="file" id="restoreFile" accept=".zip" required>
+                        </div>
+                        <button type="submit" id="btnRestore" class="btn btn-danger w-100 py-2 fw-semibold">
+                            <i class="fas fa-sync-alt me-2"></i> Jalankan Restore Data
+                        </button>
+                    </form>
+
+                    <!-- Alert Notifikasi JS -->
+                    <div id="restoreStatus" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('formRestore').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById('restoreFile');
+    const statusDiv = document.getElementById('restoreStatus');
+    const btnRestore = document.getElementById('btnRestore');
+
+    if (!fileInput.files.length) return;
+
+    if (!confirm("⚠️ TDK BISA DIKEMBALIKAN!\n\nProses restore akan MENIMPA seluruh data skor, bagan, dan jadwal saat ini. Yakin ingin melanjutkan?")) {
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    btnRestore.disabled = true;
+    statusDiv.innerHTML = `
+        <div class="alert alert-info small mb-0">
+            <i class="fas fa-spinner fa-spin me-2"></i> Memproses pemulihan data... Mohon tunggu.
+        </div>`;
+
+    try {
+        const response = await fetch('/restore-backup', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+            statusDiv.innerHTML = `
+                <div class="alert alert-success small mb-0">
+                    <i class="fas fa-check-circle me-2"></i> ${result.message} Memuat ulang halaman...
+                </div>`;
+            setTimeout(() => location.reload(), 2000);
+        } else {
+            statusDiv.innerHTML = `
+                <div class="alert alert-danger small mb-0">
+                    <i class="fas fa-times-circle me-2"></i> ${result.message || 'Gagal melakukan restore.'}
+                </div>`;
+        }
+    } catch (err) {
+        statusDiv.innerHTML = `
+            <div class="alert alert-danger small mb-0">
+                <i class="fas fa-exclamation-circle me-2"></i> Terjadi kesalahan koneksi/jaringan.
+            </div>`;
+    } finally {
+        btnRestore.disabled = false;
+    }
+});
+</script>
+
+</body>
+</html>

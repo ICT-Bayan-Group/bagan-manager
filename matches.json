@@ -73,7 +73,7 @@
     },
     {
         "id": 9,
-        "p1": "Nadya Firdasari [1] / Queen Makayla Fakhira Martin (PUSAT PELATIHAN OLAHRAGA PELAJAR)",
+        "p1": "Aqila Talita Shaki [3/4] (DJARUM, KUDUS)",
         "p2": "BYE",
         "kategori": "TAPI",
         "babak": "R64",
@@ -82,7 +82,7 @@
     },
     {
         "id": 10,
-        "p1": "Fakhirah Syakirah Salma / Zamraliani Arifianto (JAYA RAYA JAKARTA)",
+        "p1": "Jasmine Putri Ayuzhe (AT TARBIYAH BADMINTON CLUB)",
         "p2": "BYE",
         "kategori": "TAPI",
         "babak": "R64",
@@ -92,7 +92,7 @@
     {
         "id": 11,
         "p1": "Jihan Nur Ramadhani (MEGA BADMINTON CLUB)",
-        "p2": "Jhill Anaya Laing Bong / Nafeeza Hawa Nadhifah (JAYA RAYA JAKARTA)",
+        "p2": "BYE",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "LEFT",
@@ -101,7 +101,7 @@
     {
         "id": 12,
         "p1": "Inaya Aprilia Athifa (BADAK LNG, BONTANG)",
-        "p2": "Amanda Savira Amelia [2] / Nayla Anggun Salsabila (NATAMI BADMINTON CLUB SAMARINDA)",
+        "p2": "Nadia Ramadhani (TERPADU BALIKPAPAN)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "LEFT",
@@ -145,8 +145,8 @@
     },
     {
         "id": 17,
-        "p1": "Aqila Maiza Bazla [1] / Hayu Masyita (DJARUM, KUDUS)",
-        "p2": "Hana Medina Disty Wandana / Shofiya Sa'Adat El'Uzhma (CAHAYA INDONESIA BADMINTON CLUB / BERKAT ABADI, BANJAR)",
+        "p1": "Riska Humairah Safitri (PUTRA PERMATA BADMINTON CLUB)",
+        "p2": "Kalila Sauqiya Amanah (Magic Buser)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "RIGHT",
@@ -154,7 +154,7 @@
     },
     {
         "id": 18,
-        "p1": "Michella Anastasya Isay / Tirza Farinsa Panggalo (HOLLYWOOD / Loa Duri Ulu Badminton Club)",
+        "p1": "BYE",
         "p2": "Aisyah Syafira (PB. RR JAYA)",
         "kategori": "TAPI",
         "babak": "R64",
@@ -163,7 +163,7 @@
     },
     {
         "id": 19,
-        "p1": "Appolonia Skolastika Siti Reco [3/4] / Arcelia Bilqis Akila (BERKAT ABADI, BANJAR / TERPADU BALIKPAPAN)",
+        "p1": "BYE",
         "p2": "Michaela Neria Zaneta Karouw (HEVINDO, BALIKPAPAN)",
         "kategori": "TAPI",
         "babak": "R64",
@@ -172,7 +172,7 @@
     },
     {
         "id": 20,
-        "p1": "Fatimah Azzahra / Michaela Neria Zaneta Karouw (HEVINDO, BALIKPAPAN)",
+        "p1": "BYE",
         "p2": "Kesy Hanifa Ramadhani [5/8] (DJARUM, KUDUS)",
         "kategori": "TAPI",
         "babak": "R64",
@@ -182,7 +182,7 @@
     {
         "id": 21,
         "p1": "Chalista Azzahra (TERPADU BALIKPAPAN)",
-        "p2": "Kresensia Lembayung Ubung Mering / Raisyah Aulia El Zahwa (CHAMPION, KLATEN / PUPUK KALTIM BONTANG)",
+        "p2": "Adreena Adifa Salsabila (RAJAWALI)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "RIGHT",
@@ -191,7 +191,7 @@
     {
         "id": 22,
         "p1": "BYE",
-        "p2": "Khansa Azkiya Almira [3/4] / Vidya Magistra (Champion Makassar)",
+        "p2": "Alya Nadhifa Qanita (HOLLYWOOD)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "RIGHT",
@@ -200,7 +200,7 @@
     {
         "id": 23,
         "p1": "BYE",
-        "p2": "Ketut Aira Cerlania / Syauqia Aisya Inara (DJARUM, KUDUS)",
+        "p2": "Michelle Clairine Raina (PB. Gemilang Victory Badminton Club)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "RIGHT",
@@ -208,8 +208,8 @@
     },
     {
         "id": 24,
-        "p1": "Catrine Novatrianty Ignatius (GIDEON BADMINTON ACADEMY)",
-        "p2": "Alika Nur Naila Putri [2] / Daniesha Aquilla Pranindya (HEVINDO, BALIKPAPAN)",
+        "p1": "BYE",
+        "p2": "Kresensia Lembayung Ubung Mering [3/4] (CHAMPION, KLATEN)",
         "kategori": "TAPI",
         "babak": "R64",
         "side": "RIGHT",
@@ -289,8 +289,8 @@
     },
     {
         "id": 33,
-        "p1": "Aisyah Ayudia Inara [1] (TERPADU BALIKPAPAN)",
-        "p2": "Fitri Rafifah (PUTRA PERMATA BADMINTON CLUB)",
+        "p1": "Keysha Almirah Dewi [1] (DJARUM, KUDUS)",
+        "p2": "Riezqy Magisthira Nasruddin (CHAMPION, KLATEN)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -298,8 +298,8 @@
     },
     {
         "id": 34,
-        "p1": "Geisha Yaqutah Effendi (PELATSUS NASIONAL)",
-        "p2": "Muhammad Ainun Najieb Ridlwaniy / Sebastian Timur Tribrata Putra (KARTIKA / BERKAT ABADI, BANJAR)",
+        "p1": "Amirah Dzakiyyah Raniah (PUTRA PERMATA BADMINTON CLUB)",
+        "p2": "Errencia Clarista (JENNA GOZALI BADMINTON CLUB)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -307,8 +307,8 @@
     },
     {
         "id": 35,
-        "p1": "Nesya Nabilah Putri Hidayatullah [5/8] (HOLLYWOOD)",
-        "p2": "Akifa Naila Sandi Mansyur (AVANTI, MAKASSAR)",
+        "p1": "Hana Medina Disty Wandana [5/8] (CAHAYA INDONESIA BADMINTON CLUB)",
+        "p2": "Hiroko Akemi Itsuka (Garuda Mahakam)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -316,8 +316,8 @@
     },
     {
         "id": 36,
-        "p1": "Tesalonika Manuela Gamaleno (SMASH, SUKOHARJO)",
-        "p2": "Muhammad Faturrahman Ruhendi / Muhammad Rafa Abyyu Khan (PB.PENDOWO BANJARBARU)",
+        "p1": "Aulia Rahmatunnisa (PB GEMILANG)",
+        "p2": "TBD",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -325,8 +325,8 @@
     },
     {
         "id": 37,
-        "p1": "Nadhifa Qiana Zulkarnain [3/4] (HOLLYWOOD)",
-        "p2": "Fayola Aqila Ramadhani (GOLD STAR SAMARINDA)",
+        "p1": "Aqila Talita Shaki [3/4] (DJARUM, KUDUS)",
+        "p2": "Jasmine Putri Ayuzhe (AT TARBIYAH BADMINTON CLUB)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -334,8 +334,8 @@
     },
     {
         "id": 38,
-        "p1": "Febriana Alfa Fauzi (CAMP 43 PONTIANAK)",
-        "p2": "Muh Faeyza Ammar / Muhammad Zulfaihza Mahendra (Champion Makassar / PB FAIR PLAY MAKASSAR)",
+        "p1": "Jihan Nur Ramadhani (MEGA BADMINTON CLUB)",
+        "p2": "TBD",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -343,8 +343,8 @@
     },
     {
         "id": 39,
-        "p1": "Afiyah Salmah [5/8] (TERPADU BALIKPAPAN)",
-        "p2": "Ananda Aditya / Kevin Rasatya Putra (HEVINDO, BALIKPAPAN)",
+        "p1": "Inara Anindita Irawan [5/8] (HEVINDO, BALIKPAPAN)",
+        "p2": "Ahna Tatiana (HOLLYWOOD)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "LEFT",
@@ -352,7 +352,7 @@
     },
     {
         "id": 40,
-        "p1": "Dhea Keyla Putri (Putra Bun Yamin)",
+        "p1": "Femila Diandra Ar-Rasmi (TERPADU BALIKPAPAN)",
         "p2": "TBD",
         "kategori": "TAPI",
         "babak": "R32",
@@ -362,7 +362,7 @@
     {
         "id": 41,
         "p1": "TBD",
-        "p2": "Biandra Tsiqlah Putri Hidayat (GOLD STAR SAMARINDA)",
+        "p2": "Aisyah Syafira (PB. RR JAYA)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -370,8 +370,8 @@
     },
     {
         "id": 42,
-        "p1": "Ferry Anwari Halim / Muhammad Faeyza Ramadhani (PUTRA PERMATA BADMINTON CLUB / PB. LEGACY BADMINTON CLUB)",
-        "p2": "Chorelia Askia Khanzani Putry [5/8] (HOLLYWOOD)",
+        "p1": "Michaela Neria Zaneta Karouw (HEVINDO, BALIKPAPAN)",
+        "p2": "Kesy Hanifa Ramadhani [5/8] (DJARUM, KUDUS)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -379,8 +379,8 @@
     },
     {
         "id": 43,
-        "p1": "Desta Ghaisan Al-Biqo / Kevin Yeo (TERPADU BALIKPAPAN / MUKSIN SPORT)",
-        "p2": "Inara Sadiya Amanah (Magic Buser)",
+        "p1": "TBD",
+        "p2": "Alya Nadhifa Qanita (HOLLYWOOD)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -388,8 +388,8 @@
     },
     {
         "id": 44,
-        "p1": "Ariqa Maulida Anggita (AT TARBIYAH BADMINTON CLUB)",
-        "p2": "Al Fatihah Munawwar [3/4] (TERPADU BALIKPAPAN)",
+        "p1": "Michelle Clairine Raina (PB. Gemilang Victory Badminton Club)",
+        "p2": "Kresensia Lembayung Ubung Mering [3/4] (CHAMPION, KLATEN)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -397,8 +397,8 @@
     },
     {
         "id": 45,
-        "p1": "Bagus Ari Sudana / Naufal Aldy Rozaan (AKADEMI BULUTANGKIS KIDECO)",
-        "p2": "Aliya Izka Maulida (PB. LEGACY BADMINTON CLUB)",
+        "p1": "TBD",
+        "p2": "Afika Zahra Salsabila (NATAMI BADMINTON CLUB SAMARINDA)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -406,8 +406,8 @@
     },
     {
         "id": 46,
-        "p1": "Queen Annisa Azzahra Putri (HOLLYWOOD)",
-        "p2": "Mikhayla Almira Sakhi Arifin [5/8] (TERPADU BALIKPAPAN)",
+        "p1": "Anandini Renita (TERPADU BALIKPAPAN)",
+        "p2": "Raisya Zhafira Reszaputri [5/8] (BIMA SAKTI JAKARTA, JAKPUS)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -415,8 +415,8 @@
     },
     {
         "id": 47,
-        "p1": "Yafa Dwipandiya Widodo / Zio Arasyha Pramudya Hidayat (PUPUK KALTIM BONTANG / PB. LEGACY BADMINTON CLUB)",
-        "p2": "Alesha Fathiyya Zahra (PB. RR JAYA)",
+        "p1": "TBD",
+        "p2": "Aleyna Putri Sutopo (CAHAYA INDONESIA BADMINTON CLUB)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -424,8 +424,8 @@
     },
     {
         "id": 48,
-        "p1": "Karen Tristania (PAMA PERSADA BONTANG)",
-        "p2": "Alesha Amelia Haeruddin [2] (Champion Makassar)",
+        "p1": "Joylynn Jusuf (CHAMPION, KLATEN)",
+        "p2": "Orchid Alkhaleena El Fajri [2] (DJARUM, KUDUS)",
         "kategori": "TAPI",
         "babak": "R32",
         "side": "RIGHT",
@@ -861,9 +861,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M9",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)"
+        "pemenang_ke": "M9"
     },
     {
         "id": 3,
@@ -881,9 +879,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "LEFT",
-        "pemenang_ke": "M10",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Aufa Nur Azizah / Nadia Julva Najwa (PB.PENDOWO BANJARBARU / FJR BADMINTON CLUB)"
+        "pemenang_ke": "M10"
     },
     {
         "id": 5,
@@ -892,9 +888,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M11",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Nabila / Rossa Amanda (Garuda Mahakam / PENGAIRAN SAMARINDA)"
+        "pemenang_ke": "M11"
     },
     {
         "id": 6,
@@ -912,9 +906,7 @@
         "kategori": "GTI",
         "babak": "R16",
         "side": "RIGHT",
-        "pemenang_ke": "M12",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Farrah Nailatul Izzah / Raisya Syifana Wibowo (PUPUK KALTIM BONTANG / TERPADU BALIKPAPAN)"
+        "pemenang_ke": "M12"
     },
     {
         "id": 8,
@@ -928,39 +920,33 @@
     {
         "id": 9,
         "p1": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG)",
-        "p2": "Alna Erlyana / Paulina Yulianti Kusumadi (JAYA RAYA JAKARTA)",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG)"
+        "pemenang_ke": "M13"
     },
     {
         "id": 10,
         "p1": "Evelyn Aquina Sucipto / Natasya Chandra Ramadhani (MULYA MANDIRI / SINAR CELCIUS, MOJOKERTO)",
-        "p2": "Aufa Nur Azizah / Nadia Julva Najwa (PB.PENDOWO BANJARBARU / FJR BADMINTON CLUB)",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "LEFT",
-        "pemenang_ke": "M13",
-        "skor_akhir": "1 - 2",
-        "pemenang": "Aufa Nur Azizah / Nadia Julva Najwa (PB.PENDOWO BANJARBARU / FJR BADMINTON CLUB)"
+        "pemenang_ke": "M13"
     },
     {
         "id": 11,
-        "p1": "Nabila / Rossa Amanda (Garuda Mahakam / PENGAIRAN SAMARINDA)",
+        "p1": "TBD",
         "p2": "Dian Pratiwi / Nuur Layla Devi Ramadania (BERKAT ABADI, BANJAR)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
         "side": "RIGHT",
-        "pemenang_ke": "M14",
-        "skor_akhir": "2 - 1",
-        "pemenang": "Nabila / Rossa Amanda (Garuda Mahakam / PENGAIRAN SAMARINDA)"
+        "pemenang_ke": "M14"
     },
     {
         "id": 12,
-        "p1": "Farrah Nailatul Izzah / Raisya Syifana Wibowo (PUPUK KALTIM BONTANG / TERPADU BALIKPAPAN)",
+        "p1": "TBD",
         "p2": "Risfina Meyizza Tommzhu [2] / Syafiqa Aliya (GIDEON BADMINTON ACADEMY)",
         "kategori": "GTI",
         "babak": "PEREMPAT FINAL",
@@ -969,8 +955,8 @@
     },
     {
         "id": 13,
-        "p1": "Elvira Putri Dwi Aprillian [1] / Salma Anggita Wiworang (MUTIARA CARDINAL, BANDUNG)",
-        "p2": "Aufa Nur Azizah / Nadia Julva Najwa (PB.PENDOWO BANJARBARU / FJR BADMINTON CLUB)",
+        "p1": "TBD",
+        "p2": "TBD",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
         "side": "LEFT",
@@ -978,7 +964,7 @@
     },
     {
         "id": 14,
-        "p1": "Nabila / Rossa Amanda (Garuda Mahakam / PENGAIRAN SAMARINDA)",
+        "p1": "TBD",
         "p2": "TBD",
         "kategori": "GTI",
         "babak": "SEMI FINAL",
@@ -1572,8 +1558,8 @@
     },
     {
         "id": 65,
-        "p1": "Zayn Abdullah Rajendra [1] (CHAMPION, KLATEN)",
-        "p2": "Zyan Abdullah Rayyanka (SONATA)",
+        "p1": "Gilbert Rafael Ozora [1] (EXIST BADMINTON CLUB)",
+        "p2": "Dean Setiawan Wong (CAHAYA INDONESIA BADMINTON CLUB)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1581,8 +1567,8 @@
     },
     {
         "id": 66,
-        "p1": "Nafis Ubaidillah (PENGAIRAN SAMARINDA)",
-        "p2": "Reynard Oziel Goenadi (HOLLYWOOD)",
+        "p1": "Aufar Zain Al-Ghiffari (TERPADU BALIKPAPAN)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1590,8 +1576,8 @@
     },
     {
         "id": 67,
-        "p1": "Elfatih Azfar Zaidan [9/16] (CAHAYA INDONESIA BADMINTON CLUB)",
-        "p2": "Atharva Azka Purnama Sucipto (HOLLYWOOD)",
+        "p1": "Alfi Farizy [9/16] (Jaya Raya Satria)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1599,8 +1585,8 @@
     },
     {
         "id": 68,
-        "p1": "Cello Alfarezel (GOLD STAR SAMARINDA)",
-        "p2": "Jacob Mahardika Arifin (HEVINDO, BALIKPAPAN)",
+        "p1": "Rafa Radithya Kusuma (DJARUM, KUDUS)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1608,8 +1594,8 @@
     },
     {
         "id": 69,
-        "p1": "Muhammad Zain Ar-Rasyid [5/8] (Devin Lahardi Badminton Training)",
-        "p2": "Fino Febryan Afsheena (TERPADU BALIKPAPAN)",
+        "p1": "Prabu Bumi Syahputra [5/8] (BERKAT ABADI, BANJAR)",
+        "p2": "Niandra Arizky Susilo (HOLLYWOOD)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1617,8 +1603,8 @@
     },
     {
         "id": 70,
-        "p1": "Leon Fook Siong (HOLLYWOOD)",
-        "p2": "Muhammad Elfathan Rudiansyah (PB. GEMPURZ GN.4 BALIKPAPAN)",
+        "p1": "Felix Ebenezer Aswandi (CAHAYA INDONESIA BADMINTON CLUB)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1626,8 +1612,8 @@
     },
     {
         "id": 71,
-        "p1": "Muhammad Athafariz Alkhalifi [9/16] (HOLLYWOOD)",
-        "p2": "Revandra Aqila Abqari (GOLD STAR SAMARINDA)",
+        "p1": "Rizky Wardana [9/16] (CAHAYA INDONESIA BADMINTON CLUB)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1635,7 +1621,7 @@
     },
     {
         "id": 72,
-        "p1": "Erward Karunikajayo Tjan (KESHAB TIMUR SAMARINDA)",
+        "p1": "Jericho Adistya Putra Hendriadi (MUSTIKA BANJARBARU)",
         "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
@@ -1644,8 +1630,8 @@
     },
     {
         "id": 73,
-        "p1": "Muhammad Alwi Abdillah [3/4] (Magic Buser)",
-        "p2": "Carrel Gracio Hulu (TERPADU BALIKPAPAN)",
+        "p1": "Arjuna Sajjad Calief [3/4] (JAYA RAYA RAGUNAN)",
+        "p2": "Ghaisan Alkhalify Afdhal (PUPUK KALTIM BONTANG)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1653,8 +1639,8 @@
     },
     {
         "id": 74,
-        "p1": "Muh. Ramadhan Miguel (Champion Makassar)",
-        "p2": "Kiandra Muhammad Zikri Setia (HOLLYWOOD)",
+        "p1": "Muhammad Fadhil Bahtiar (PB. LEGACY BADMINTON CLUB)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1662,8 +1648,8 @@
     },
     {
         "id": 75,
-        "p1": "Axton Kwee [9/16] (MALANG BADMINTON CLUB)",
-        "p2": "Muhammad Adam Syafiq Wahyu (GOLD STAR SAMARINDA)",
+        "p1": "Muhammad Arsyil Malik [9/16] (Champion Makassar)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1671,8 +1657,8 @@
     },
     {
         "id": 76,
-        "p1": "Muhammad Hafidz Hamsah (PAMA PERSADA BONTANG)",
-        "p2": "Alif Rizky Pradipta (PB.GESIT)",
+        "p1": "Ahmad Haikal Ridho Ramdhani (CHAMPION, KLATEN)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1680,8 +1666,8 @@
     },
     {
         "id": 77,
-        "p1": "Ray Kalandra Al Kahfi [5/8] (MEGA BADMINTON CLUB)",
-        "p2": "Affan Hamid Setiawan (HOLLYWOOD)",
+        "p1": "Aqbar Dion Aldafa [5/8] (DJARUM, KUDUS)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1689,8 +1675,8 @@
     },
     {
         "id": 78,
-        "p1": "Avniel Panne Oz Laa (HEVINDO, BALIKPAPAN)",
-        "p2": "Abian Faris (PB. X-ELITE BADMINTON SAMARINDA)",
+        "p1": "Muhammad Abi Refinaldi (MUKSIN SPORT)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1698,8 +1684,8 @@
     },
     {
         "id": 79,
-        "p1": "Fadhil Yaqdan Nasrullah [9/16] (HOLLYWOOD)",
-        "p2": "Muhammad Ammar Hafizh Fadhlullah (GOLD STAR SAMARINDA)",
+        "p1": "Fathan Juan Rosobin [9/16] (ROSOBIN, JAKTIM)",
+        "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
         "side": "LEFT",
@@ -1707,7 +1693,7 @@
     },
     {
         "id": 80,
-        "p1": "Zulfikar Zainuddin (AT TARBIYAH BADMINTON CLUB)",
+        "p1": "Alfi Husni Alvaro (CAHAYA INDONESIA BADMINTON CLUB)",
         "p2": "TBD",
         "kategori": "TPA",
         "babak": "R64",
@@ -1717,7 +1703,7 @@
     {
         "id": 81,
         "p1": "TBD",
-        "p2": "Keni Fadgham Alfarizi (HOLLYWOOD)",
+        "p2": "Mizuyama Saban (Garuda Mahakam)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1725,8 +1711,8 @@
     },
     {
         "id": 82,
-        "p1": "Muhammad Affan Al-Fikri (TERPADU BALIKPAPAN)",
-        "p2": "Yakub Rafelino Balan [9/16] (KESHAB TIMUR SAMARINDA)",
+        "p1": "TBD",
+        "p2": "M. Adhib Anshary [9/16] (BERKAT ABADI, BANJAR)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1734,8 +1720,8 @@
     },
     {
         "id": 83,
-        "p1": "Alvino Adhyazka Zaflan (PB GEMILANG)",
-        "p2": "Alaric Satya Wiyanto (ARJUNA KUTAI KARTANEGARA)",
+        "p1": "TBD",
+        "p2": "Muhammad Devan Zaidan El - Azzam (ARJUNA KUTAI KARTANEGARA)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1743,8 +1729,8 @@
     },
     {
         "id": 84,
-        "p1": "Muhammad Rizky Al Muqhsit (CAHAYA INDONESIA BADMINTON CLUB)",
-        "p2": "Muhammad Ali Al Imran [5/8] (HOLLYWOOD)",
+        "p1": "TBD",
+        "p2": "Muhammad Fatih Al Pasha [5/8] (JAYA RAYA RAGUNAN)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1753,7 +1739,7 @@
     {
         "id": 85,
         "p1": "TBD",
-        "p2": "Uwais Dhiyaurrahman (AKADEMI BULUTANGKIS KIDECO)",
+        "p2": "Alif Ade Rezky (CAHAYA INDONESIA BADMINTON CLUB)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1761,8 +1747,8 @@
     },
     {
         "id": 86,
-        "p1": "Sean Setiawan Wong (CAHAYA INDONESIA BADMINTON CLUB)",
-        "p2": "Athar Al Gazali [9/16] (HOLLYWOOD)",
+        "p1": "TBD",
+        "p2": "Azka Aldric Achmad [9/16] (TERPADU BALIKPAPAN)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1770,8 +1756,8 @@
     },
     {
         "id": 87,
-        "p1": "Muhammad Azka Putra Ariyadi (PB.GESIT)",
-        "p2": "Marcio Emmanuel Sigaoe Ndjaoe (HOLLYWOOD)",
+        "p1": "TBD",
+        "p2": "Muhammad Syamil Athaya (PB. RR JAYA)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1779,8 +1765,8 @@
     },
     {
         "id": 88,
-        "p1": "Rafael Gracious Aldevaro (SALVIO PONTIANAK)",
-        "p2": "Timothy Calvin Simanjuntak [3/4] (MEGA BADMINTON CLUB)",
+        "p1": "Hamdan Rais Asnur (GLOBAL PRATAMA)",
+        "p2": "Tristan Akhmad Faizi [3/4] (Jhonlin Badminton Club, kot.Bekasi)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1789,7 +1775,7 @@
     {
         "id": 89,
         "p1": "TBD",
-        "p2": "Muhammad Keenan Athaya (HEVINDO, BALIKPAPAN)",
+        "p2": "Muhammad Rahim Atsiir (AKADEMI BULUTANGKIS KIDECO)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1797,8 +1783,8 @@
     },
     {
         "id": 90,
-        "p1": "Muhammad Izaqib Ayyash (GALAXY)",
-        "p2": "Muhammad El-Ibrahimovic [9/16] (PENGAIRAN SAMARINDA)",
+        "p1": "TBD",
+        "p2": "Muhammad Rava Saputra [9/16] (BERKAT ABADI, BANJAR)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1806,8 +1792,8 @@
     },
     {
         "id": 91,
-        "p1": "Zayn Abdillah Ramadhan (HOLLYWOOD)",
-        "p2": "Muhammad Zhafir Zumadhika (GOLD STAR SAMARINDA)",
+        "p1": "TBD",
+        "p2": "Raffa Arka Faeyza Pratama (KESHAB TIMUR SAMARINDA)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1815,8 +1801,8 @@
     },
     {
         "id": 92,
-        "p1": "Muhammad Riski Abinaya Nugraha (TERPADU BALIKPAPAN)",
-        "p2": "Muhammad Ricky Angga Saputra [5/8] (AT TARBIYAH BADMINTON CLUB)",
+        "p1": "Muhammad Hasanuddin Willy (SONATA)",
+        "p2": "Fadhil Rizky Santoso [5/8] (PUPUK KALTIM BONTANG)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1824,8 +1810,8 @@
     },
     {
         "id": 93,
-        "p1": "Adrian Pradipta Hamzah (PB.GESIT)",
-        "p2": "Aaron Bumi Habibie (Magic Buser)",
+        "p1": "TBD",
+        "p2": "Ridho Nur Rahman (KESHAB TIMUR SAMARINDA)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1833,8 +1819,8 @@
     },
     {
         "id": 94,
-        "p1": "Ahmad Multazam Alfarisi (PB. X-ELITE BADMINTON SAMARINDA)",
-        "p2": "Muhammad Zeandra Fariansyah [9/16] (HOLLYWOOD)",
+        "p1": "TBD",
+        "p2": "Ahmad Sidrotinnamri [9/16] (CAHAYA INDONESIA BADMINTON CLUB)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1842,8 +1828,8 @@
     },
     {
         "id": 95,
-        "p1": "Ilham Habibie Putra (PB RISALAH)",
-        "p2": "Muhammad Salman  Latif Karim (HOLLYWOOD)",
+        "p1": "TBD",
+        "p2": "Abrisam Ghozi Al Hadi (CAHAYA INDONESIA BADMINTON CLUB)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
@@ -1851,8 +1837,8 @@
     },
     {
         "id": 96,
-        "p1": "Athallah Sabqie Aspriyadi (GOLD STAR SAMARINDA)",
-        "p2": "Moreno Putra Zhulkifli [2] (CAHAYA INDONESIA BADMINTON CLUB)",
+        "p1": "Achmad Surya Fahrizky (HEVINDO, BALIKPAPAN)",
+        "p2": "Ghoffur Dermawan Wicaksono [2] (DJARUM, KUDUS)",
         "kategori": "TPA",
         "babak": "R64",
         "side": "RIGHT",
