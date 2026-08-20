@@ -1,1 +1,46 @@
-[]
+[
+    {
+        "kategori": "GTI",
+        "tanggal": "2026-08-20",
+        "jam_mulai": "08:00",
+        "jam_selesai": "11:00",
+        "babak": "R16",
+        "venue": "DOME",
+        "lapangan": [
+            "Court-1"
+        ]
+    },
+    {
+        "kategori": "GTI",
+        "tanggal": "2026-08-21",
+        "jam_mulai": "08:00",
+        "jam_selesai": "11:00",
+        "babak": "PEREMPAT FINAL",
+        "venue": "DOME",
+        "lapangan": [
+            "Court-1"
+        ]
+    },
+    {
+        "kategori": "GTI",
+        "tanggal": "2026-08-22",
+        "jam_mulai": "08:00",
+        "jam_selesai": "11:00",
+        "babak": "SEMI FINAL",
+        "venue": "DOME",
+        "lapangan": [
+            "Court-1"
+        ]
+    },
+    {
+        "kategori": "GTI",
+        "tanggal": "2026-08-23",
+        "jam_mulai": "08:00",
+        "jam_selesai": "11:00",
+        "babak": "FINAL",
+        "venue": "DOME",
+        "lapangan": [
+            "Court-1"
+        ]
+    }
+]
