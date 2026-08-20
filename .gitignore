@@ -3,3 +3,5 @@
 .venv/
 skor.db
 *.json
+backups/
+*.zip
