@@ -2,6 +2,25 @@ import json
 import math
 import glob
 import os
+import shutil
+
+# --- FUNGSI PROTEKSI: CEK SKOR TERISI ---
+def cek_skor_terisi(file_path="matches.json"):
+    """Mengecek apakah matches.json sudah memiliki data skor/pemenang"""
+    if not os.path.exists(file_path):
+        return False
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            matches = json.load(f)
+            for m in matches:
+                # Cek jika ada atribut skor atau pemenang yang sudah terisi
+                if "skor_akhir" in m or "skor_p1" in m or "skor_p2" in m or "winner" in m or "pemenang" in m:
+                    return True
+    except Exception:
+        pass
+    
+    return False
 
 # --- FUNGSI 1: GENERATOR STRUKTUR ---
 def generate_bracket(players, kategori):
@@ -34,7 +53,6 @@ def generate_bracket(players, kategori):
         for m_idx in range(num_matches):
             this_id = current_match_id
             
-            # KUNCI PERBAIKAN: Set side khusus "FINAL-CENTER" untuk partai puncak
             if num_matches == 1: side = "FINAL-CENTER"
             elif m_idx < num_matches // 2: side = "LEFT"
             else: side = "RIGHT"
@@ -65,7 +83,7 @@ def generate_bracket(players, kategori):
 def auto_advance_byes(matches):
     """Memajukan pemain yang lawannya BYE di Babak 1"""
     changed = True
-    while changed: # Ulangi jika ada perubahan (untuk BYE beruntun)
+    while changed:
         changed = False
         for m in matches:
             p1, p2 = m['p1'], m['p2']
@@ -79,7 +97,6 @@ def auto_advance_byes(matches):
                 target_id = int(target_match_id_str.replace("M", ""))
                 for target_match in matches:
                     if target_match['id'] == target_id:
-                        # Masukkan ke P1 jika ID asal ganjil, P2 jika genap
                         if m['id'] % 2 != 0:
                             if target_match['p1'] != winner:
                                 target_match['p1'] = winner
@@ -93,6 +110,15 @@ def auto_advance_byes(matches):
 
 def main():
     print("=== GENERATOR BAGAN KIRI-KANAN + AUTO BYE ===")
+    
+    # PROTEKSI 1: Cek apakah matches.json sudah berisi skor
+    if cek_skor_terisi('matches.json'):
+        print("\n❌ EKSEKUSI DIBATALKAN!")
+        print("File 'matches.json' sudah berisi skor/hasil pertandingan.")
+        print("Menjalankan skrip ini akan mereset dan menghapus seluruh skor yang ada.")
+        print("Hapus 'matches.json' secara manual jika Anda benar-benar ingin meriset bagan dari awal.\n")
+        return
+
     semua_pertandingan = []
     
     file_teams = glob.glob("teams_*.json")
@@ -117,9 +143,14 @@ def main():
         except Exception as e:
             print(f" Error pada {nama_file}: {e}")
 
+    # PROTEKSI 2: Auto-backup sebelum menimpa file
+    if os.path.exists('matches.json'):
+        shutil.copy2('matches.json', 'matches_backup_auto.json')
+        print("\n📦 Auto-backup dibuat: matches_backup_auto.json")
+
     with open('matches.json', 'w', encoding='utf-8') as f:
         json.dump(semua_pertandingan, f, indent=4)
-    print("\n✅ BERHASIL! matches.json siap digunakan.")
+    print("✅ BERHASIL! matches.json siap digunakan.")
 
 if __name__ == "__main__":
     main()

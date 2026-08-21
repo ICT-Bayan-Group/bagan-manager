@@ -243,18 +243,34 @@ def save_config():
 
 import subprocess
 
+import sys
+import os
+
 @app.route('/run-bagan', methods=['POST'])
 def execute_bagan():
     try:
-        # Menjalankan script bagan.py
-        result = subprocess.run(["python3", "bagan.py"], capture_output=True, text=True)
+        bagan_script = os.path.join(BASE_DIR, "bagan.py") if 'BASE_DIR' in globals() else "bagan.py"
+        result = subprocess.run([sys.executable, bagan_script], capture_output=True, text=True)
         
         if result.returncode == 0:
-            return jsonify({"message": "✅ Bagan berhasil dibuat! File matches.json telah diperbarui."})
+            if "EKSEKUSI DIBATALKAN" in result.stdout:
+                return jsonify({
+                    "status": "warning",
+                    "message": "⚠️ Gagal membuat bagan: matches.json sudah ada skor jadi bagan tidak boleh dibuat ulang."
+                }), 400
+
+            return jsonify({
+                "status": "success", 
+                "message": "✅ Bagan berhasil dibuat! File matches.json telah diperbarui."
+            })
         else:
-            return jsonify({"message": f"❌ Gagal: {result.stderr}"}), 500
+            return jsonify({
+                "status": "error", 
+                "message": f"❌ Gagal: {result.stderr or result.stdout}"
+            }), 500
+
     except Exception as e:
-        return jsonify({"message": f"❌ Error: {str(e)}"}), 500
+        return jsonify({"status": "error", "message": f"❌ Error: {str(e)}"}), 500
     
 
 @app.route('/run-schedule', methods=['POST'])
