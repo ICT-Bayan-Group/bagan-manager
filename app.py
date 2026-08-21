@@ -10,11 +10,34 @@ import jwt
 import datetime
 from functools import wraps
 from flask_compress import Compress # 1. Import library kompresi
+from update_score_massal import process_mass_score_excel
 
 # Import modul backup terpisah yang telah dibuat
 from backup import create_backup, restore_backup
 
 app = Flask(__name__)
+
+# Route untuk menampilkan halaman upload HTML
+@app.route('/admin/upload-skor-page')
+def upload_skor_page():
+    return render_template('upload_skor.html')
+
+# Route API Backend tempat form dikirimkan
+@app.route('/upload-skor-excel', methods=['POST'])
+def handle_upload_skor():
+    if 'file' not in request.files:
+        return jsonify({"status": "error", "message": "Tidak ada file yang diunggah"}), 400
+    
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"status": "error", "message": "File tidak dipilih"}), 400
+
+    # Panggil fungsi dari file update_score_massal.py
+    result = process_mass_score_excel(file)
+    
+    status_code = 200 if result.get('status') == 'success' else 400
+    return jsonify(result), status_code
+
 Compress(app) # 2. Inisialisasi Kompresi
 # Izinkan semua domain (atau domain tertentu) dan izinkan header 'Authorization'
 CORS(app, supports_credentials=True, allow_headers=["Content-Type", "Authorization"])

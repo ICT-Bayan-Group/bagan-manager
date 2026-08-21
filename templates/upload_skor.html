@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Skor Massal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f6f9; padding: 40px; }
+        .card { max-width: 500px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; color: #333; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input[type="file"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:disabled { background-color: #a0c3ff; cursor: not-allowed; }
+        #alert { margin-top: 15px; padding: 12px; border-radius: 4px; display: none; font-weight: bold; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>📊 Import Skor Massal (Excel)</h2>
+    <p>Unggah file <code>.xlsx</code> atau <code>.xls</code> berisi kolom: <b>kategori, match_id, skor_p1, skor_p2</b></p>
+    
+    <form id="uploadForm">
+        <div class="form-group">
+            <label for="fileExcel">Pilih File Excel:</label>
+            <input type="file" id="fileExcel" name="file" accept=".xlsx, .xls" required>
+        </div>
+        <button type="submit" id="btnSubmit">Upload & Diproses</button>
+    </form>
+
+    <div id="alert"></div>
+</div>
+
+<script>
+document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const fileInput = document.getElementById('fileExcel');
+    const btnSubmit = document.getElementById('btnSubmit');
+    const alertDiv = document.getElementById('alert');
+    
+    if (!fileInput.files[0]) return;
+
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    // Set UI saat Loading
+    btnSubmit.disabled = true;
+    btnSubmit.innerText = "Memproses...";
+    alertDiv.style.display = "none";
+
+    try {
+        const response = await fetch('/upload-skor-excel', {
+            method: 'POST',
+            body: formData
+        });
+
+        const result = await response.json();
+
+        alertDiv.style.display = "block";
+        if (response.ok && result.status === 'success') {
+            alertDiv.className = "success";
+            alertDiv.innerText = result.message;
+            fileInput.value = ""; // Reset input file
+        } else {
+            alertDiv.className = "error";
+            alertDiv.innerText = result.message || "Terjadi kesalahan saat upload.";
+        }
+    } catch (error) {
+        alertDiv.style.display = "block";
+        alertDiv.className = "error";
+        alertDiv.innerText = "Gagal terhubung ke server: " + error.message;
+    } finally {
+        btnSubmit.disabled = false;
+        btnSubmit.innerText = "Upload & Diproses";
+    }
+});
+</script>
+
+</body>
+</html>
