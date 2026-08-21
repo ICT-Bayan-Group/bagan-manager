@@ -39,6 +39,79 @@
             font-size: 1.6rem;
         }
 
+        /* --- EXCEL UPLOAD CONTAINER --- */
+        .excel-card {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .excel-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .excel-info i {
+            font-size: 28px;
+            color: #107c41; /* Warna hijau Excel */
+        }
+
+        .excel-info text-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .excel-title { font-size: 14px; font-weight: 700; color: #1e293b; }
+        .excel-sub { font-size: 11px; color: #64748b; }
+
+        .excel-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-select-file {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px dashed #cbd5e1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-select-file:hover { background: #e2e8f0; }
+
+        .btn-upload-excel {
+            background: #107c41;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .btn-upload-excel:hover { background: #0b5c30; }
+
         /* --- STICKY FILTER AREA --- */
         .filter-container {
             background: white;
@@ -152,7 +225,6 @@
         
         .card-done { border: 2px solid var(--success); background: #f0fdf4; }
 
-        /* --- BREAKPOINTS --- */
         @media (min-width: 700px) {
             .match-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -163,6 +235,8 @@
 
         @media (max-width: 480px) {
             .filter-container { flex-direction: column; gap: 10px; }
+            .excel-card { flex-direction: column; align-items: stretch; }
+            .excel-actions { flex-direction: column; }
             .player-name { font-size: 12px; }
             .score-input { width: 55px; height: 50px; font-size: 24px !important; }
         }
@@ -173,6 +247,27 @@
 <div class="main-wrapper">
     <h2><i class="fas fa-medal"></i> Input Skor Pertandingan</h2>
 
+    <!-- SECTION UPLOAD EXCEL -->
+    <div class="excel-card">
+        <div class="excel-info">
+            <i class="fas fa-file-excel"></i>
+            <div>
+                <div class="excel-title">Upload Skor Masal via Excel</div>
+                <div class="excel-sub">Format kolom Excel: <b>match_id</b>, <b>skor_p1</b>, <b>skor_p2</b></div>
+            </div>
+        </div>
+        <div class="excel-actions">
+            <input type="file" id="excel-file" accept=".xlsx, .xls" hidden onchange="updateFileName()">
+            <button class="btn-select-file" onclick="document.getElementById('excel-file').click()">
+                <i class="fas fa-folder-open"></i> <span id="file-label">Pilih File Excel</span>
+            </button>
+            <button class="btn-upload-excel" onclick="uploadExcel()">
+                <i class="fas fa-file-upload"></i> Upload & Import
+            </button>
+        </div>
+    </div>
+
+    <!-- FILTER AREA -->
     <div class="filter-container">
         <div class="filter-item">
             <label>Tanggal</label>
@@ -186,11 +281,10 @@
         </div>
     </div>
 
-    <div class="match-grid" id="match-list-container">
-        </div>
+    <div class="match-grid" id="match-list-container"></div>
 </div>
 
-<<script>
+<script>
     let rawData = [];
 
     async function startApp() {
@@ -240,7 +334,6 @@
             const card = document.createElement('div');
             card.className = `match-card ${isDone ? 'card-done' : ''}`;
             
-            // Perbaikan: Gunakan encodeURIComponent atau escape untuk nama pemain
             const name1 = p1.replace(/'/g, "\\'");
             const name2 = p2.replace(/'/g, "\\'");
 
@@ -290,8 +383,50 @@
             });
             const resData = await res.json();
             alert(resData.message);
-            await loadSchedules(); // Refresh data terbaru
+            await loadSchedules();
         } catch (e) { alert("Gagal menyimpan skor"); }
+    }
+
+    // --- FUNSI PENDUKUNG UPLOAD EXCEL ---
+    function updateFileName() {
+        const fileInput = document.getElementById('excel-file');
+        const label = document.getElementById('file-label');
+        if (fileInput.files.length > 0) {
+            label.innerText = fileInput.files[0].name;
+        } else {
+            label.innerText = "Pilih File Excel";
+        }
+    }
+
+    async function uploadExcel() {
+        const fileInput = document.getElementById('excel-file');
+        if (!fileInput.files.length) {
+            alert("Silakan pilih file Excel (.xlsx / .xls) terlebih dahulu!");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        try {
+            const res = await fetch('/upload-skor-excel', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const resData = await res.json();
+            
+            if (res.ok) {
+                alert(resData.message || "Upload skor berhasil!");
+                fileInput.value = ''; // Reset input file
+                document.getElementById('file-label').innerText = "Pilih File Excel";
+                await loadSchedules(); // Refresh tampilan kartu skor secara otomatis
+            } else {
+                alert("Gagal: " + (resData.message || "Terjadi kesalahan"));
+            }
+        } catch (e) {
+            alert("Error saat mengunggah file Excel!");
+        }
     }
 
     window.onload = startApp;
