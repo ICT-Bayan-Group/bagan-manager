@@ -1,135 +1,158 @@
+from datetime import datetime, timedelta
 import json
 import re
 import pandas as pd
 
 MONTH_MAP = {
-    'JANUARI': '01',
-    'FEBRUARI': '02',
-    'MARET': '03',
-    'APRIL': '04',
-    'MEI': '05',
-    'JUNI': '06',
-    'JULI': '07',
-    'AGUSTUS': '08',
-    'SEPTEMBER': '09',
-    'OKTOBER': '10',
-    'NOVEMBER': '11',
-    'DESEMBER': '12',
+    "JANUARI": 1,
+    "JAN": 1,
+    "FEBRUARI": 2,
+    "FEB": 2,
+    "MARET": 3,
+    "MAR": 3,
+    "APRIL": 4,
+    "APR": 4,
+    "MEI": 5,
+    "MAY": 5,
+    "JUNI": 6,
+    "JUN": 6,
+    "JULI": 7,
+    "JUL": 7,
+    "AGUSTUS": 8,
+    "AUG": 8,
+    "SEPTEMBER": 9,
+    "SEP": 9,
+    "OKTOBER": 10,
+    "OCT": 10,
+    "NOVEMBER": 11,
+    "NOV": 11,
+    "DESEMBER": 12,
+    "DEC": 12,
 }
 
 
-def load_category_map(categories_file='categories.json'):
-  """Membaca file categories.json dan membuat pemetaan kategori."""
-  try:
-    with open(categories_file, 'r', encoding='utf-8') as f:
-      data = json.load(f)
-      categories = data.get('categories', [])
-
-      # Membuat dictionary mapping (misal: {'GTI': 'GTI', 'GPA': 'GPA', ...})
-      category_map = {cat.strip(): cat.strip() for cat in categories}
-
-      # Tambahkan pemetaan deskripsi panjang ke kode jika diperlukan
-      custom_aliases = {
-          'GANDA PUTRA OPEN': 'GPA',
-          'GANDA CAMPURAN OPEN': 'GRC',
-          'GANDA DEWASA INTENSIF': 'GDI',
-      }
-      category_map.update(custom_aliases)
-
-      return category_map
-  except FileNotFoundError:
-    print(
-        f'⚠️ File {categories_file} tidak ditemukan. Menggunakan fallback'
-        ' default.'
-    )
-    return {}
+def get_jam_selesai(jam_mulai_str, duration_hours=1):
+  """Menhitung jam_selesai dengan menambah durasi waktu (default: +1 jam)."""
+  h, m = map(int, jam_mulai_str.split(":"))
+  dt = datetime(2026, 1, 1, h, m) + timedelta(hours=duration_hours)
+  return dt.strftime("%H:%M")
 
 
-def convert_excel_to_config(
-    excel_path='JADWAL PERTANDINGAN.xls',
-    categories_path='categories.json',
-    output_json='config.json',
+def load_json(filepath):
+  with open(filepath, "r", encoding="utf-8") as f:
+    return json.load(f)
+
+
+def build_config(
+    excel_file="JADWAL PERTANDINGAN.xls",
+    categories_file="categories.json",
+    matches_file="matches.json",
+    output_file="config.json",
+    default_venue="GOR NAGA MAS TARAKAN",
 ):
-  category_map = load_category_map(categories_path)
-  xls = pd.ExcelFile(excel_path)
-  config_results = []
+  categories_data = load_json(categories_file).get("categories", [])
+  matches_ref = load_json(matches_file)
 
+  # 1. Pemetaan presisi dari matches.json: (match_id, kategori) -> babak
+  match_babak_map = {}
+  for item in matches_ref:
+    m_id = item.get("id")
+    kat = str(item.get("kategori", "")).strip()
+    babak = item.get("babak")
+    if m_id is not None and kat and babak:
+      match_babak_map[(m_id, kat)] = str(babak).strip()
+
+  xls = pd.ExcelFile(excel_file)
+  config_output = []
+
+  # 2. Parsing Excel
   for sheet_name in xls.sheet_names:
-    df = pd.read_excel(excel_path, sheet_name=sheet_name)
+    df = pd.read_excel(xls, sheet_name=sheet_name)
     current_date = None
-    current_venue = 'GOR NAGA MAS TARAKAN'
 
-    for idx, row in df.iterrows():
-      row_vals = [cell for cell in row.values if pd.notna(cell)]
-      row_str = ' '.join([str(c) for c in row_vals])
-
-      # 1. Deteksi Tanggal
-      match_date = re.search(
-          r'([A-Za-z]+),\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})',
-          row_str,
-          re.IGNORECASE,
-      )
-      if match_date:
-        _, day, month, year = match_date.groups()
-        m_code = MONTH_MAP.get(month.upper(), '01')
-        current_date = f'{year}-{m_code}-{int(day):02d}'
+    for _, row in df.iterrows():
+      vals = [str(cell).strip() for cell in row.values if pd.notna(cell)]
+      if not vals:
         continue
 
-      # 2. Deteksi Waktu / Jam
-      time_match = re.search(r'(\d{1,2})[\.:](\d{2})', row_str)
-      if time_match and current_date:
-        jam_h = int(time_match.group(1))
-        jam_m = int(time_match.group(2))
-        jam_mulai = f'{jam_h:02d}:{jam_m:02d}'
-        jam_selesai = f'{(jam_h + 1) % 24:02d}:{jam_m:02d}'
+      row_str = " ".join(vals)
 
-        # Ambil Kategori dari category_map yang dimuat
-        kategori = None
-        for cell in row_vals:
-          c_clean = str(cell).strip()
-          if c_clean in category_map:
-            kategori = category_map[c_clean]
+      # Extract Tanggal (misal: JUMAT, 21 AGUSTUS 2026)
+      date_match = re.search(r"(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", row_str)
+      if date_match:
+        day, month_str, year = date_match.groups()
+        month_num = MONTH_MAP.get(month_str.upper())
+        if month_num:
+          current_date = f"{year}-{month_num:02d}-{int(day):02d}"
+          continue
+
+      # Extract Jam
+      time_match = re.search(r"\b(\d{1,2}[\.:]\d{2})\b", row_str)
+      if time_match and current_date:
+        jam_mulai = time_match.group(1).replace(".", ":")
+        if len(jam_mulai.split(":")[0]) == 1:
+          jam_mulai = f"0{jam_mulai}"
+
+        jam_selesai = get_jam_selesai(jam_mulai)
+
+        # Match Kategori dari categories.json
+        matched_cat = None
+        for cat in categories_data:
+          if re.search(rf"\b{re.escape(cat)}\b", row_str, re.IGNORECASE):
+            matched_cat = cat
             break
 
-        # Hitung berapa nomor pertandingan yang ada di baris ini
-        match_numbers = []
-        for val in row.values:
-          if isinstance(val, (int, float)) and not pd.isna(val):
-            if val == int(val) and int(val) > 0:
-              match_numbers.append(int(val))
+        # Extract Match IDs dari baris
+        match_ids = []
+        for v in vals:
+          try:
+            num = float(v)
+            if num.is_integer() and num > 0:
+              match_ids.append(int(num))
+          except ValueError:
+            pass
 
-        # Tentukan babak
-        babak = 'R16'
-        if 'FINAL' in row_str.upper() and 'SEMI' not in row_str.upper():
-          babak = 'FINAL'
-        elif 'SEMI FINAL' in row_str.upper():
-          babak = 'SEMI FINAL'
-        elif 'QF' in row_str.upper():
-          babak = 'PEREMPAT FINAL'
+        # Susun config item per sesi waktu
+        if matched_cat and match_ids:
+          # Ambil babak dari matches.json atau dari teks baris
+          exact_babak = None
+          for m_id in match_ids:
+            if (m_id, matched_cat) in match_babak_map:
+              exact_babak = match_babak_map[(m_id, matched_cat)]
+              break
 
-        # Jika ada kategori & pertandingan di baris tersebut
-        if kategori and match_numbers:
-          lapangan_list = [f'Court-{i+1}' for i in range(len(match_numbers))]
+          row_upper = row_str.upper()
+          if (
+              "FINAL" in row_upper
+              and "SEMI" not in row_upper
+              and "PEREMPAT" not in row_upper
+              and "QF" not in row_upper
+          ):
+            exact_babak = "FINAL"
+          elif "SEMI" in row_upper:
+            exact_babak = "SEMI FINAL"
+          elif "PEREMPAT" in row_upper or "QF" in row_upper:
+            exact_babak = "PEREMPAT FINAL"
 
-          config_results.append({
-              'kategori': kategori,
-              'tanggal': current_date,
-              'jam_mulai': jam_mulai,
-              'jam_selesai': jam_selesai,
-              'babak': babak,
-              'venue': current_venue,
-              'lapangan': lapangan_list,
+          # Buat list lapangan berdasarkan jumlah pertandingan pada baris tersebut
+          lapangan_list = [f"Court-{i+1}" for i in range(len(match_ids))]
+
+          config_output.append({
+              "kategori": matched_cat,
+              "tanggal": current_date,
+              "jam_mulai": jam_mulai,
+              "jam_selesai": jam_selesai,
+              "babak": exact_babak,
+              "venue": default_venue,
+              "lapangan": lapangan_list,
           })
 
-  # Simpan ke config.json
-  with open(output_json, 'w', encoding='utf-8') as f:
-    json.dump(config_results, f, indent=4, ensure_ascii=False)
+  # 3. Simpan ke config.json
+  with open(output_file, "w", encoding="utf-8") as f:
+    json.dump(config_output, f, indent=2, ensure_ascii=False)
 
-  print(
-      f'✅ Berhasil membuat {output_json} dengan total {len(config_results)}'
-      ' slot jadwal.'
-  )
+  print(f"Berhasil menyimpan {len(config_output)} item ke {output_file}.")
 
 
-if __name__ == '__main__':
-  convert_excel_to_config()
+if __name__ == "__main__":
+  build_config()
